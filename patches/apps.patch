@@ -1,0 +1,569 @@
+diff -ru apps/client/client.cpp apps_old/client/client.cpp
+--- apps/client/client.cpp	2019-01-17 17:49:06.544316908 +0000
++++ apps_old/client/client.cpp	2019-01-17 17:49:29.124332552 +0000
+@@ -0,0 +1,297 @@
++#include "../main.h"
++#include "Ethernet2.h"
++#include "util/oc_process.h"
++#include "rs232.h"
++OC_PROCESS(sample_client_process, "client");
++static int
++app_init(void)
++{
++  int ret = oc_init_platform(PCF("Apple"), NULL, NULL);
++  ret |= oc_add_device(PCF("/oic/d"), PCF("oic.d.phone"), PCF("Kishen's IPhone"), PCF("ocf.1.0.0"),
++                       PCF("ocf.res.1.0.0"), NULL, NULL);
++  return ret;
++}
++
++#define MAX_URI_LENGTH (30)
++static char a_light[MAX_URI_LENGTH];
++static oc_endpoint_t *light_server;
++
++static bool state;
++static int power;
++static oc_string_t name;
++
++static oc_event_callback_retval_t
++stop_observe(void *data)
++{
++  (void)data;
++  OC_DBG("Stopping OBSERVE");
++  oc_stop_observe(a_light, light_server);
++  return OC_EVENT_DONE;
++}
++
++static void
++observe_light(oc_client_response_t *data)
++{
++  OC_DBG("OBSERVE_light:");
++  oc_rep_t *rep = data->payload;
++  while (rep != NULL) {
++    OC_DBG("key %s, value ", oc_string(rep->name));
++    switch (rep->type) {
++    case OC_REP_BOOL:
++      OC_DBG("%d", rep->value.boolean);
++      state = rep->value.boolean;
++      break;
++    case OC_REP_INT:
++      OC_DBG("%d", rep->value.integer);
++      power = rep->value.integer;
++      break;
++    case OC_REP_STRING:
++      OC_DBG("%s", oc_string(rep->value.string));
++      if (oc_string_len(name))
++        oc_free_string(&name);
++      oc_new_string(&name, oc_string(rep->value.string),
++                    oc_string_len(rep->value.string));
++      break;
++    default:
++      break;
++    }
++    rep = rep->next;
++  }
++}
++
++static void
++post2_light(oc_client_response_t *data)
++{
++  OC_DBG("POST2_light:");
++  if (data->code == OC_STATUS_CHANGED)
++    OC_DBG("POST response: CHANGED");
++  else if (data->code == OC_STATUS_CREATED)
++    OC_DBG("POST response: CREATED");
++  else
++    OC_DBG("POST response code %d", data->code);
++
++  oc_do_observe(a_light, light_server, NULL, &observe_light, LOW_QOS, NULL);
++  oc_set_delayed_callback(NULL, &stop_observe, 30);
++  OC_DBG("Sent OBSERVE request");
++}
++
++static void
++post_light(oc_client_response_t *data)
++{
++  OC_DBG("POST_light:");
++  if (data->code == OC_STATUS_CHANGED)
++    OC_DBG("POST response: CHANGED");
++  else if (data->code == OC_STATUS_CREATED)
++    OC_DBG("POST response: CREATED");
++  else
++    OC_DBG("POST response code %d", data->code);
++
++  if (oc_init_post(a_light, light_server, NULL, &post2_light, LOW_QOS, NULL)) {
++    oc_rep_start_root_object();
++    oc_rep_set_boolean(root, state, true);
++    oc_rep_set_int(root, power, 55);
++    oc_rep_end_root_object();
++    if (oc_do_post())
++      OC_DBG("Sent POST request");
++    else
++      OC_DBG("Could not send POST request");
++  } else
++    OC_DBG("Could not init POST request");
++}
++
++static void
++put_light(oc_client_response_t *data)
++{
++  OC_DBG("PUT_light:");
++
++  if (data->code == OC_STATUS_CHANGED)
++    OC_DBG("PUT response: CHANGED");
++  else
++    OC_DBG("PUT response code %d", data->code);
++
++  if (oc_init_post(a_light, light_server, NULL, &post_light, LOW_QOS, NULL)) {
++    oc_rep_start_root_object();
++    oc_rep_set_boolean(root, state, false);
++    oc_rep_set_int(root, power, 105);
++    oc_rep_end_root_object();
++    if (oc_do_post())
++      OC_DBG("Sent POST request");
++    else
++      OC_DBG("Could not send POST request");
++  } else
++    OC_DBG("Could not init POST request");
++}
++
++static void
++get_light(oc_client_response_t *data)
++{
++  OC_DBG("GET_light:");
++  oc_rep_t *rep = data->payload;
++  while (rep != NULL) {
++    OC_DBG("key %s, value ", oc_string(rep->name));
++    switch (rep->type) {
++    case OC_REP_BOOL:
++      OC_DBG("%d", rep->value.boolean);
++      state = rep->value.boolean;
++      break;
++    case OC_REP_INT:
++      OC_DBG("%d", rep->value.integer);
++      power = rep->value.integer;
++      break;
++    case OC_REP_STRING:
++      OC_DBG("%s", oc_string(rep->value.string));
++      if (oc_string_len(name))
++        oc_free_string(&name);
++      oc_new_string(&name, oc_string(rep->value.string),
++                    oc_string_len(rep->value.string));
++      break;
++    default:
++      break;
++    }
++    rep = rep->next;
++  }
++
++  if (oc_init_put(a_light, light_server, NULL, &put_light, LOW_QOS, NULL)) {
++    oc_rep_start_root_object();
++    oc_rep_set_boolean(root, state, true);
++    oc_rep_set_int(root, power, 15);
++    oc_rep_end_root_object();
++
++    if (oc_do_put())
++      OC_DBG("Sent PUT request");
++    else
++      OC_DBG("Could not send PUT request");
++  } else
++    OC_DBG("Could not init PUT request");
++}
++
++static oc_discovery_flags_t
++discovery(const char *anchor, const char *uri, oc_string_array_t types,
++          oc_interface_mask_t interfaces, oc_endpoint_t *endpoint,
++          oc_resource_properties_t bm, void *user_data)
++{
++  (void)anchor;
++  (void)user_data;
++  (void)interfaces;
++  (void)bm;
++  int i;
++  int uri_len = strlen(uri);
++  uri_len = (uri_len >= MAX_URI_LENGTH) ? MAX_URI_LENGTH - 1 : uri_len;
++  for (i = 0; i < (int)oc_string_array_get_allocated_size(types); i++) {
++    char *t = oc_string_array_get_item(types, i);
++    if (strlen(t) == 10 && strncmp_P(t, PCF("core.light"), 10) == 0) {
++			#ifdef OC_IPV4
++      light_server = endpoint->next;
++			#else
++			light_server = endpoint;
++			#endif
++      strncpy(a_light, uri, uri_len);
++      a_light[uri_len] = '\0';
++
++      OC_DBG("Resource %s hosted at endpoints:", a_light);
++      oc_endpoint_t *ep = endpoint;
++      while (ep != NULL) { // THERE ARE TWO ADDR (IPV4 AND IPV6)IN EP
++        PRINTipaddr(*ep);
++        PRINT("\n");
++        ep = ep->next;
++      }
++			//OC_DBG(("freememory: %d"), freeMemory());
++      oc_do_get(a_light, light_server, NULL, &get_light, LOW_QOS, NULL);
++      
++      return OC_STOP_DISCOVERY;
++    }
++  }
++  oc_free_server_endpoints(endpoint);
++  return OC_CONTINUE_DISCOVERY;
++}
++
++static void
++issue_requests(void)
++{
++  oc_do_ip_discovery(PCF("core.light"), &discovery, NULL);
++}
++
++static void
++signal_event_loop(void)
++{
++  oc_process_post(&sample_client_process, OC_PROCESS_EVENT_TIMER, NULL);
++}
++
++OC_PROCESS_THREAD(sample_client_process, ev, data)
++{
++  (void)data;
++  static struct oc_etimer et;
++  static const oc_handler_t handler = {.init = app_init,
++                                       .signal_event_loop = signal_event_loop,
++                                       .requests_entry = issue_requests };
++  static oc_clock_time_t next_event;
++  OC_PROCESS_BEGIN();
++  OC_DBG("Initializing client for arduino");
++  while (ev != OC_PROCESS_EVENT_EXIT) {
++		oc_etimer_set(&et, (oc_clock_time_t)next_event);
++		
++		if(ev == OC_PROCESS_EVENT_INIT){
++			int init = oc_main_init(&handler);
++			if (init < 0){
++				OC_DBG("Client Init failed!");
++				return init;
++			}
++      OC_DBG("client process init!");
++		}
++		else if(ev == OC_PROCESS_EVENT_TIMER){
++			//OC_DBG("Timer event registered!");
++			next_event = oc_main_poll();
++			next_event -= oc_clock_time();
++		}
++    OC_PROCESS_WAIT_EVENT();
++  }
++ OC_PROCESS_END();
++}
++
++// Arduino Ethernet Shield
++uint8_t ConnectToNetwork()
++{
++	// Note: ****Update the MAC address here with your shield's MAC address****
++	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
++	uint8_t error = Ethernet.begin(ETHERNET_MAC);
++	if (error  == 0)
++	{
++		OC_ERR("Error connecting to Network: %d", error);
++		return -1;
++	}
++  IPAddress ip = Ethernet.localIP();
++  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
++	return 0;
++}
++void
++init_lowlevel(void)
++{
++  rs232_init(USART_PORT, USART_BAUD,
++             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
++  rs232_redirect_stdout(USART_PORT);
++  rs232_set_input(USART_PORT, NULL);
++}
++void setup() {
++	
++	init_lowlevel();
++	delay(500);
++	if (ConnectToNetwork() != 0)
++	{
++		OC_ERR("Unable to connect to network");
++		return;
++	}
++	
++	oc_process_start(&sample_client_process, NULL);
++	OC_DBG("freememory: %d", freeMemory());
++  delay(2000);
++}
++
++//main loop
++void loop() {
++  
++  for (;;)
++  {
++		oc_process_run();
++  }
++  oc_main_shutdown();
++}
+\ No newline at end of file
+diff -ru apps/FreeMemory.h apps_old/FreeMemory.h
+--- apps/FreeMemory.h	2019-01-17 17:48:44.024301369 +0000
++++ apps_old/FreeMemory.h	2019-01-17 17:49:29.114332545 +0000
+@@ -0,0 +1,43 @@
++#if (ARDUINO >= 100)
++#include <Arduino.h>
++#else
++#include <WProgram.h>
++#endif
++
++extern unsigned int __heap_start;
++extern void *__brkval;
++
++/*
++ * The free list structure as maintained by the 
++ * avr-libc memory allocation routines.
++ */
++struct __freelist {
++  size_t sz;
++  struct __freelist *nx;
++};
++
++/* The head of the free list structure */
++extern struct __freelist *__flp;
++
++
++/* Calculates the size of the free list */
++int freeListSize() {
++  struct __freelist* current;
++  int total = 0;
++  for (current = __flp; current; current = current->nx) {
++    total += 2; /* Add two bytes for the memory block's header  */
++    total += (int) current->sz;
++  }
++  return total;
++}
++
++int freeMemory() {
++  int free_memory;
++  if ((int)__brkval == 0) {
++    free_memory = ((int)&free_memory) - ((int)&__heap_start);
++  } else {
++    free_memory = ((int)&free_memory) - ((int)__brkval);
++    free_memory += freeListSize();
++  }
++  return free_memory;
++}
+\ No newline at end of file
+diff -ru apps/main.h apps_old/main.h
+--- apps/main.h	2019-01-17 17:48:50.004305489 +0000
++++ apps_old/main.h	2019-01-17 17:49:29.114332545 +0000
+@@ -0,0 +1,20 @@
++#ifdef __cplusplus
++/*
++* Treat oc_log.h as cpp header because it includes Arduino.h which deals with classes, 
++* function overloading which c will fail to process and return  multiple definition or inknown type
++*/
++//#include "oc_log.h" // wont need to include this: just call IotivitySerial.h
++// we declare this headers inside extern so to enabling linking of c code insde cpp
++
++#include "FreeMemory.h"
++extern "C" {
++#endif
++// remove warning: ISO C++11 requires at least one argument for the "..." in a variadic macro
++//#pragma GCC system_header 
++#include "oc_api.h"
++#include "utils.h"
++
++//#include "oc_log.h" // wont need to include this: just call IotivitySerial.h
++#ifdef __cplusplus
++}
++#endif
+diff -ru apps/server/server.cpp apps_old/server/server.cpp
+--- apps/server/server.cpp	2019-01-17 17:48:56.774310159 +0000
++++ apps_old/server/server.cpp	2019-01-17 17:49:29.124332552 +0000
+@@ -0,0 +1,190 @@
++#include "../main.h"
++#include "Ethernet2.h"
++#include "oc_clock.h"
++#include "util/oc_process.h"
++#include "rs232.h"
++
++/*Huawey ip details for mega:
++* local ip address: 192.168.8.103
++* subnet mask: 255.255.255.0
++* gateway: 192.168.8.1
++* dns: 192.168.8.1
++*/
++
++OC_PROCESS(sample_server_process, "server");
++static bool state = false;
++int power;
++oc_string_t name;
++
++static int
++app_init(void)
++{
++  int ret = oc_init_platform(PCF("Intel"), NULL, NULL);
++  ret |= oc_add_device(PCF("/oic/d"), PCF("oic.d.light"), PCF("Lamp"), PCF("ocf.1.0.0"),
++                       PCF("ocf.res.1.0.0"), NULL, NULL);
++  //_oc_new_string_(&name, PCF("Yann's Light"), 12);
++  return ret;
++}
++
++static void
++get_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data)
++{
++  (void)user_data;
++  ++power;
++
++  OC_DBG("GET_light:\n");
++  oc_rep_start_root_object();
++  switch (interface) {
++  case OC_IF_BASELINE:
++    oc_process_baseline_interface(request->resource);
++  /* fall through */
++  case OC_IF_RW:
++    oc_rep_set_boolean(root, state, state);
++    oc_rep_set_int(root, power, power);
++    oc_rep_set_text_string(root, name, oc_string(name));
++    break;
++  default:
++    break;
++  }
++  oc_rep_end_root_object();
++  oc_send_response(request, OC_STATUS_OK);
++}
++
++static void
++post_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data)
++{
++  (void)interface;
++  (void)user_data;
++  OC_DBG("POST_light:\n");
++  oc_rep_t *rep = request->request_payload;
++  while (rep != NULL) {
++    OC_DBG(("key: %s "), oc_string(rep->name));
++    switch (rep->type) {
++    case OC_REP_BOOL:
++      state = rep->value.boolean;
++      OC_DBG("value: %d\n", state);
++      break;
++    case OC_REP_INT:
++      power = rep->value.integer;
++      OC_DBG("value: %d\n", power);
++      break;
++    case OC_REP_STRING:
++      oc_free_string(&name);
++      oc_new_string(&name, oc_string(rep->value.string),
++                    oc_string_len(rep->value.string));
++      break;
++    default:
++      oc_send_response(request, OC_STATUS_BAD_REQUEST);
++      return;
++      break;
++    }
++    rep = rep->next;
++  }
++  oc_send_response(request, OC_STATUS_CHANGED);
++}
++
++static void
++put_light(oc_request_t *request, oc_interface_mask_t interface,
++           void *user_data)
++{
++  (void)interface;
++  (void)user_data;
++  post_light(request, interface, user_data);
++}
++
++static void
++register_resources(void)
++{
++  oc_resource_t *res = oc_new_resource(PCF("Yann's Light"), PCF("/a/light"), 2, 0);
++  oc_resource_bind_resource_type(res, PCF("core.light"));
++  oc_resource_bind_resource_type(res, PCF("core.brightlight"));
++  oc_resource_bind_resource_interface(res, OC_IF_RW);
++  oc_resource_set_default_interface(res, OC_IF_RW);
++  oc_resource_set_discoverable(res, true);
++  oc_resource_set_periodic_observable(res, 1);
++  oc_resource_set_request_handler(res, OC_GET, get_light, NULL);
++  oc_resource_set_request_handler(res, OC_PUT, put_light, NULL);
++  oc_resource_set_request_handler(res, OC_POST, post_light, NULL);
++  oc_add_resource(res);
++}
++
++static void
++signal_event_loop(void)
++{
++  oc_process_post(&sample_server_process, OC_PROCESS_EVENT_TIMER, NULL);
++}
++
++
++OC_PROCESS_THREAD(sample_server_process, ev, data)
++{
++  (void)data;
++  static struct oc_etimer et;
++  static const oc_handler_t handler = {.init = app_init,
++                                       .signal_event_loop = signal_event_loop,
++                                       .register_resources = register_resources };
++  static oc_clock_time_t next_event;
++  OC_PROCESS_BEGIN();
++
++  OC_DBG("Initializing server for arduino\n");
++	
++  while (ev != OC_PROCESS_EVENT_EXIT) {
++		oc_etimer_set(&et, (oc_clock_time_t)next_event);
++		
++		if(ev == OC_PROCESS_EVENT_INIT){
++			int init = oc_main_init(&handler);
++			if (init < 0){
++				OC_DBG("Server Init failed!\n");
++				return init;
++			}
++      OC_DBG("Server process init!\n");
++		}
++		else if(ev == OC_PROCESS_EVENT_TIMER){
++			OC_DBG("Timer event registered!\n");
++			next_event = oc_main_poll();
++			next_event -= oc_clock_time();
++		}
++    OC_PROCESS_WAIT_EVENT();
++  }
++ OC_PROCESS_END();
++}
++// Arduino Ethernet Shield
++uint8_t ConnectToNetwork()
++{
++	// Note: ****Update the MAC address here with your shield's MAC address****
++	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
++	uint8_t error = Ethernet.begin(ETHERNET_MAC);
++	if (error  == 0)
++	{
++		OC_ERR("Error connecting to Network: %d\n", error);
++		return -1;
++	}
++  IPAddress ip = Ethernet.localIP();
++  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d\n", ip[0], ip[1], ip[2], ip[3]);
++	return 0;
++}
++void
++init_lowlevel(void)
++{
++  rs232_init(USART_PORT, USART_BAUD,
++             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
++  rs232_redirect_stdout(USART_PORT);
++  rs232_set_input(USART_PORT, NULL);
++}
++void setup() {
++	
++	init_lowlevel();
++	delay(500);
++	if (ConnectToNetwork() != 0)
++	{
++		OC_ERR("Unable to connect to network\n");
++		return;
++	}
++	oc_process_start(&sample_server_process, NULL);
++	OC_DBG("freememory: %d\n\n", freeMemory());
++  delay(2000);
++}
++
++//main loop
++void loop() {
++	oc_process_run();
++}
+\ No newline at end of file

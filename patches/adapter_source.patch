@@ -1,0 +1,871 @@
+diff -ru iotivity-constrained/port/arduino/adapter/src/abort.c src/abort.c
+--- iotivity-constrained/port/arduino/adapter/src/abort.c	2019-01-17 16:36:37.898153854 +0000
++++ src/abort.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,31 @@
++/*
++// Copyright (c) 2017 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++
++#include "port/oc_assert.h"
++#include <stdlib.h>
++#include <assert.h>
++void
++abort_impl(void)
++{
++  assert(NULL);
++}
++
++void
++exit_impl(int status)
++{
++  (void)status;
++  assert(NULL);
++}
+diff -ru iotivity-constrained/port/arduino/adapter/src/clock.c src/clock.c
+--- iotivity-constrained/port/arduino/adapter/src/clock.c	2019-01-17 16:36:44.848166590 +0000
++++ src/clock.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,97 @@
++/*
++// Copyright (c) 2016 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++#include <stdlib.h> 
++#include "Arduino.h" 
++#include "port/oc_clock.h"
++#include "port/oc_log.h"
++#include "TimeLib.h"
++
++#define SERIAL_TIMEOUT 50   // 50ms wait for client response: may need adjustment
++#define TIME_REQUEST  7    // ASCII bell character requests a time sync message 
++#define DEFAULT_TIME  ((time_t)(1357041600UL))
++
++ void
++oc_clock_init(void)
++{
++  //iotivitySerial_t *serial_object_holder = iotivitySerial_create();
++  #ifdef SERIAL_TIME
++  setSyncProvider(requestSync);  //set function to call when sync required
++  #endif
++  setTime(DEFAULT_TIME);
++  #ifdef ARDUINO_SERIAL
++  //OIC_LOG_V("DEBUG", "%u", secondNow()); 
++  #endif   
++}
++
++oc_clock_time_t
++oc_clock_time(void)
++{
++    oc_clock_time_t time = (oc_clock_time_t)secondNow();
++    return time * OC_CLOCK_CONF_TICKS_PER_SECOND;
++}
++
++unsigned long
++oc_clock_seconds(void)
++{
++    oc_clock_time_t time = (oc_clock_time_t)secondNow();
++    return time;
++}
++
++void
++oc_clock_wait(oc_clock_time_t t)
++{
++  oc_clock_time_t interval = (oc_clock_time_t)ceil( t / 1.e09);
++  oc_clock_time_t beginWait = (oc_clock_time_t)micros();
++  while((micros() - beginWait) <= interval ){
++   //nop
++  }
++}
++#ifdef WEB_TIME
++#endif
++
++#ifdef SERIAL_TIME
++  /* the user program(iotivity client can listen to serial event)
++  *  on a separate thread, get thus the pctime convert to systime and send on serial link(T1357041600)
++  *  Used ntp from client to form a system time(number of second since 1970) and send to Arduino
++  *  Arduino can sync with its own ntp time from init(setup). it should not try that in loop unless 
++  *  the server code is sleeping or blocked
++  *
++  */
++time_t requestSync() {
++
++  // request for time sync from serial client
++  iotivitySerial_write(TIME_REQUEST)
++  oc_clock_time_t pctime = 0;  
++  oc_clock_time_t beginWait = millis();
++  while (millis() - beginWait < SERIAL_TIMEOUT) {
++    if (iotivitySerial_available()) { // receive response from client?
++      if(iotivitySerial_find(TIME_HEADER)) {
++        pctime = iotivitySerial_parseInt();
++        if( pctime >= DEFAULT_TIME) { // check the integer is a valid time (greater than Jan 1 2013)
++          //setTime(pctime);        
++          return pctime;//setTime(pctime); // let the Sync Arduino clock to the time received on the serial port
++        }
++      }
++    }
++    //setTime(pctime);    
++    return pctime; // nothing on receive buffer
++  }
++}
++#endif
++
++#ifdef RTC_TIME
++#endif
++
+diff -ru iotivity-constrained/port/arduino/adapter/src/ipadapter.c src/ipadapter.c
+--- iotivity-constrained/port/arduino/adapter/src/ipadapter.c	2019-01-17 20:59:18.932336859 +0000
++++ src/ipadapter.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,169 @@
++/*
++// Copyright (c) 2016 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++#include "oc_buffer.h"
++#include "oc_endpoint.h"
++#include "util/oc_process.h"
++#include "util/oc_etimer.h"
++#include "port/oc_connectivity.h"
++#include "ard_eth_adptr_srv.h"
++
++
++OC_PROCESS(ip_adapter_process, "IP Adapter");
++static oc_endpoint_t *eps;
++
++static void
++free_endpoints(void)
++{
++  oc_endpoint_t *ep = eps, *next;
++  while (ep != NULL) {
++    next = ep->next;
++    oc_free_endpoint(ep);
++    ep = next;
++  }
++}
++void
++handle_incoming_message(uint8_t *addr, uint16_t *port, uint8_t *buffer, uint16_t size)
++{
++  oc_message_t *message = oc_allocate_message();
++  if (message) 
++	{
++		size_t bytes_read = size;
++		bytes_read = (bytes_read < OC_MAX_APP_DATA_SIZE) ? bytes_read : OC_MAX_APP_DATA_SIZE;
++		memcpy(message->data, buffer, bytes_read);
++		message->length = bytes_read;
++    message->endpoint.flags = IPV4;
++    memcpy(message->endpoint.addr.ipv4.address, addr, 16);
++    message->endpoint.addr.ipv4.port = *port;
++		static int endpoint_port = 0;
++		endpoint_port = *port;
++		OC_DBG(("Incoming message of size %d bytes from port %u:  "), message->length, *port);
++    OC_LOGipaddr(message->endpoint);
++    oc_network_event(message);
++    return;
++	}
++  OC_WRN("ipadapter: No free RX/TX buffers to handle incoming message\n");
++}
++
++oc_endpoint_t *
++oc_connectivity_get_endpoints(size_t device)
++{
++	(void)device;
++	if (!eps) {
++		oc_endpoint_t *ep = oc_new_endpoint();
++		if (!ep) {
++		return NULL;
++		}
++		memset(ep, 0, sizeof(oc_endpoint_t));
++		ep->flags = IPV4;
++		oc_ard_get_iface_addr(ep->addr.ipv4.address);
++		ep->addr.ipv4.port = OCF_SERVER_PORT_UNSECURED;
++		ep->device = 0;
++		eps = ep;
++	}
++	return eps;
++}
++
++
++OC_PROCESS_THREAD(ip_adapter_process, ev, data)
++{
++  (void)data;
++	static struct oc_etimer et;
++  OC_PROCESS_BEGIN();
++	uint16_t local_port = (uint16_t)OCF_SERVER_PORT_UNSECURED;      // local port to listen on
++	uint16_t mcast_port = (uint16_t)OCF_MCAST_PORT_UNSECURED; 
++  start_arduino_ucast_server(&local_port);
++	#ifdef OC_SERVER
++
++	start_arduino_mcast_server(OCF_IPv4_MULTICAST, &mcast_port, &mcast_port);
++	OC_DBG("Initializing connectivity for arduino server");
++	#endif
++	#ifdef OC_CLIENT
++	start_arduino_mcast_server(OCF_IPv4_MULTICAST, &mcast_port, &local_port);
++	OC_DBG("Initializing connectivity for arduino client");
++	#endif
++	
++  while (ev != OC_PROCESS_EVENT_EXIT) {
++		oc_etimer_set(&et, (oc_clock_time_t)0.01);
++		
++		if(ev == OC_PROCESS_EVENT_INIT){
++			set_ard_packet_recvcb(handle_incoming_message);
++			OC_DBG("ipadapter: Initialized ip_adapter_process");
++		}
++		else if(ev == OC_PROCESS_EVENT_TIMER){
++			ard_sock_poll_data();
++		}
++    OC_PROCESS_WAIT_EVENT();
++  }
++ OC_PROCESS_END();
++}
++
++int
++oc_connectivity_init(size_t device)
++{
++  (void)device;
++  oc_process_start(&ip_adapter_process, NULL);
++  return 0;
++}
++
++void
++oc_connectivity_shutdown(size_t device)
++{
++	(void)device;
++	ard_servers_shutdown();
++	oc_process_exit(&ip_adapter_process);
++}
++
++void
++oc_network_event_handler_mutex_init(void)
++{
++
++}
++
++void
++oc_network_event_handler_mutex_lock(void)
++{
++
++}
++
++void
++oc_network_event_handler_mutex_unlock(void)
++{
++
++}
++
++void oc_network_event_handler_mutex_destroy(void) {}
++
++int oc_send_buffer(oc_message_t *message) {
++  PRINT("Outgoing message to ");
++  PRINTipaddr(message->endpoint);
++  PRINT("\n");
++#ifdef OC_CLIENT									
++ ard_send_data(message->endpoint.addr.ipv4.address, &message->endpoint.addr.ipv4.port, 
++			   message->data, message->length, (message->endpoint.flags & DISCOVERY));
++#else
++	ard_send_data(message->endpoint.addr.ipv4.address, &message->endpoint.addr.ipv4.port, 
++				  message->data, message->length);
++#endif
++	return message->length;
++}
++
++#ifdef OC_CLIENT
++void
++oc_send_discovery_request(oc_message_t *message)
++{
++		oc_send_buffer(message);	
++}
++#endif /* OC_CLIENT */
+diff -ru iotivity-constrained/port/arduino/adapter/src/random.c src/random.c
+--- iotivity-constrained/port/arduino/adapter/src/random.c	2019-01-17 16:37:00.478195211 +0000
++++ src/random.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,49 @@
++/*
++// Copyright (c) 2016 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++#include "port/oc_random.h"
++#include "prng.h"
++#include "oc_log.h"
++#include "oc_helpers.h"
++
++
++void
++oc_random_init(void)
++{
++  iotConstrainedRand = prng_create();
++  #ifdef ARDUINO_SERIAL
++  //OIC_LOG_V("INFO","rand object initialization completed %s", "INIT") ;
++  //OIC_LOG("INFO","rand object initialization completed");
++  #endif
++  
++}
++
++unsigned int
++oc_random_value(void)
++{
++  if(iotConstrainedRand == NULL) {
++    iotConstrainedRand = prng_create();
++  }
++ 
++  if (iotConstrainedRand == NULL)
++      return 0;    
++  return (unsigned int)prng_getRndInt(iotConstrainedRand);
++}
++
++void
++oc_random_destroy(void)
++{
++  prng_destroy(iotConstrainedRand);
++}
+diff -ru iotivity-constrained/port/arduino/adapter/src/storage.c src/storage.c
+--- iotivity-constrained/port/arduino/adapter/src/storage.c	2019-01-17 16:37:19.348221929 +0000
++++ src/storage.c	2019-01-17 16:40:31.308395462 +0000
+@@ -0,0 +1,42 @@
++/*
++// Copyright (c) 2016 Intel Corporation
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//      http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++*/
++
++#include "port/oc_storage.h"
++
++#ifdef OC_SECURITY
++#include <errno.h>
++#include <stdbool.h>
++#include <stdio.h>
++#include <string.h>
++
++int
++oc_storage_config(const char *store)
++{
++  return 0;
++}
++
++long
++oc_storage_read(const char *store, uint8_t *buf, size_t size)
++{
++  return size;
++}
++
++long
++oc_storage_write(const char *store, uint8_t *buf, size_t size)
++{
++  return size;
++}
++#endif /* OC_SECURITY */
+diff -ru iotivity-constrained/port/arduino/adapter/src/wiznet_src/ard_eth_adptr_srv.c src/wiznet_src/ard_eth_adptr_srv.c
+--- iotivity-constrained/port/arduino/adapter/src/wiznet_src/ard_eth_adptr_srv.c	2019-01-17 16:37:41.928242207 +0000
++++ src/wiznet_src/ard_eth_adptr_srv.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,243 @@
++/******************************************************************
++*
++* Copyright 2014 Samsung Electronics All Rights Reserved.
++*
++*
++*
++* Licensed under the Apache License, Version 2.0 (the "License");
++* you may not use this file except in compliance with the License.
++* You may obtain a copy of the License at
++*
++*      http://www.apache.org/licenses/LICENSE-2.0
++*
++* Unless required by applicable law or agreed to in writing, software
++* distributed under the License is distributed on an "AS IS" BASIS,
++* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++* See the License for the specific language governing permissions and
++* limitations under the License.
++*
++******************************************************************/
++#include <socket.h>
++#include "Wiz5500.h"
++#include "oc_log.h"
++#include "oc_config.h"
++#include "ard_eth_adptr_srv.h"
++
++#define IPNAMESIZE (16)
++
++uint8_t arduino_unicast_socket = 0;
++uint8_t arduino_mcast_socket = 0;
++uint16_t arduino_ucast_port = 0;
++static ard_eth_udp_callback ard_eth_packet_recvcb = NULL;
++/**
++ * @brief Flag to check if multicast server is started
++ */
++bool arduino_mcast_serv_started = false;
++static uint8_t active_sockets = 0;
++
++OCResult_t start_arduino_ucast_server(uint16_t *local_port)
++{
++	OC_DBG(("starting ucast serv!"));
++	if(!local_port) {
++	  OC_DBG(("server port null!"));
++		return STATUS_FAILED;
++	}
++	uint8_t raw_ip_addr[4];
++	char address[16];
++	// check if we have a working ref of w5500
++	if(!wiznet5500) {
++		wiznet5500 = wiz5500_create();
++		if(!wiznet5500)
++			return STATUS_FAILED;
++	}
++	wiz5500_getIPAddress(wiznet5500, raw_ip_addr);
++	/*snprintf_P(address, sizeof(address), PCF("%d.%d.%d.%d"), raw_ip_addr[0], raw_ip_addr[1], raw_ip_addr[2],
++             raw_ip_addr[3]);*/
++	uint8_t serverFD = 1; // try this socket
++	if (arduino_init_udp_socket(local_port, &serverFD) != STATUS_OK)
++	{
++		OC_DBG(("ucast sock init failed"));
++		return STATUS_FAILED;
++	}
++	arduino_ucast_port = *local_port;
++  arduino_unicast_socket = serverFD;
++	active_sockets++;
++	return STATUS_OK;
++}
++OCResult_t start_arduino_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port)
++{
++	OC_DBG(("starting mcast serv!"));
++	if (arduino_mcast_serv_started == true)
++	{
++		//OC_ERR(("Already Started!"));
++	  return SERVER_STARTED_ALREADY;
++	}
++	uint8_t serverFD = 1; 
++	if (arduino_init_mcast_udp_socket(mcast_addr, mcast_port, local_port, &serverFD)!= STATUS_OK)
++	{
++		OC_DBG(("mcast serv init failed"));
++		return STATUS_FAILED;
++	}
++	arduino_mcast_socket = serverFD;
++	active_sockets++;
++	arduino_mcast_serv_started = true;
++	return STATUS_OK;	
++}
++#ifdef OC_SERVER
++OCResult_t start_arduino_servers(){
++	
++	uint16_t ucast_port = OCF_SERVER_PORT_UNSECURED;
++	uint16_t mcast_port = OCF_MCAST_PORT_UNSECURED;
++	const char *mcast_ipaddr = (const char *)OCF_IPv4_MULTICAST;
++	OCResult_t ret = start_arduino_ucast_server(&ucast_port);
++	if (STATUS_OK != ret)
++	{
++		OC_DBG(("Start ucast serv failed[%d]"), ret);
++		return ret;
++	}
++	ret = start_arduino_mcast_server(mcast_ipaddr, &mcast_port, &mcast_port);
++	if (STATUS_OK != ret)
++	{
++		OC_DBG(("Start mcast failed[%d]"), ret);
++	}
++	return ret;	
++}
++#endif
++OCResult_t ard_ucast_server_shutdown()
++{
++	close(arduino_unicast_socket);
++	arduino_unicast_socket = 0;
++	return STATUS_OK;
++}
++
++OCResult_t ard_mcast_server_shutdown()
++{
++	//OC_DBG(("Stop mcast serv!"));
++	close(arduino_mcast_socket);
++	arduino_mcast_socket = 0;
++	return STATUS_OK;
++}
++
++void ard_servers_shutdown()
++{
++	OCResult_t result = ard_ucast_server_shutdown();
++	if (STATUS_OK != result)
++	{
++		OC_ERR(("stop ucast srv fail:%d"), result);
++		return;
++	}
++  result = ard_mcast_server_shutdown();
++	if (STATUS_OK != result)
++	{
++		OC_ERR(("stop mcast srv fail:%d"), result);
++		return;
++	}
++}
++
++void set_ard_packet_recvcb(ard_eth_udp_callback cb){
++	ard_eth_packet_recvcb = cb;
++}
++
++void ard_sock_poll_data()
++{
++	// this is crude 
++	//OC_WRN(("Polling data"));
++	uint8_t open_sockect[2] = {arduino_unicast_socket, arduino_mcast_socket};
++	for(int i = 0; i < active_sockets ; i++){
++		if (ard_sock_get_data(&open_sockect[i])!= STATUS_OK){
++			OC_ERR(("rcv fail"));
++		}
++	}
++}
++
++OCResult_t ard_sock_get_data(uint8_t *socketID)
++{
++	/**Bug : When there are multiple UDP packets in Wiznet buffer, w5500.getRXReceivedSize
++	* will not return correct length of the first packet.
++	* Fix : Use the patch provided for arduino/libraries/Ethernet/utility/socket.cpp
++	*/
++	uint8_t sender_addr[4] = { 0 };
++	char addr[IPNAMESIZE] = {0};
++	uint16_t sender_port = 0;
++	// check if we have a working ref of w5500
++	if(!wiznet5500) {
++		wiznet5500 = wiz5500_create();
++		if(!wiznet5500)
++			return STATUS_FAILED;
++	}
++	uint16_t recvLen = wiz5500_getRXReceivedSize(wiznet5500, socketID);
++	if (recvLen == 0)
++	{
++		return STATUS_OK;
++	}
++  recvLen = recvLen > OC_MAX_APP_DATA_SIZE ? OC_MAX_APP_DATA_SIZE : recvLen;
++	uint8_t data[recvLen + 1];
++  // Read available data.
++	int16_t ret = recvfrom(*socketID, (uint8_t *)data, recvLen + 1, sender_addr, &sender_port);
++	if (ret < 0)
++	{
++		OC_ERR(("rcv fail"));
++		return STATUS_FAILED;
++	}
++	else if (ret > 0)
++	{
++		if(ard_eth_packet_recvcb){
++			ard_eth_packet_recvcb((uint8_t *)sender_addr, &sender_port, data, ret);
++		}
++	}
++	return STATUS_OK;
++}
++
++uint8_t get_mcast_socket() {
++	if(!arduino_mcast_socket){
++	 return STATUS_FAILED;
++	}
++  return arduino_mcast_socket;	
++ }
++ 
++ uint8_t get_ucast_socket() {
++	if(!arduino_unicast_socket){
++	 return STATUS_FAILED;
++	}
++  return arduino_unicast_socket;	
++ }
++ 
++#ifdef OC_SERVER
++OCResult_t ard_send_data(uint8_t *dest_addr, uint16_t *dest_port, 
++																 uint8_t *data, uint16_t len)
++{	
++	uint8_t socketID = get_ucast_socket(); // default client socket
++	OC_WRN("send server resp to: %d.%d.%d.%d:%u",dest_addr[0],dest_addr[1], dest_addr[2],dest_addr[3], *dest_port);
++	uint32_t ret = sendto(socketID, data, len, dest_addr, *dest_port);
++	if (ret <= 0)
++	{
++		OC_ERR("SendData failed: %u", ret);
++	}
++	return STATUS_OK;
++} 
++#endif
++
++#ifdef OC_CLIENT
++OCResult_t 
++ard_send_data(uint8_t *dest_addr, uint16_t *dest_port, 
++																 uint8_t *data, uint16_t len, uint8_t isMulticast)
++{	
++  uint8_t socketID = get_ucast_socket();
++	uint16_t port = *dest_port; // port of listening servers
++	if(isMulticast){
++		OC_WRN("Init Discovery request %d", isMulticast);
++		port = (uint16_t)OCF_MCAST_PORT_UNSECURED;	
++		socketID = get_mcast_socket();
++		OC_DBG("send multicast resquest to %u:", port);
++	}
++	else {
++		OC_DBG("send unicast request to %u:", port);
++	}
++	uint32_t ret = sendto(socketID, data, len, dest_addr, port);
++	if (ret <= 0)
++	{
++		OC_ERR("Data send failed: %u", ret);
++	}
++	return STATUS_OK;
++} 
++#endif									
+\ No newline at end of file
+diff -ru iotivity-constrained/port/arduino/adapter/src/wiznet_src/ard_eth_adptr_utls.c src/wiznet_src/ard_eth_adptr_utls.c
+--- iotivity-constrained/port/arduino/adapter/src/wiznet_src/ard_eth_adptr_utls.c	2019-01-17 16:37:29.058230646 +0000
++++ src/wiznet_src/ard_eth_adptr_utls.c	2019-01-17 16:33:47.187839042 +0000
+@@ -0,0 +1,211 @@
++/******************************************************************
++*
++* Copyright 2014 Samsung Electronics All Rights Reserved.
++*
++*
++*
++* Licensed under the Apache License, Version 2.0 (the "License");
++* you may not use this file except in compliance with the License.
++* You may obtain a copy of the License at
++*
++*      http://www.apache.org/licenses/LICENSE-2.0
++*
++* Unless required by applicable law or agreed to in writing, software
++* distributed under the License is distributed on an "AS IS" BASIS,
++* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++* See the License for the specific language governing permissions and
++* limitations under the License.
++*
++******************************************************************/
++#include <socket.h>
++#include <ctype.h>
++#include "oc_config.h"
++// c adapter
++#include "Wiz5500.h"
++#include "oc_log.h"
++#include "ard_eth_adptr_utls.h"
++
++//#define OC_MAX_NUM_ENDPOINTS 8
++OCResult_t arduino_get_free_socket(uint8_t *sockID){
++	
++	uint8_t state;
++		/*
++		* Check if we dont already have a created object
++		* Otherwise create it and test fro success
++		*/
++		if(!wiznet5500) {
++			wiznet5500 = wiz5500_create();
++			if(!wiznet5500)
++			return STATUS_FAILED;
++		}	
++	//Is any socket available to work with ?
++	*sockID = 0;
++	for (uint8_t i = 1; i < OC_MAX_NUM_ENDPOINTS; i++)
++	{
++		/*
++		* First read the state of all W5500 socket return 
++		* for usage the socket that is closed ( not being used)or the socket which is closing
++		*/
++		state = wiz5500_readSnSR(wiznet5500, &i) ;
++		if (state == SnSR_CLOSED || state == SnSR_FIN_WAIT)
++		{
++			*sockID = i;
++			break;
++		}
++	}
++	/* 
++	if no socket is availlable for new operation
++	return a socket fail status in this case socketID = 0
++	first socket or socket as far as w5500 is concern as the address 1(0001)
++	*/
++	if (*sockID == 0)
++	{
++		OC_ERR(("No socket sockID 0"));
++		return SOCKET_OPERATION_FAILED;
++	}
++	return STATUS_OK;	
++}
++
++OCResult_t arduino_init_udp_socket(uint16_t *local_port, uint8_t *socketID){
++   
++	OC_DBG(("Init udp socket!"));
++	if(!socketID) {
++		OC_ERR(("Socket ID not provided!"));
++		return SOCKET_OPERATION_FAILED;
++	} 
++	/*Get an availlable socket(closing or closed)*/
++	OCResult_t ret = arduino_get_free_socket(socketID);
++	if (ret != STATUS_OK)
++	{
++		OC_ERR(("Get sock failed!"));
++		return ret;
++	}
++	//Create a datagram socket on which to recv/send.
++	if (!socket(*socketID, SnMR_UDP, *local_port, 0))
++	{
++		OC_ERR(("socket create failed!"));
++		return STATUS_FAILED;
++	}
++	OC_DBG(("socketId: %d"), *socketID);
++	OC_DBG(("Udp socket create done!"));
++	return STATUS_OK;	
++}
++OCResult_t 
++arduino_init_mcast_udp_socket(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port, uint8_t *socketID)
++{
++	OC_DBG(("Init mcast udp socket!"));
++	if(!socketID || !mcast_addr) {
++		OC_ERR(("Socket ID or mcast addr null!"));
++		return SOCKET_OPERATION_FAILED;
++	} 
++	uint8_t mcast_mac_addr[] = { 0x01, 0x00, 0x5E, 0x00, 0x00, 0x00};
++	uint8_t ip_addr[4] = { 0 };
++	// in case user supply mcastip:mcastport
++	uint16_t parsed_port = 0;
++	if (arduino_parse_IPv4_addr(mcast_addr, ip_addr, sizeof(ip_addr), &parsed_port) != STATUS_OK)
++	{
++		OC_ERR(("mcast ip parse fail!"));
++		return STATUS_FAILED;
++	}
++	*socketID = 0;
++	OCResult_t ret = arduino_get_free_socket(socketID);
++	if (ret != STATUS_OK)
++	{
++		OC_ERR(("Get sock fail!"));
++		return ret;
++	}
++	//Calculate Multicast MAC address
++	mcast_mac_addr[3] = ip_addr[1] & 0x7F;
++	mcast_mac_addr[4] = ip_addr[2];
++	mcast_mac_addr[5] = ip_addr[3];
++	OC_WRN(("mcast address: %d.%d.%d.%d"), ip_addr[0], ip_addr[1], ip_addr[2], ip_addr[3]);
++	// get c handler to w5500 object to setup w5500 for udp multicast
++	wiz5500_writeSnDIPR(wiznet5500, socketID, (uint8_t *)ip_addr);
++	wiz5500_writeSnDHAR(wiznet5500, socketID, (uint8_t *)mcast_mac_addr);
++	wiz5500_writeSnDPORT(wiznet5500, socketID, mcast_port);
++	//Create a datagram socket on which to recv/send.
++	// if server the local_port  =  multicast_port
++	// if client local_port is unicast port: 56789
++	if (!socket(*socketID, SnMR_UDP, *local_port, SnMR_MULTI))
++	{
++		OC_ERR(("sock create fail!"));
++		return SOCKET_OPERATION_FAILED;
++	}
++	//OC_DBG(("socketId:%d"), *socketID);
++	//OC_DBG(("Udp socket create done!"));
++	return STATUS_OK;																						 
++}
++/// Retrieves the IP address assigned to Arduino Ethernet shield
++OCResult_t oc_ard_get_iface_addr(uint8_t *address)
++{
++	//TODO : Fix this for scenarios when this API is invoked when device is not connected
++	if(!wiznet5500) {
++		wiznet5500 = wiz5500_create();
++		if(!wiznet5500)
++			return STATUS_FAILED;
++	}
++	wiz5500_getIPAddress(wiznet5500, (uint8_t *)address);
++	return STATUS_OK;
++}
++///
++OCResult_t arduino_parse_IPv4_addr(const char *ip_addrStr, uint8_t *ip_addr,
++                                      uint8_t ip_addrLen, uint16_t *port)
++{
++	if (!ip_addr || !isdigit(ip_addrStr[0]) || !port)
++	{
++		OC_ERR(("invalid param!"));
++		return STATUS_INVALID_PARAM;
++	}
++	uint8_t index = 0;
++	uint8_t dotCount = 0;
++	ip_addr[index] = 0;
++	*port = 0;
++	while (*ip_addrStr)
++	{
++		if (isdigit(*ip_addrStr))
++		{
++			if(index >= ip_addrLen)
++			{
++				OC_ERR(("invalid mcast addr!"));
++				return STATUS_INVALID_PARAM;
++			}
++			ip_addr[index] *= 10; //20+2=22 --> 220+7
++			ip_addr[index] += *ip_addrStr - '0';
++		}
++		else if (*ip_addrStr == '.')
++		{
++			index++;
++			dotCount++;
++			ip_addr[index] = 0;
++		}
++		else
++		{
++			break;
++		}
++		ip_addrStr++;
++	}
++  // incase user supply ip:port fetch the port number as below
++	if (*ip_addrStr == ':')
++	{
++		ip_addrStr++;
++		while (*ip_addrStr)
++		{
++			if (isdigit(*ip_addrStr))
++			{
++				*port *= 10;
++				*port += *ip_addrStr - '0';
++			}
++			else
++			{
++				break;
++			}
++			ip_addrStr++;
++		}
++	}
++	if (dotCount == 3)
++	{
++		return STATUS_OK;
++	}
++	return STATUS_FAILED;
++}
++
