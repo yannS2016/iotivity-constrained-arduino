@@ -15,6 +15,8 @@ extern "C" {
 #include "oc_network_events_mutex.h"
 #include "oc_connectivity.h"
 #include "oc_clock.h"
+#include "rs232.h"
+#include "util/oc_process.h"
 #ifdef __cplusplus
 }
 #endif

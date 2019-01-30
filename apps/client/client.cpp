@@ -1,14 +1,13 @@
 #include "../main.h"
 #include "Ethernet2.h"
-#include "util/oc_process.h"
-#include "rs232.h"
+
 OC_PROCESS(sample_client_process, "client");
 static int
 app_init(void)
 {
-  int ret = oc_init_platform(PCF("Apple"), NULL, NULL);
-  ret |= oc_add_device(PCF("/oic/d"), PCF("oic.d.phone"), PCF("Kishen's IPhone"), PCF("ocf.1.0.0"),
-                       PCF("ocf.res.1.0.0"), NULL, NULL);
+  int ret = oc_init_platform("Apple", NULL, NULL);
+  ret |= oc_add_device("/oic/d", "oic.d.phone", "Kishen's IPhone", "ocf.1.0.0",
+                       "ocf.res.1.0.0", NULL, NULL);
   return ret;
 }
 
@@ -179,7 +178,7 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
   uri_len = (uri_len >= MAX_URI_LENGTH) ? MAX_URI_LENGTH - 1 : uri_len;
   for (i = 0; i < (int)oc_string_array_get_allocated_size(types); i++) {
     char *t = oc_string_array_get_item(types, i);
-    if (strlen(t) == 10 && strncmp_P(t, PCF("core.light"), 10) == 0) {
+    if (strlen(t) == 10 && strncmp(t, "core.light", 10) == 0) {
 			#ifdef OC_IPV4
       light_server = endpoint->next;
 			#else
@@ -190,12 +189,11 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
 
       OC_DBG("Resource %s hosted at endpoints:", a_light);
       oc_endpoint_t *ep = endpoint;
-      while (ep != NULL) { // THERE ARE TWO ADDR (IPV4 AND IPV6)IN EP
+      while (ep != NULL) { 
         PRINTipaddr(*ep);
         PRINT("\n");
         ep = ep->next;
       }
-			//OC_DBG(("freememory: %d"), freeMemory());
       oc_do_get(a_light, light_server, NULL, &get_light, LOW_QOS, NULL);
       
       return OC_STOP_DISCOVERY;
@@ -208,7 +206,7 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
 static void
 issue_requests(void)
 {
-  oc_do_ip_discovery(PCF("core.light"), &discovery, NULL);
+  oc_do_ip_discovery("core.light", &discovery, NULL);
 }
 
 static void
@@ -236,10 +234,9 @@ OC_PROCESS_THREAD(sample_client_process, ev, data)
 				OC_DBG("Client Init failed!");
 				return init;
 			}
-      OC_DBG("client process init!");
+      OC_DBG("Client process init!");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
-			//OC_DBG("Timer event registered!");
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
 		}
@@ -264,7 +261,7 @@ uint8_t ConnectToNetwork()
 	return 0;
 }
 void
-init_lowlevel(void)
+init_serial(void)
 {
   rs232_init(USART_PORT, USART_BAUD,
              USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
@@ -273,7 +270,7 @@ init_lowlevel(void)
 }
 void setup() {
 	
-	init_lowlevel();
+	init_serial();
 	delay(500);
 	if (ConnectToNetwork() != 0)
 	{

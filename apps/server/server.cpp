@@ -1,15 +1,5 @@
 #include "../main.h"
 #include "Ethernet2.h"
-#include "oc_clock.h"
-#include "util/oc_process.h"
-#include "rs232.h"
-
-/*Huawey ip details for mega:
-* local ip address: 192.168.8.103
-* subnet mask: 255.255.255.0
-* gateway: 192.168.8.1
-* dns: 192.168.8.1
-*/
 
 OC_PROCESS(sample_server_process, "server");
 static bool state = false;
@@ -19,10 +9,9 @@ oc_string_t name;
 static int
 app_init(void)
 {
-  int ret = oc_init_platform(("Intel"), NULL, NULL);
-  ret |= oc_add_device(("/oic/d"), ("oic.d.light"), ("Lamp"), ("ocf.1.0.0"),
-                       ("ocf.res.1.0.0"), NULL, NULL);
-  //_oc_new_string_(&name, ("Yann's Light"), 12);
+  int ret = oc_init_platform("Intel", NULL, NULL);
+  ret |= oc_add_device("/oic/d", "oic.d.light", "Lamp", "ocf.1.0.0",
+                       "ocf.res.1.0.0", NULL, NULL);
   return ret;
 }
 
@@ -95,9 +84,9 @@ put_light(oc_request_t *request, oc_interface_mask_t interface,
 static void
 register_resources(void)
 {
-  oc_resource_t *res = oc_new_resource(("Yann's Light"), ("/a/light"), 2, 0);
-  oc_resource_bind_resource_type(res, ("core.light"));
-  oc_resource_bind_resource_type(res, ("core.brightlight"));
+  oc_resource_t *res = oc_new_resource("Yann's Light", "/a/light", 2, 0);
+  oc_resource_bind_resource_type(res, "core.light");
+  oc_resource_bind_resource_type(res, "core.brightlight");
   oc_resource_bind_resource_interface(res, OC_IF_RW);
   oc_resource_set_default_interface(res, OC_IF_RW);
   oc_resource_set_discoverable(res, true);
@@ -139,7 +128,6 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
       OC_DBG("Server process init!\n");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
-			OC_DBG("Timer event registered!\n");
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
 		}
@@ -163,7 +151,7 @@ uint8_t ConnectToNetwork()
 	return 0;
 }
 void
-init_lowlevel(void)
+init_serial(void)
 {
   rs232_init(USART_PORT, USART_BAUD,
              USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
@@ -172,7 +160,7 @@ init_lowlevel(void)
 }
 void setup() {
 	
-	init_lowlevel();
+	init_serial();
 	delay(500);
 	if (ConnectToNetwork() != 0)
 	{
