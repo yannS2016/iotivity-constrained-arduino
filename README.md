@@ -23,17 +23,17 @@ iotivity_constrained.patch to your iotivity-constrained-arduino
 
 ## Build tools
 
-1. **Arduino Makefile** [Arduino mk](https://github.com/sudar/Arduino-Makefile) Used to compile and upload the hex file to the arduino board.
+- **Arduino Makefile** [Arduino mk](https://github.com/sudar/Arduino-Makefile) Used to compile and upload the hex file to the arduino board.
 
-2. **Arduino sdk** [Arduino home](https://github.com/arduino/ArduinoCore-avr.git) , one can just provide a path to the arduino ide
+- **Arduino sdk** [Arduino home](https://github.com/arduino/ArduinoCore-avr.git) , one can just provide a path to the arduino ide
 
-3. ***Arduino libraries**
+- ***Arduino libraries**
 
-- **Time library** [Time] (https://github.com/PaulStoffregen/Time) for implementing (oc_clock.c method)
+   - **Time library** [Time](https://github.com/PaulStoffregen/Time) for implementing (oc_clock.c method)
 
-- **Ethernet2 library** [w5500 ethernet](https://github.com/adafruit/Ethernet2) for implementing (ipadapter.c methods)
+   - **Ethernet2 library** [w5500 ethernet](https://github.com/adafruit/Ethernet2) for implementing (ipadapter.c methods)
 
-- **pseudo random number generator** [pRNG](https://github.com/leomil72/pRNG) for implementing (oc_random.c method)
+   - **pseudo random number generator** [pRNG](https://github.com/leomil72/pRNG) for implementing (oc_random.c method)
 
 ## Build process: linux (mainly Debian) 
 
@@ -43,7 +43,7 @@ iotivity_constrained.patch to your iotivity-constrained-arduino
 
 `cd iotivity-constrained-arduino/ adapter`
 
-**Note:** Initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [https://github.com/espressif/esp32-iotivity] . the port was lately tested on this commit(4f045e4a0f6d05a564877a6413cf33a51173fe25).
+**Note:** Initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [esp32 iotivity](https://github.com/espressif/esp32-iotivity). the port was lately tested on this commit(4f045e4a0f6d05a564877a6413cf33a51173fe25).
 
 `git clone --recursive https://github.com/iotivity/iotivity-constrained.git`
 
