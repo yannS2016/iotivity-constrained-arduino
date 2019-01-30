@@ -1,0 +1,1359 @@
+
+pi@iotivity:~/iotivity-constrained/port/linux $ ./simpleserver
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:148>: Started buffer handler process
+DEBUG: ../../api/oc_introspection.c <oc_create_introspection_resource:221>: oc_introspection: Initializing introspection resource
+DEBUG: ipadapter.c <oc_connectivity_init:1383>: Initializing connectivity for device 0
+DEBUG: ipadapter.c <connectivity_ipv4_init:1266>: Initializing IPv4 connectivity for device 0
+DEBUG: ipadapter.c <connectivity_ipv4_init:1376>: Successfully initialized IPv4 connectivity for device 0
+DEBUG: ipadapter.c <oc_connectivity_init:1519>: =======ip port info.========
+DEBUG: ipadapter.c <oc_connectivity_init:1520>:   ipv6 port   : 44879
+DEBUG: ipadapter.c <oc_connectivity_init:1525>:   ipv4 port   : 52145
+DEBUG: ipadapter.c <add_ip_interface:112>: New interface added: 2
+DEBUG: ipadapter.c <oc_connectivity_init:1573>: Successfully initialized connectivity for device 0
+DEBUG: ../../api/oc_main.c <oc_main_init:210>: oc_main: stack initialized
+Incoming message of size 43 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=43 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 66 6F E8 F6 00 00 90 29 00 00 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  E8 F6 00 00 90 29 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 15 (delta 4, len 13):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:725>:   Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 2, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0xE8F6, mid: 26223
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY: rt=core.light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26223: 0x1d1dc58
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1579 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  E8 F6 00 00 90 29 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 12, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e444----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 248 B (header len 21, payload len 227)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 2B E8 F6 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 248) 26223: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 2B E8 F6 00 00 90 29 00 00 C2 27 10 E2 06 EC 08 00 FF 9F BF 66 61 6E 63 68 6F 72 78 2A 6F 63 66 3A 2F 2F 66 31 35 30 63 64 65 63 2D 34 39 33 32 2D 34 34 37 30 2D 34 64 36 36 2D 66 65 36 38 65 36 36 36 38 38 64 37 64 68 72 65 66 68 2F 61 2F 6C 69 67 68 74 62 72 74 9F 6A 63 6F 72 65 2E 6C 69 67 68 74 70 63 6F 72 65 2E 62 72 69 67 68 74 6C 69 67 68 74 FF 62 69 66 9F 69 6F 69 63 2E 69 66 2E 72 77 6F 6F 69 63 2E 69 66 2E 62 61 73 65 6C 69 6E 65 FF 61 70 BF 62 62 6D 03 FF 63 65 70 73 9F BF 62 65 70 78 28 63 6F 61 70 3A 2F 2F 5B 66 65 38 30 3A 3A 35 64 36 32 3A 31 39 66 30 3A 33 35 34 38 3A 34 30 65 64 5D 3A 34 34 38 37 39 FF BF 62 65 70 78 1A 63 6F 61 70 3A 2F 2F 31 39 36 2E 32 34 2E 32 32 35 2E 33 37 3A 35 32 31 34 35 FF FF FF FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (248)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26223: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 248 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 248 bytes
+Incoming message of size 43 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=43 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 66 6F E8 F6 00 00 90 29 00 00 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  E8 F6 00 00 90 29 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 15 (delta 4, len 13):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:725>:   Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 2, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0xE8F6, mid: 26223
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY: rt=core.light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/engine.c <check_if_duplicate:93>: dropping duplicate request
+Incoming message of size 28 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=28 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 66 71 2A 2B 00 00 65 3E 00 00 B1 61 05 6C 69 67 68 74 62 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  2A 2B 00 00 65 3E 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x2A2B, mid: 26225
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26225: 0x1d1dc58
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+GET_light:
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1580 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  2A 2B 00 00 65 3E 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 12, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e444----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 55 B (header len 21, payload len 34)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 2C 2A 2B 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 55) 26225: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 2C 2A 2B 00 00 65 3E 00 00 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 01 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (55)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26225: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 55 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 55 bytes
+Incoming message of size 51 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=51 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 03 66 72 1A 3B 00 00 E8 E6 00 00 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 0F FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  1A 3B 00 00 E8 E6 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 1, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 5, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x1A3B, mid: 26226
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:223>:   method: PUT
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload: ¦estate¦epower¦
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26226: 0x1d1dc58
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:391>: creating request buffer
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+POST_light:
+key: state value: 1
+key: power value: 15
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1581 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  1A 3B 00 00 E8 E6 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e43c----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 12 B (header len 12, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 44 06 2D 1A 3B 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 12) 26226: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 44 06 2D 1A 3B 00 00 E8 E6 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (12)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26226: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 12 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 12 bytes
+WARNING: ../../messaging/coap/observe.c <coap_notify_observers:285>: coap_notify_observers: no observers; returning
+Incoming message of size 52 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=52 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 02 66 73 39 CE 00 00 D1 77 00 00 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 18 69 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  39 CE 00 00 D1 77 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 1, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 5, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x39CE, mid: 26227
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:226>:   method: POST
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload: ¦estate¦epoweri¦
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26227: 0x1d1ddb8
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:391>: creating request buffer
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+POST_light:
+key: state value: 0
+key: power value: 105
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1582 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  39 CE 00 00 D1 77 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e43c----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 12 B (header len 12, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 44 06 2E 39 CE 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 12) 26227: 0x1d1ddb8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 44 06 2E 39 CE 00 00 D1 77 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (12)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26227: 0x1d1ddb8
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 12 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 12 bytes
+WARNING: ../../messaging/coap/observe.c <coap_notify_observers:285>: coap_notify_observers: no observers; returning
+Incoming message of size 52 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=52 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 02 66 74 0A 36 00 00 D8 A1 00 00 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 37 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  0A 36 00 00 D8 A1 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 1, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 5, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0A36, mid: 26228
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:226>:   method: POST
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload: ¦estate¦epower7¦
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26228: 0x1d1dd88
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:391>: creating request buffer
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+POST_light:
+key: state value: 1
+key: power value: 55
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1583 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  0A 36 00 00 D8 A1 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e43c----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 12 B (header len 12, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 44 06 2F 0A 36 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 12) 26228: 0x1d1dd88
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 44 06 2F 0A 36 00 00 D8 A1 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (12)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26228: 0x1d1dd88
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 12 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 12 bytes
+WARNING: ../../messaging/coap/observe.c <coap_notify_observers:285>: coap_notify_observers: no observers; returning
+Incoming message of size 29 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=29 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 66 75 4E 5A 00 00 88 03 00 00 60 51 61 05 6C 69 67 68 74 62 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 0):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [0]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 5, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x4E5A, mid: 26229
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26229: 0x1d1ddb8
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <add_observer:139>: Adding observer (1) for /a/light [0x4E5A]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1584 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [0]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e445----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 57 B (header len 22, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 30 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 57) 26229: 0x1d1ddb8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 30 4E 5A 00 00 88 03 00 00 60 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 38 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (57)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26229: 0x1d1ddb8
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 57 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 57 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1585: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1585 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [3]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 31 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1585: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 31 4E 5A 00 00 88 03 00 00 61 03 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 39 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1585: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1586: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1586 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [4]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 32 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1586: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 32 4E 5A 00 00 88 03 00 00 61 04 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3A 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1586: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1587: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1587 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [5]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 33 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1587: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 33 4E 5A 00 00 88 03 00 00 61 05 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3B 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1587: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2226661
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 33
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1587
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1587: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1587: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1588: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1588 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [6]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 34 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1588: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 34 4E 5A 00 00 88 03 00 00 61 06 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3C 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1588: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1589: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1589 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [7]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 35 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1589: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 35 4E 5A 00 00 88 03 00 00 61 07 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3D 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1589: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1590: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1590 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [8]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 36 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1590: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 36 4E 5A 00 00 88 03 00 00 61 08 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3E 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1590: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1591: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1591 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [9]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 37 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1591: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 37 4E 5A 00 00 88 03 00 00 61 09 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3F 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1591: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1592: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1592 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [10]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 38 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1592: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 38 4E 5A 00 00 88 03 00 00 61 0A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 40 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1592: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2619668
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 38
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1592
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1592: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1592: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1593: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1593 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [11]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 39 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1593: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 39 4E 5A 00 00 88 03 00 00 61 0B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 41 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1593: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1594: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1594 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [12]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 3A 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1594: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 3A 4E 5A 00 00 88 03 00 00 61 0C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 42 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1594: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1595: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1595 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [13]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 3B 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1595: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 3B 4E 5A 00 00 88 03 00 00 61 0D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 43 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1595: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1596: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1596 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [14]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 3C 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1596: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 3C 4E 5A 00 00 88 03 00 00 61 0E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 44 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1596: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1597: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1597 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [15]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 3D 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1597: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 3D 4E 5A 00 00 88 03 00 00 61 0F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 45 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1597: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2818830
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 3D
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1597
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1597: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1597: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1598: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1598 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [16]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 3E 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1598: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 3E 4E 5A 00 00 88 03 00 00 61 10 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 46 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1598: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1599: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1599 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [17]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 3F 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1599: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 3F 4E 5A 00 00 88 03 00 00 61 11 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 47 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1599: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1600: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1600 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [18]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 40 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1600: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 40 4E 5A 00 00 88 03 00 00 61 12 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 48 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1600: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1601: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1601 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [19]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 41 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1601: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 41 4E 5A 00 00 88 03 00 00 61 13 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 49 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1601: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1602: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1602 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [20]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 42 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1602: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 42 4E 5A 00 00 88 03 00 00 61 14 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4A 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1602: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2969522
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 42
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1602
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1602: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1602: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1603: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1603 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [21]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 43 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1603: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 43 4E 5A 00 00 88 03 00 00 61 15 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4B 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1603: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1604: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1604 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [22]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 44 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1604: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 44 4E 5A 00 00 88 03 00 00 61 16 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4C 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1604: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1605: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1605 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [23]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 45 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1605: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 45 4E 5A 00 00 88 03 00 00 61 17 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4D 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1605: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1606: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1606 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [24]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 46 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1606: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 46 4E 5A 00 00 88 03 00 00 61 18 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4E 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1606: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1607: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1607 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [25]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 47 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1607: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 47 4E 5A 00 00 88 03 00 00 61 19 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4F 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1607: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2566799
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 47
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1607
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1607: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1607: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1608: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1608 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [26]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 48 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1608: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 48 4E 5A 00 00 88 03 00 00 61 1A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 50 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1608: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1609: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1609 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [27]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 49 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1609: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 49 4E 5A 00 00 88 03 00 00 61 1B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 51 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1609: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1610: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1610 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [28]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 4A 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1610: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 4A 4E 5A 00 00 88 03 00 00 61 1C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 52 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1610: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1611: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1611 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [29]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 4B 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1611: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 4B 4E 5A 00 00 88 03 00 00 61 1D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 53 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1611: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1612: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1612 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [30]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  48 45 06 4C 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1612: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  48 45 06 4C 4E 5A 00 00 88 03 00 00 61 1E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 54 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:133>: Keeping transaction 1612: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:140>: Initial interval 2804981
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 4 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=4 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  60 00 06 4C
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0000, mid: 1612
+DEBUG: ../../messaging/coap/engine.c <coap_receive:175>:   type: ACK
+DEBUG: ../../messaging/coap/transactions.c <coap_get_transaction_by_mid:210>: Found transaction for MID 1612: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1612: 0x1d1dc58
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 1613: 0x1d1dc58
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1613 to 0x1d20438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d20444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [31]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 6, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d2044e----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 58 B (header len 23, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 4D 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 58) 1613: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 4D 4E 5A 00 00 88 03 00 00 61 1F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 55 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (58)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 1613: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 58 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 58 bytes
+Incoming message of size 30 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=30 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 66 76 4E 5A 00 00 88 03 00 00 61 01 51 61 05 6C 69 67 68 74 62 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [1]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 5, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 5):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x4E5A, mid: 26230
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY:
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 26230: 0x1d1dc58
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+GET_light:
+DEBUG: ../../messaging/coap/observe.c <coap_remove_observer_by_token:213>: Unregistering observers for request token 0x4E5A
+DEBUG: ../../messaging/coap/observe.c <coap_remove_observer:158>: Removing observer for /a/light [0x4E5A]
+DEBUG: ../../messaging/coap/observe.c <coap_remove_observer_by_token:225>: Removed 1 observers
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 1614 to 0x1d1e430
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  4E 5A 00 00 88 03 00 00
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0x1d1e43c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 12, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 2041, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0x1d1e444----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 56 B (header len 21, payload len 35)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 45 06 4E 4E 5A 00 00
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 56) 26230: 0x1d1dc58
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 45 06 4E 4E 5A 00 00 88 03 00 00 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 56 64 6E 61 6D 65 6C 4A 6F 68 6E 27 73 20 4C 69 67 68 74 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (56)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 26230: 0x1d1dc58
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 56 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 56 bytes

@@ -1,0 +1,1320 @@
+DEBUG:<ConnectToNetwork:162>: Connected to Ethernet IP: 196.24.225.38
+DEBUG:<process_thread_sample_server_process:128>: Initializing server for arduino
+DEBUG:<process_thread_message_buffer_handler:148>: Started buffer handler process
+DEBUG:<oc_create_introspection_resource:221>: oc_introspection: Initializing introspection resource
+DEBUG:<start_arduino_ucast_server:40>: starting ucast serv!
+DEBUG:<arduino_init_udp_socket:71>: Init udp socket!
+DEBUG:<arduino_init_udp_socket:89>: socketId: 1
+DEBUG:<arduino_init_udp_socket:90>: Udp socket create done!
+DEBUG:<start_arduino_mcast_server:69>: starting mcast serv!
+DEBUG:<arduino_init_mcast_udp_socket:96>: Init mcast udp socket!
+WARNING:<arduino_init_mcast_udp_socket:121>: mcast address: 224.0.1.187
+DEBUG:<process_thread_ip_adapter_process:91>: Initializing connectivity for arduino server
+DEBUG:<process_thread_ip_adapter_process:103>: ipadapter: Initialized ip_adapter_process
+DEBUG:<oc_main_init:210>: oc_main: stack initialized
+DEBUG:<process_thread_sample_server_process:139>: Server process init!
+
+DEBUG:<setup:183>: freememory: 2527
+
+DEBUG:<handle_incoming_message:52>: Incoming message of size 43 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_sample_server_process:142>: Timer event registered!
+
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=43 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 01 F4 CB 1D 54 EA 26 87 BB 1A D2 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  1D 54 EA 26 87 BB 1A D2
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 11, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 15 (delta 4, len
+DEBUG:<coap_parse_token_option:605>:   Uri-Query [
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 2, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62667: 0x1a4f
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16144 to 0x1ab0
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  1D 54 EA 26 87 BB 1A D2
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1abc
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 12, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1ac4----
+DEBUG:<coap_serialize_message:960>: -Done 201 B (header len 21, payload len 180)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 10 1D 54 EA 26
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 10 1D 54 EA 26 87 BB 1A D2 C2 27 10 E2 06 EC 08 00 FF 9F BF 66 61 6E 63 68 6F 72 78 2A 6F 63 66 3A 2F 2F 36 37 38 33 30 30 30 30 2D 65 66 30 65 2D 34 30 30 30 2D 36 65 64 61 2D 30 30F
+DEBUG:<coap_send_message:975>: -sending OCF message (201)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62667: 0x1a4f
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 34 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=34 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 01 F4 CF ED EB 91 EE 2D 5B F0 E7 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  ED EB 91 EE 2D 5B F0 E7
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 11, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62671: 0x1a7c
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16145 to 0x183a
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  ED EB 91 EE 2D 5B F0 E7
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1846
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 12, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x184e----
+DEBUG:<coap_serialize_message:960>: -Done 37 B (header len 21, payload len 16)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 11 ED EB 91 EE
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 11 ED EB 91 EE 2D 5B F0 E7 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 01 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (37)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62671: 0x1a7c
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 51 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=51 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 03 F4 D1 0B 35 79 A2 B7 3F 31 13 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 0F FF
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  0B 35 79 A2 B7 3F 31 13
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 11, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62673: 0x1a7c
+DEBUG:<post_light:58>: POST_light:
+
+DEBUG:<post_light:61>: key: state
+DEBUG:<post_light:65>: value: 1
+
+DEBUG:<post_light:61>: key: power
+DEBUG:<post_light:69>: value: 15
+
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16146 to 0x183a
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  0B 35 79 A2 B7 3F 31 13
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1846
+DEBUG:<coap_serialize_options:366>: Serialize content format: 0
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1846----
+DEBUG:<coap_serialize_message:960>: -Done 12 B (header len 12, payload len 0)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 44 3F 12 0B 35 79 A2
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 44 3F 12 0B 35 79 A2 B7 3F 31 13
+DEBUG:<coap_send_message:975>: -sending OCF message (12)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62673: 0x1a7c
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+WARNING:<coap_notify_observers:285>: coap_notify_observers: no observers; returning
+DEBUG:<handle_incoming_message:52>: Incoming message of size 52 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=52 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 02 F4 D3 EF DC 19 A5 12 87 DA 48 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 18 69 FF
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  EF DC 19 A5 12 87 DA 48
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 11, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62675: 0x1a7c
+DEBUG:<post_light:58>: POST_light:
+
+DEBUG:<post_light:61>: key: state
+DEBUG:<post_light:65>: value: 0
+
+DEBUG:<post_light:61>: key: power
+DEBUG:<post_light:69>: value: 105
+
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16147 to 0x183a
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  EF DC 19 A5 12 87 DA 48
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1846
+DEBUG:<coap_serialize_options:366>: Serialize content format: 0
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1846----
+DEBUG:<coap_serialize_message:960>: -Done 12 B (header len 12, payload len 0)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 44 3F 13 EF DC 19 A5
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 44 3F 13 EF DC 19 A5 12 87 DA 48
+DEBUG:<coap_send_message:975>: -sending OCF message (12)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62675: 0x1a7c
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+WARNING:<coap_notify_observers:285>: coap_notify_observers: no observers; returning
+DEBUG:<handle_incoming_message:52>: Incoming message of size 52 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=52 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 02 F4 D5 32 EC 6C D5 E6 15 36 36 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 37 FF
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  32 EC 6C D5 E6 15 36 36
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 11, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62677: 0x1a7c
+DEBUG:<post_light:58>: POST_light:
+
+DEBUG:<post_light:61>: key: state
+DEBUG:<post_light:65>: value: 1
+
+DEBUG:<post_light:61>: key: power
+DEBUG:<post_light:69>: value: 55
+
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16148 to 0x183a
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  32 EC 6C D5 E6 15 36 36
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1846
+DEBUG:<coap_serialize_options:366>: Serialize content format: 0
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1846----
+DEBUG:<coap_serialize_message:960>: -Done 12 B (header len 12, payload len 0)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 44 3F 14 32 EC 6C D5
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 44 3F 14 32 EC 6C D5 E6 15 36 36
+DEBUG:<coap_send_message:975>: -sending OCF message (12)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62677: 0x1a7c
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+WARNING:<coap_notify_observers:285>: coap_notify_observers: no observers; returning
+DEBUG:<handle_incoming_message:52>: Incoming message of size 35 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=35 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 01 F4 D7 43 E0 C2 67 EB 4C 1E F1 60 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_parse_token_option:506>: OPTION 6 (delta 6, len
+DEBUG:<coap_parse_token_option:631>:   Observe [0]
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 5, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62679: 0x1a7c
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<add_observer:139>: Adding observer (1) for /a/light [0x43E0]
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16149 to 0x183a
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1846
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [0]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x184f----
+DEBUG:<coap_serialize_message:960>: -Done 39 B (header len 22, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 15 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 15 43 E0 C2 67 EB 4C 1E F1 60 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 38 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (39)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62679: 0x1a7c
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16150: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16150 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [3]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 16 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 16 43 E0 C2 67 EB 4C 1E F1 61 03 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 39 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16150: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16151: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16151 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [4]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 17 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 17 43 E0 C2 67 EB 4C 1E F1 61 04 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3A FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16151: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16152: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16152 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [5]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 18 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 18 43 E0 C2 67 EB 4C 1E F1 61 05 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3B FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16152: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 18
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16152: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16152: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16153: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16153 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [6]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 19 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 19 43 E0 C2 67 EB 4C 1E F1 61 06 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3C FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16153: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16154: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16154 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [7]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 1A 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 1A 43 E0 C2 67 EB 4C 1E F1 61 07 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3D FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16154: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16155: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16155 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [8]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 1B 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 1B 43 E0 C2 67 EB 4C 1E F1 61 08 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3E FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16155: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16156: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16156 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [9]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 1C 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 1C 43 E0 C2 67 EB 4C 1E F1 61 09 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3F FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16156: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16157: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16157 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [10]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 1D 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 1D 43 E0 C2 67 EB 4C 1E F1 61 0A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 40 FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16157: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 1D
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16157: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16157: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16158: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16158 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [11]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 1E 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 1E 43 E0 C2 67 EB 4C 1E F1 61 0B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 41 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16158: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16159: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16159 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [12]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 1F 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 1F 43 E0 C2 67 EB 4C 1E F1 61 0C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 42 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16159: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16160: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16160 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [13]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 20 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 20 43 E0 C2 67 EB 4C 1E F1 61 0D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 43 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16160: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16161: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16161 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [14]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 21 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 21 43 E0 C2 67 EB 4C 1E F1 61 0E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 44 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16161: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16162: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16162 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [15]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 22 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 22 43 E0 C2 67 EB 4C 1E F1 61 0F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 45 FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16162: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 22
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16162: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16162: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16163: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16163 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [16]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 23 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 23 43 E0 C2 67 EB 4C 1E F1 61 10 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 46 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16163: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16164: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16164 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [17]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 24 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 24 43 E0 C2 67 EB 4C 1E F1 61 11 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 47 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16164: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16165: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16165 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [18]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 25 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 25 43 E0 C2 67 EB 4C 1E F1 61 12 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 48 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16165: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16166: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16166 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [19]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 26 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 26 43 E0 C2 67 EB 4C 1E F1 61 13 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 49 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16166: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16167: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16167 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [20]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 27 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 27 43 E0 C2 67 EB 4C 1E F1 61 14 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4A FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16167: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 27
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16167: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16167: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16168: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16168 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [21]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 28 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 28 43 E0 C2 67 EB 4C 1E F1 61 15 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4B FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16168: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16169: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16169 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [22]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 29 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 29 43 E0 C2 67 EB 4C 1E F1 61 16 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4C FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16169: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16170: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16170 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [23]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 2A 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 2A 43 E0 C2 67 EB 4C 1E F1 61 17 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4D FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16170: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16171: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16171 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [24]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 2B 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 2B 43 E0 C2 67 EB 4C 1E F1 61 18 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4E FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16171: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16172: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16172 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [25]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 2C 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 2C 43 E0 C2 67 EB 4C 1E F1 61 19 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4F FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16172: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 2C
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16172: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16172: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16173: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16173 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [26]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 2D 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 2D 43 E0 C2 67 EB 4C 1E F1 61 1A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 50 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16173: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16174: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16174 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [27]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 2E 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 2E 43 E0 C2 67 EB 4C 1E F1 61 1B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 51 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16174: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16175: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16175 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [28]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 2F 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 2F 43 E0 C2 67 EB 4C 1E F1 61 1C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 52 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16175: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16176: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16176 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [29]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 30 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 30 43 E0 C2 67 EB 4C 1E F1 61 1D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 53 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16176: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_notify_observers:431>: coap_observe_notify: forcing CON notification to check for client liveness
+DEBUG:<coap_new_transaction:89>: Created new transaction 16177: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16177 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [30]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  48 45 3F 31 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  48 45 3F 31 43 E0 C2 67 EB 4C 1E F1 61 1E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 54 FF
+DEBUG:<coap_send_transaction:133>: Keeping transaction 16177: 0x1811
+DEBUG:<coap_send_transaction:140>: Initial interval 3
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 4 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=4 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  60 00 3F 31
+DEBUG:<coap_parse_token_option:448>: Token (len 0)
+DEBUG: <449>:
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_get_transaction_by_mid:210>: Found transaction for MID 16177: 0x1811
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16177: 0x1811
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16178: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16178 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [31]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 32 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 32 43 E0 C2 67 EB 4C 1E F1 61 1F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 55 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16178: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<coap_notify_observers:309>: coap_notify_observers: Issue GET request to resource
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_notify_observers:369>: coap_notify_observers: notifying observer
+DEBUG:<coap_new_transaction:89>: Created new transaction 16179: 0x1811
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16179 to 0x1d8d
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x1d99
+DEBUG:<coap_serialize_int_option:172>: OPTION 6 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:358>: Observe [32]
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 6, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1da3----
+DEBUG:<coap_serialize_message:960>: -Done 40 B (header len 23, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 33 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 33 43 E0 C2 67 EB 4C 1E F1 61 20 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 56 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (40)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 16179: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096
+DEBUG:<handle_incoming_message:52>: Incoming message of size 36 bytes from port 40096:
+DEBUG: <53>: [196.24.225.37]:40096
+DEBUG:<process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG:<coap_receive:124>: CoAP Engine: received datalen=36 from
+DEBUG: <125>: [196.24.225.37]:40096
+DEBUG: <126>:  58 01 F4 F7 43 E0 C2 67 EB 4C 1E F1 61 01 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG:<coap_parse_token_option:448>: Token (len 8)
+DEBUG: <449>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_parse_token_option:506>: OPTION 6 (delta 6, len
+DEBUG:<coap_parse_token_option:631>:   Observe [1]
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 5, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 11 (delta 0, len
+DEBUG:<coap_parse_token_option:596>:   Uri-Path [
+DEBUG:<coap_parse_token_option:506>: OPTION 12 (delta 1, len
+DEBUG:<coap_parse_token_option:518>:   Content-Format [10000]
+DEBUG:<coap_parse_token_option:506>: OPTION 17 (delta 5, len
+DEBUG:<coap_parse_token_option:539>:   Accept [10000]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:667>:   Content-format/accept-Version: [2048]
+DEBUG:<coap_parse_token_option:683>: -Done parsing-------
+DEBUG:<coap_new_transaction:89>: Created new transaction 62711: 0x1811
+DEBUG:<get_light:35>: GET_light:
+
+DEBUG:<coap_remove_observer_by_token:213>: Unregistering observers for request token 0x43E0
+DEBUG:<coap_remove_observer:158>: Removing observer for /a/light [0x43E0]
+DEBUG:<coap_remove_observer_by_token:225>: Removed 1 observers
+DEBUG:<coap_serialize_options:344>: Caculating size of options
+DEBUG:<coap_serialize_message:921>: -Serializing MID 16180 to 0x184f
+DEBUG:<coap_serialize_message:931>: Token (len 8)
+DEBUG: <932>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG:<coap_serialize_options:342>: Serializing options at 0x185b
+DEBUG:<coap_serialize_options:366>: Serialize content format: 10000
+DEBUG:<coap_serialize_int_option:172>: OPTION 12 (delta 12, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:369>: Content-Format [10000]
+DEBUG:<coap_serialize_int_option:172>: OPTION 2053 (delta 2041, len
+DEBUG:<coap_set_option_header:147>: WRITTEN
+DEBUG:<coap_serialize_options:435>: -Done serializing at 0x1863----
+DEBUG:<coap_serialize_message:960>: -Done 38 B (header len 21, payload len 17)-
+DEBUG:<coap_serialize_message:962>: Dump
+DEBUG: <963>:  58 45 3F 34 43 E0 C2 67
+DEBUG:<coap_send_transaction:116>: Sending transaction(len:
+DEBUG: <117>:  58 45 3F 34 43 E0 C2 67 EB 4C 1E F1 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 57 FF
+DEBUG:<coap_send_message:975>: -sending OCF message (38)-
+DEBUG:<coap_clear_transaction:194>: Freeing transaction 62711: 0x1811
+DEBUG:<process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message to [196.24.225.37]:40096
+WARNING:<ard_send_data:210>: send server resp to: 196.24.225.37:40096

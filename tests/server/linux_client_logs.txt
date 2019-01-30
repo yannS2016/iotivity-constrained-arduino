@@ -1,0 +1,1310 @@
+
+pi@iotivity:~/iotivity-constrained/port/linux $ ./simpleclient
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:148>: Started buffer handler process
+DEBUG: ../../api/oc_introspection.c <oc_create_introspection_resource:221>: oc_introspection: Initializing introspection resource
+DEBUG: ipadapter.c <oc_connectivity_init:1383>: Initializing connectivity for device 0
+DEBUG: ipadapter.c <connectivity_ipv4_init:1266>: Initializing IPv4 connectivity for device 0
+DEBUG: ipadapter.c <connectivity_ipv4_init:1376>: Successfully initialized IPv4 connectivity for device 0
+DEBUG: ipadapter.c <oc_connectivity_init:1519>: =======ip port info.========
+DEBUG: ipadapter.c <oc_connectivity_init:1520>:   ipv6 port   : 53885
+DEBUG: ipadapter.c <oc_connectivity_init:1525>:   ipv4 port   : 40096
+DEBUG: ipadapter.c <add_ip_interface:112>: New interface added: 2
+DEBUG: ipadapter.c <oc_connectivity_init:1573>: Successfully initialized connectivity for device 0
+DEBUG: ../../api/oc_main.c <oc_main_init:210>: oc_main: stack initialized
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62667: 0xe0cb68
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62667 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  1D 54 EA 26 87 BB 1A D2
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0d444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (o)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 2/7 (c)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 4, part [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (e)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (s)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 15, len 13, full [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/13 (r)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/13 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 2/13 (=)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/13 (c)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/13 (o)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/13 (r)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/13 (e)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/13 (.)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 8/13 (l)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 9/13 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 10/13 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 11/13 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 12/13 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 13/13 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 2 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 15, delta 4, len 15, part [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:433>: Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 2, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0d463----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 43 B (header len 43, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 01 F4 CB 1D 54 EA 26
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 43) 62667: 0xe0cb68
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 01 F4 CB 1D 54 EA 26 87 BB 1A D2 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (43)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62667: 0xe0cb68
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62667: 0xe0cc68
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62667 to 0xe0dcb0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  1D 54 EA 26 87 BB 1A D2
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0dcbc
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (o)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 2/7 (c)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 4, part [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (e)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (s)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 0
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 15, len 13, full [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/13 (r)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/13 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 2/13 (=)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/13 (c)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/13 (o)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/13 (r)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/13 (e)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/13 (.)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 8/13 (l)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 9/13 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 10/13 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 11/13 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 12/13 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 13/13 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 2 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 15, delta 4, len 15, part [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:433>: Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 2, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0dcdb----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 43 B (header len 43, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 01 F4 CB 1D 54 EA 26
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 43) 62667: 0xe0cc68
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 01 F4 CB 1D 54 EA 26 87 BB 1A D2 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (43)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62667: 0xe0cc68
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:170>: Outbound network event: multicast request
+Outgoing message of size 43 bytes to [ff02:0000:0000:0000:0000:0000:0000:0158]:5683
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 43 bytes
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:170>: Outbound network event: multicast request
+Outgoing message of size 43 bytes to [224.0.1.187]:5683
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 43 bytes
+Incoming message of size 43 bytes from [fe80:0000:0000:0000:5d62:19f0:3548:40ed]:53885
+
+Incoming message of size 43 bytes from [196.24.225.37]:40096
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=43 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [fe80:0000:0000:0000:5d62:19f0:3548:40ed]:53885
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 F4 CB 1D 54 EA 26 87 BB 1A D2 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  1D 54 EA 26 87 BB 1A D2
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 15 (delta 4, len 13):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:725>:   Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 2, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x1D54, mid: 62667
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY: rt=core.light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62667: 0xe0cb98
+DEBUG: ../../messaging/coap/engine.c <coap_receive:381>: no block options; processing regular request
+DEBUG: ../../api/oc_ri.c <oc_ri_invoke_coap_entity_handler:808>: creating new block-wise response state
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62667: 0xe0cb98
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=43 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.37]:40096
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 01 F4 CB 1D 54 EA 26 87 BB 1A D2 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  1D 54 EA 26 87 BB 1A D2
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 11, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 11 (delta 0, len 3):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:716>:   Uri-Path [oic/res]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 15 (delta 4, len 13):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:725>:   Uri-Query [rt=core.light]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 17 (delta 2, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:659>:   Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x1D54, mid: 62667
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:220>:   method: GET
+DEBUG: ../../messaging/coap/engine.c <coap_receive:232>:   URL: oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:233>:   QUERY: rt=core.light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:234>:   Payload:
+DEBUG: ../../messaging/coap/engine.c <check_if_duplicate:93>: dropping duplicate request
+Incoming message of size 201 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=201 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 10 1D 54 EA 26 87 BB 1A D2 C2 27 10 E2 06 EC 08 00 FF 9F BF 66 61 6E 63 68 6F 72 78 2A 6F 63 66 3A 2F 2F 36 37 38 33 30 30 30 30 2D 65 66 30 65 2D 34 30 30 30 2D 36 65 64 61 2D 30 30 30 30 36 39 32 32 30 30 30 30 64 68 72 65 66 68 2F 61 2F 6C 69 67 68 74 62 72 74 9F 6A 63 6F 72 65 2E 6C 69 67 68 74 70 63 6F 72 65 2E 62 72 69 67 68 74 6C 69 67 68 74 FF 62 69 66 9F 69 6F 69 63 2E 69 66 2E 72 77 6F 6F 69 63 2E 69 66 2E 62 61 73 65 6C 69 6E 65 FF 61 70 BF 62 62 6D 03 FF 63 65 70 73 9F BF 62 65 70 78 1A 63 6F 61 70 3A 2F 2F 31 39 36 2E 32 34 2E 32 32 35 2E 33 38 3A 35 36 37 38 39 FF FF FF FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  1D 54 EA 26 87 BB 1A D2
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 12, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x1D54, mid: 16144
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri oic/res
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+Resource /a/light hosted at endpoints:
+[196.24.225.38]:56789
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62671: 0xe0d2c8
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62671 to 0xe0f440
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  ED EB 91 EE 2D 5B F0 E7
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0f44c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0f462----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 34 B (header len 34, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 01 F4 CF ED EB 91 EE
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 34) 62671: 0xe0d2c8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 01 F4 CF ED EB 91 EE 2D 5B F0 E7 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (34)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62671: 0xe0d2c8
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 34 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 34 bytes
+Incoming message of size 37 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=37 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 11 ED EB 91 EE 2D 5B F0 E7 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 01 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  ED EB 91 EE 2D 5B F0 E7
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 12, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0xEDEB, mid: 16145
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+GET_light:
+key state, value 0
+key power, value 1
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62673: 0xe0cb68
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62673 to 0xe0f440
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  0B 35 79 A2 B7 3F 31 13
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0f44c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0f462----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 51 B (header len 35, payload len 16)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 03 F4 D1 0B 35 79 A2
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 51) 62673: 0xe0cb68
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 03 F4 D1 0B 35 79 A2 B7 3F 31 13 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 0F FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (51)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62673: 0xe0cb68
+Sent PUT request
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 51 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 51 bytes
+Incoming message of size 12 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=12 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 44 3F 12 0B 35 79 A2 B7 3F 31 13
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  0B 35 79 A2 B7 3F 31 13
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x0B35, mid: 16146
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+PUT_light:
+PUT response: CHANGED
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62675: 0xe0d398
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62675 to 0xe0f440
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  EF DC 19 A5 12 87 DA 48
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0f44c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0f462----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 52 B (header len 35, payload len 17)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 02 F4 D3 EF DC 19 A5
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 52) 62675: 0xe0d398
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 02 F4 D3 EF DC 19 A5 12 87 DA 48 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 18 69 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (52)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62675: 0xe0d398
+Sent POST request
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 52 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 52 bytes
+Incoming message of size 12 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=12 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 44 3F 13 EF DC 19 A5 12 87 DA 48
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  EF DC 19 A5 12 87 DA 48
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0xEFDC, mid: 16147
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+POST_light:
+POST response: CHANGED
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62677: 0xe0d3f8
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62677 to 0xe0f440
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  32 EC 6C D5 E6 15 36 36
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0f44c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 11, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0f462----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 52 B (header len 35, payload len 17)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 02 F4 D5 32 EC 6C D5
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 52) 62677: 0xe0d3f8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 02 F4 D5 32 EC 6C D5 E6 15 36 36 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 37 FF
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (52)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62677: 0xe0d3f8
+Sent POST request
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 52 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 52 bytes
+Incoming message of size 12 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=12 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 44 3F 14 32 EC 6C D5 E6 15 36 36
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  32 EC 6C D5 E6 15 36 36
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x32EC, mid: 16148
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+POST2_light:
+POST response: CHANGED
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62679: 0xe0d3a8
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62679 to 0xe0f440
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0f44c
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 0)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [0]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 5, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0f463----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 35 B (header len 35, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 01 F4 D7 43 E0 C2 67
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 35) 62679: 0xe0d3a8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 01 F4 D7 43 E0 C2 67 EB 4C 1E F1 60 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (35)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62679: 0xe0d3a8
+Sent OBSERVE request
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 35 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 35 bytes
+Incoming message of size 39 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=39 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 15 43 E0 C2 67 EB 4C 1E F1 60 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 38 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 0):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [0]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16149
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 56
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 16 43 E0 C2 67 EB 4C 1E F1 61 03 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 39 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [3]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16150
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 57
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 17 43 E0 C2 67 EB 4C 1E F1 61 04 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3A FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [4]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16151
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 58
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 18 43 E0 C2 67 EB 4C 1E F1 61 05 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3B FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [5]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16152
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16152 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 59
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 19 43 E0 C2 67 EB 4C 1E F1 61 06 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3C FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [6]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16153
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 60
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 1A 43 E0 C2 67 EB 4C 1E F1 61 07 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3D FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [7]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16154
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 61
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 1B 43 E0 C2 67 EB 4C 1E F1 61 08 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3E FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [8]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16155
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 62
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 1C 43 E0 C2 67 EB 4C 1E F1 61 09 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3F FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [9]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16156
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 63
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 1D 43 E0 C2 67 EB 4C 1E F1 61 0A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 40 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [10]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16157
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16157 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 64
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 1E 43 E0 C2 67 EB 4C 1E F1 61 0B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 41 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [11]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16158
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 65
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 1F 43 E0 C2 67 EB 4C 1E F1 61 0C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 42 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [12]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16159
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 66
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 20 43 E0 C2 67 EB 4C 1E F1 61 0D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 43 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [13]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16160
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 67
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 21 43 E0 C2 67 EB 4C 1E F1 61 0E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 44 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [14]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16161
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 68
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 22 43 E0 C2 67 EB 4C 1E F1 61 0F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 45 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [15]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16162
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16162 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 69
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 23 43 E0 C2 67 EB 4C 1E F1 61 10 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 46 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [16]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16163
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 70
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 24 43 E0 C2 67 EB 4C 1E F1 61 11 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 47 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [17]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16164
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 71
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 25 43 E0 C2 67 EB 4C 1E F1 61 12 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 48 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [18]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16165
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 72
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 26 43 E0 C2 67 EB 4C 1E F1 61 13 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 49 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [19]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16166
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 73
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 27 43 E0 C2 67 EB 4C 1E F1 61 14 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4A FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [20]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16167
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16167 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 74
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 28 43 E0 C2 67 EB 4C 1E F1 61 15 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4B FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [21]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16168
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 75
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 29 43 E0 C2 67 EB 4C 1E F1 61 16 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4C FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [22]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16169
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 76
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 2A 43 E0 C2 67 EB 4C 1E F1 61 17 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4D FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [23]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16170
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 77
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 2B 43 E0 C2 67 EB 4C 1E F1 61 18 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4E FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [24]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16171
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 78
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 2C 43 E0 C2 67 EB 4C 1E F1 61 19 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4F FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [25]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16172
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16172 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 79
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 2D 43 E0 C2 67 EB 4C 1E F1 61 1A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 50 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [26]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16173
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 80
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 2E 43 E0 C2 67 EB 4C 1E F1 61 1B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 51 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [27]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16174
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 81
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 2F 43 E0 C2 67 EB 4C 1E F1 61 1C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 52 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [28]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16175
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 82
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 30 43 E0 C2 67 EB 4C 1E F1 61 1D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 53 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [29]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16176
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 83
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  48 45 3F 31 43 E0 C2 67 EB 4C 1E F1 61 1E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 54 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [30]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16177
+DEBUG: ../../messaging/coap/engine.c <coap_receive:169>:   type: CON
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 16177 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1047>: Done serializing empty message at 0xe0d438-
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (4)-
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 84
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 4 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 4 bytes
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 32 43 E0 C2 67 EB 4C 1E F1 61 1F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 55 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [31]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16178
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 85
+Incoming message of size 40 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=40 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 33 43 E0 C2 67 EB 4C 1E F1 61 20 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 56 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 6 (delta 6, len 1):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:751>:   Observe [32]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 6, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16179
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 86
+Stopping OBSERVE
+DEBUG: ../../messaging/coap/transactions.c <coap_new_transaction:89>: Created new transaction 62711: 0xe0d3d8
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:397>: Caculating size of options
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1041>: -Serializing MID 62711 to 0xe0d438
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1051>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1052>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:395>: Serializing options at 0xe0d444
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 6 (delta 6, len 1)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:418>: Observe [1]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:217>: ARRAY type 11, len 7, full [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 0/7 (a)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 1/7 (/)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 5, len 2, part [a]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 3/7 (i)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 4/7 (g)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 5/7 (h)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 6/7 (t)
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:228>: STEP 7/7 ()
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_array_option:249>: OPTION type 11, delta 0, len 8, part [light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:424>: Uri-Path [a/light]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:426>: Serialize content format: 10000
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 12 (delta 1, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:429>: Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 17 (delta 5, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:434>: Accept [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2049 (delta 2032, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 3 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_int_option:176>: OPTION 2053 (delta 4, len 2)
+DEBUG: ../../messaging/coap/coap.c <coap_set_option_header:151>: WRITTEN 1 B opt header
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_options:495>: -Done serializing at 0xe0d45c----
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1080>: -Done 36 B (header len 36, payload len 0)-
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1082>: Dump
+DEBUG: ../../messaging/coap/coap.c <coap_serialize_message:1083>:  58 01 F4 F7 43 E0 C2 67
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:116>: Sending transaction(len: 36) 62711: 0xe0d3d8
+DEBUG: ../../messaging/coap/transactions.c <coap_send_transaction:117>:  58 01 F4 F7 43 E0 C2 67 EB 4C 1E F1 61 01 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG: ../../messaging/coap/coap.c <coap_send_message:1105>: -sending OCF message (36)-
+DEBUG: ../../messaging/coap/transactions.c <coap_clear_transaction:194>: Freeing transaction 62711: 0xe0d3d8
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:193>: Outbound network event: unicast message
+Outgoing message of size 36 bytes to [196.24.225.38]:56789
+
+DEBUG: ipadapter.c <send_msg:1026>: Sent 36 bytes
+Incoming message of size 38 bytes from [196.24.225.38]:56789
+
+DEBUG: ../../api/oc_buffer.c <process_thread_message_buffer_handler:162>: Inbound network event: decrypted request
+DEBUG: ../../messaging/coap/engine.c <coap_receive:128>: CoAP Engine: received datalen=38 from
+DEBUG: ../../messaging/coap/engine.c <coap_receive:129>: [196.24.225.38]:56789
+DEBUG: ../../messaging/coap/engine.c <coap_receive:130>:  58 45 3F 34 43 E0 C2 67 EB 4C 1E F1 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 57 FF
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:560>: Token (len 8)
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:561>:  43 E0 C2 67 EB 4C 1E F1
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:618>: OPTION 12 (delta 12, len 2):
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:638>:   Content-Format [10000]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:787>:   Content-format/accept-Version: [2048]
+DEBUG: ../../messaging/coap/coap.c <coap_parse_token_option:803>: -Done parsing-------
+DEBUG: ../../messaging/coap/engine.c <coap_receive:166>:   Parsed: CoAP version: 1, token: 0x43E0, mid: 16180
+DEBUG: ../../messaging/coap/engine.c <coap_receive:172>:   type: NON
+DEBUG: ../../messaging/coap/engine.c <coap_receive:577>: created new response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:587>: got response buffer for uri a/light
+DEBUG: ../../messaging/coap/engine.c <coap_receive:601>: processing incoming block
+DEBUG: ../../messaging/coap/engine.c <coap_receive:626>: calling oc_ri_invoke_client_cb
+OBSERVE_light:
+key state, value 1
+key power, value 87
