@@ -37,7 +37,9 @@ https://github.com/arduino/ArduinoCore-avr.git
 3. Arduino libraries 
 
 Time library: https://github.com/PaulStoffregen/Time for implementing (oc_clock.c method)
+
 Ethernet2 library: https://github.com/adafruit/Ethernet2 for implementing (ipadapter.c methods)
+
 pseudo random number generator(pRNG): https://github.com/leomil72/pRNG for implementing (oc_random.c method)
 
 ********** Build process: linux (mainly Debian) *********
