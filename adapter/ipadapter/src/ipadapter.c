@@ -47,9 +47,7 @@ handle_incoming_message(uint8_t *addr, uint16_t *port, uint8_t *buffer, uint16_t
     message->endpoint.flags = IPV4;
     memcpy(message->endpoint.addr.ipv4.address, addr, 16);
     message->endpoint.addr.ipv4.port = *port;
-		static int endpoint_port = 0;
-		endpoint_port = *port;
-		OC_DBG(("Incoming message of size %d bytes from port %u:  "), message->length, *port);
+		OC_DBG("Incoming message of size %d bytes from port %u:  ", message->length, *port);
     OC_LOGipaddr(message->endpoint);
     oc_network_event(message);
     return;

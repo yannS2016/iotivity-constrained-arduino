@@ -43,7 +43,6 @@ OCResult_t start_arduino_ucast_server(uint16_t *local_port)
 		return STATUS_FAILED;
 	}
 	uint8_t raw_ip_addr[4];
-	char address[16];
 	// check if we have a working ref of w5500
 	if(!wiznet5500) {
 		wiznet5500 = wiz5500_create();
@@ -51,8 +50,6 @@ OCResult_t start_arduino_ucast_server(uint16_t *local_port)
 			return STATUS_FAILED;
 	}
 	wiz5500_getIPAddress(wiznet5500, raw_ip_addr);
-	/*snprintf_P(address, sizeof(address), PCF("%d.%d.%d.%d"), raw_ip_addr[0], raw_ip_addr[1], raw_ip_addr[2],
-             raw_ip_addr[3]);*/
 	uint8_t serverFD = 1; // try this socket
 	if (arduino_init_udp_socket(local_port, &serverFD) != STATUS_OK)
 	{
@@ -157,7 +154,6 @@ OCResult_t ard_sock_get_data(uint8_t *socketID)
 	* Fix : Use the patch provided for arduino/libraries/Ethernet/utility/socket.cpp
 	*/
 	uint8_t sender_addr[4] = { 0 };
-	char addr[IPNAMESIZE] = {0};
 	uint16_t sender_port = 0;
 	// check if we have a working ref of w5500
 	if(!wiznet5500) {

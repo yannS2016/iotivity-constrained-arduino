@@ -28,7 +28,12 @@ typedef uint32_t oc_clock_time_t;
 #define OC_BLOCK_WISE_SET_MTU (700)
 
 /* Maximum size of request/response payloads */
+#ifdef OC_CLIENT
+#define OC_MAX_APP_DATA_SIZE (500)
+#else
 #define OC_MAX_APP_DATA_SIZE (1024)
+#endif
+
 
 /* Maximum number of concurrent requests */
 #define OC_MAX_NUM_CONCURRENT_REQUESTS (3)
