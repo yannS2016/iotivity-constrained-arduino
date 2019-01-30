@@ -23,19 +23,17 @@ iotivity_constrained.patch to your iotivity-constrained-arduino
 
 ## Build tools
 
-1. **Arduino Makefile from**: https://github.com/sudar/Arduino-Makefile
-Used to compile and upload the hex file to the arduino board.
+1. **Arduino Makefile** [Arduino mk](https://github.com/sudar/Arduino-Makefile) Used to compile and upload the hex file to the arduino board.
 
-2. **Arduino sdk from**: when can just provide a path to the arduino ide location or get the sources form
-https://github.com/arduino/ArduinoCore-avr.git
+2. **Arduino sdk** [Arduino home](https://github.com/arduino/ArduinoCore-avr.git) , one can just provide a path to the arduino ide
 
-3. Arduino libraries 
+3. ***Arduino libraries**
 
-**- Time library:** https://github.com/PaulStoffregen/Time for implementing (oc_clock.c method)
+- **Time library** [Time] (https://github.com/PaulStoffregen/Time) for implementing (oc_clock.c method)
 
-**- Ethernet2 library:** https://github.com/adafruit/Ethernet2 for implementing (ipadapter.c methods)
+- **Ethernet2 library** [w5500 ethernet](https://github.com/adafruit/Ethernet2) for implementing (ipadapter.c methods)
 
-**- pRNG**: https://github.com/leomil72/pRNG for implementing (oc_random.c method)
+- **pseudo random number generator** [pRNG](https://github.com/leomil72/pRNG) for implementing (oc_random.c method)
 
 ## Build process: linux (mainly Debian) 
 
@@ -45,12 +43,11 @@ https://github.com/arduino/ArduinoCore-avr.git
 
 `cd iotivity-constrained-arduino/ adapter`
 
-**Note:** Initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [https://github.com/espressif/esp32-iotivity] . Though  i also tested this port to work on this commit(4f045e4a0f6d05a564877a6413cf33a51173fe25).
+**Note:** Initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [https://github.com/espressif/esp32-iotivity] . the port was lately tested on this commit(4f045e4a0f6d05a564877a6413cf33a51173fe25).
 
 `git clone --recursive https://github.com/iotivity/iotivity-constrained.git`
 
 cd ../../
-
 
 Review the setup.mk file to define the correct location of arduino-home(arduino core, libraries... path), arduino-mk (path to the arduino makefile  folder. When happy proceed as below
 
@@ -59,6 +56,7 @@ Review the setup.mk file to define the correct location of arduino-home(arduino 
 ## Testing
 look under test to see some log of what to expect from the arduino server when running the simpleclient app from linux other an arduino client test is also provide under this path for operating as a resources requester. additional test show that one iotivity-constrained on arduino works even from the main iotivity code(client/server)the node js port(iotivity-node) as well, i was even able to get good response from the iot-rest-api server. more on that will be documented.
 
-Issues: Arduino does not handle IPV6, thus client wont be able to send unicast requests/responses automatically. from what i got, the client actually sent two request, one over IPV6(default) and another via IPV4 the server, receive both and reject the latter, although the response from the server contains all endpoints enable(IPV6 and IPV4). by default the iotivity client code uses the first endpoint which is the IPV6 one. thus making arduino client unicast response unreachable(w5500 does not support IPV6). one should use the next endpoint from the reply(which IPV4) as `light_server = endpoint->next;`
+## Issues
+Arduino does not handle IPV6, thus client wont be able to send unicast requests/responses automatically. from what i got, the client actually sent two request, one over IPV6(default) and another via IPV4 the server, receive both and reject the latter, although the response from the server contains all endpoints enable(IPV6 and IPV4). by default the iotivity client code uses the first endpoint which is the IPV6 one. thus making arduino client unicast response unreachable(w5500 does not support IPV6). one should use the next endpoint from the reply(which IPV4) as `light_server = endpoint->next;`
 
 	
