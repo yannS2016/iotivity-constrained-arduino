@@ -9,7 +9,7 @@ libraries by providing C wrappers. though i plan to make the all build  C depend
 
 ***** Patching arduino libraries ******
 
-i updated the socket based on mainline iotivity_1_2(arduino adapter) comment regarding the a fix required on the socket.cpp code for the udp receive method
+i updated socket.cpp based on mainline iotivity_1_2(arduino adapter) comment regarding the a fix required on the socket.cpp code for the udp receive method
 the patch is arduino_socket.patch. apply this patch to your socket.cpp file.
 
 The iotivity constrained logging system is not directly compatible with arduino at it is. i move away from arduino Serial classes and adapted
@@ -35,9 +35,10 @@ this is used to compile and upload the hex file to the arduino board.
 https://github.com/arduino/ArduinoCore-avr.git
 
 3. Arduino libraries 
-  3.1 Time library: https://github.com/PaulStoffregen/Time for implementing (oc_clock.c method)
-	3.2 Ethernet2 library: https://github.com/adafruit/Ethernet2 for implementing (ipadapter.c methods)
-	3.3 pseudo random number generator(pRNG): https://github.com/leomil72/pRNG for implementing (oc_random.c method)
+
+Time library: https://github.com/PaulStoffregen/Time for implementing (oc_clock.c method)
+Ethernet2 library: https://github.com/adafruit/Ethernet2 for implementing (ipadapter.c methods)
+pseudo random number generator(pRNG): https://github.com/leomil72/pRNG for implementing (oc_random.c method)
 
 ********** Build process: linux (mainly Debian) *********
 
