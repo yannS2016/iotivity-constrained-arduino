@@ -1,0 +1,138 @@
+--- iotivity-constrained/port/oc_log.h	2019-01-24 09:04:16.610631349 +0000
++++ iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_log.h	2019-01-30 11:56:14.071454920 +0000
+@@ -18,18 +18,29 @@
+ #define OC_LOG_H
+ 
+ #include <stdio.h>
+-
++// the size of OC_PDU_SIZE and OC_MAX_APP_DATA_SIZE
+ #ifdef __cplusplus
+ extern "C"
+ {
+ #endif
++#ifdef ARDUINO
++#include "Arduino.h"
++#ifdef __cplusplus
++#define PCF(str)  ((PROGMEM const char *)(F(str)))
++#else
++#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
++#endif
++// from: https://stackoverflow.com/questions/18968070/error-when-defining-a-stringising-macro-with-va-args
++#define PRINT(format, ...)  printf_P(PCF(format), ##__VA_ARGS__)
++#else
++#define PRINT(...) printf(__VA_ARGS__)	
++#endif
+ 
+-#define PRINT(...) printf(__VA_ARGS__)
+ 
+ #define PRINTipaddr(endpoint)                                                  \
+   do {                                                                         \
+     if ((endpoint).flags & IPV4) {                                             \
+-      PRINT("[%d.%d.%d.%d]:%d", ((endpoint).addr.ipv4.address)[0],             \
++      PRINT("[%d.%d.%d.%d]:%u", ((endpoint).addr.ipv4.address)[0],             \
+             ((endpoint).addr.ipv4.address)[1],                                 \
+             ((endpoint).addr.ipv4.address)[2],                                 \
+             ((endpoint).addr.ipv4.address)[3], (endpoint).addr.ipv4.port);     \
+@@ -37,7 +48,7 @@
+       PRINT(                                                                   \
+         "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%"    \
+         "02x%"                                                                 \
+-        "02x]:%d",                                                             \
++        "02x]:%u",                                                             \
+         ((endpoint).addr.ipv6.address)[0], ((endpoint).addr.ipv6.address)[1],  \
+         ((endpoint).addr.ipv6.address)[2], ((endpoint).addr.ipv6.address)[3],  \
+         ((endpoint).addr.ipv6.address)[4], ((endpoint).addr.ipv6.address)[5],  \
+@@ -52,38 +63,43 @@
+     }                                                                          \
+   } while (0)
+ 
+-#ifdef OC_DEBUG
++#ifdef ARDUINO
++#define OC_LOG(level, format, ...)                                             \
++  do {                                                                         \
++    PRINT("%s:<%s:%d>: ", level, __func__, __LINE__);                                                   \
++    PRINT(format, ##__VA_ARGS__);                                              \
++		PRINT("\n");                                                               \
++  } while (0)
++#define OC_DBG(format, ...)   OC_LOG("DEBUG", format, ##__VA_ARGS__)
++#define OC_WRN(format, ...)   OC_LOG("WARNING", format,##__VA_ARGS__)
++#define OC_ERR(format, ...)   OC_LOG("ERROR", format, ##__VA_ARGS__)
++#else
++
+ #define OC_LOG(level, ...)                                                     \
+   do {                                                                         \
+-    PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
++    PRINT("<%s:%s:%d>: ", level,__FILE__, __LINE__);                           \
+     PRINT(__VA_ARGS__);                                                        \
+-    PRINT("\n");                                                               \
++		PRINT("\n");                                                               \
+   } while (0)
+-#define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
+-#define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
+-#define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
++#define OC_DBG(...)   OC_LOG("DEBUG",__VA_ARGS__)
++#define OC_WRN(...)   OC_LOG("WARNING",__VA_ARGS__)
++#define OC_ERR(...)   OC_LOG("ERROR", __VA_ARGS__)
++#endif
++
+ #define OC_LOGipaddr(endpoint)                                                 \
+   do {                                                                         \
+-    PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
++    PRINT("DEBUG: <%d>: ", __LINE__);                                          \
+     PRINTipaddr(endpoint);                                                     \
+     PRINT("\n");                                                               \
+   } while (0)
+ #define OC_LOGbytes(bytes, length)                                             \
+   do {                                                                         \
+-    PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
++    PRINT("DEBUG: <%d>: ", __LINE__);                                          \
+     uint16_t i;                                                                \
+     for (i = 0; i < length; i++)                                               \
+       PRINT(" %02X", bytes[i]);                                                \
+     PRINT("\n");                                                               \
+-  } while (0)
+-#else
+-#define OC_LOG(...)
+-#define OC_DBG(...)
+-#define OC_WRN(...)
+-#define OC_ERR(...)
+-#define OC_LOGipaddr(endpoint)
+-#define OC_LOGbytes(bytes, length)
+-#endif
++  } while (0)	
+ 
+ #ifdef __cplusplus
+ }
+--- iotivity-constrained/port/oc_connectivity.h	2019-01-30 15:41:16.890198154 +0000
++++ iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_connectivity.h	2019-01-30 16:27:28.714566033 +0000
+@@ -84,10 +84,13 @@
+ #ifdef OC_TCP
+ #define OC_PDU_SIZE (oc_get_max_app_data_size() + COAP_MAX_HEADER_SIZE)
+ #else /* OC_TCP */
+-#define OC_PDU_SIZE (oc_get_mtu_size())
++#ifdef OC_CLIENT
++#define OC_PDU_SIZE 512
++#else
++#define OC_PDU_SIZE 1024
++#endif
+ #endif /* !OC_TCP */
+ #define OC_BLOCK_SIZE (oc_get_block_size())
+-#define OC_MAX_APP_DATA_SIZE (oc_get_max_app_data_size())
+ #endif /* OC_DYNAMIC_ALLOCATION */
+ 
+ struct oc_message_s
+--- iotivity-constrained/messaging/coap/engine.c	2019-01-30 15:41:16.880198138 +0000
++++ iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/engine.c	2019-01-30 15:47:51.270835424 +0000
+@@ -74,8 +74,11 @@
+                                              uint8_t *buffer,
+                                              oc_endpoint_t *endpoint);
+ #endif /* !OC_BLOCK_WISE */
+-
++#ifdef OC_CLIENT
++#define OC_REQUEST_HISTORY_SIZE (50)
++#else
+ #define OC_REQUEST_HISTORY_SIZE (250)
++#endif
+ static uint16_t history[OC_REQUEST_HISTORY_SIZE];
+ static uint8_t history_dev[OC_REQUEST_HISTORY_SIZE];
+ static uint8_t idx;
