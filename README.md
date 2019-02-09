@@ -6,20 +6,20 @@ This port at present target the arduino mega board as the constrained device. Th
 
 ### Patching arduino libraries 
 
-i updated socket.cpp based on the mainline iotivity_1_2(arduino adapter) comment regarding the  fix required on the socket.cpp code for the udp receive method the patch is arduino_socket.patch. apply this patch to your socket.cpp file.
+I updated socket.cpp based on the mainline iotivity_1_2(arduino adapter) comment regarding the  fix required on the socket.cpp code for the udp receive method the patch is arduino_socket.patch. apply this patch to your socket.cpp file.
 
 The iotivity constrained logging system is not directly compatible with arduino at it is. i move away from arduino Serial classes and adapted a rs232(c based) code from contiki( inspired by the fact that iotivity constrained stack uses is based on contiki). this is found under deps and as libarduino-rs232. using this, one can used the stdio.h printing and string formatting methods. still one need to patch the oc_log.h header in order to push constant text to arduino program memory (making use of PROGMEM attribute). 
 
 the arduino Time library target C++ code, though adding attribute line extern C or _cplusplus the fact that it uses method overloading
 is not acceptable from C perspective. i provide a basic tweak to make it usable. one cam write a C++ class around it a provide a cleaner C wrapper or  just make it plain C. 
 
-Aplying patches
+### Applying patch
 
-under ./pathces  apply:
+all patch files are under iotivity-constrained-arduino/patches
 
-arduino_socket.patch to your /path/to/arduino/home/libraries/Ethernet2
-arduino_time.patch to /path/to/arduino/home/libraries/Time
-iotivity_constrained.patch to your iotivity-constrained-arduino 
+- **arduino_socket.patch** to  /path/to/arduino/home/libraries/Ethernet2
+- **arduino_time.patch** to /path/to/arduino/home/libraries/Time
+- **iotivity_constrained.patch** to your iotivity-constrained-arduino 
 
 ## Build tools
 
@@ -41,7 +41,7 @@ iotivity_constrained.patch to your iotivity-constrained-arduino
 
 `git clone https://github.com/yannS2016/iotivity-constrained-arduino`
 
-`cd iotivity-constrained-arduino/ adapter`
+`cd iotivity-constrained-arduino/adapter`
 
 **Note:** Initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [esp32 iotivity](https://github.com/espressif/esp32-iotivity). the port was lately tested on this commit(4f045e4a0f6d05a564877a6413cf33a51173fe25).
 
