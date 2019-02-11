@@ -1,5 +1,3 @@
-Only in Ethernet2/: .git
-Only in Ethernet2/: .github
 diff -ru Ethernet2/README.md arduino-home/libraries/Ethernet2/README.md
 --- Ethernet2/README.md	2019-01-30 15:20:45.608212141 +0000
 +++ arduino-home/libraries/Ethernet2/README.md	2019-01-08 13:36:15.000000000 +0000

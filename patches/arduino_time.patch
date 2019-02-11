@@ -1,18 +1,3 @@
-Only in Time: DateStrings.cpp
-Only in Time/.git: branches
-Only in Time/.git: config
-Only in Time/.git: description
-Only in Time/.git: HEAD
-Only in Time/.git: index
-Only in Time/.git: info
-Only in Time/.git: logs
-Only in arduino-home/libraries/Time/.git/objects/pack: pack-47123a63de5f2fe2721d6e73b644ade5816cc369.idx
-Only in arduino-home/libraries/Time/.git/objects/pack: pack-47123a63de5f2fe2721d6e73b644ade5816cc369.pack
-Only in Time/.git/objects/pack: pack-8a5ca55a34f9af7e2435dccab7996effe0842ff3.idx
-Only in Time/.git/objects/pack: pack-8a5ca55a34f9af7e2435dccab7996effe0842ff3.pack
-Only in Time/.git: packed-refs
-Only in Time/.git: refs
-Only in Time: library.json
 diff -ru Time/Readme.md arduino-home/libraries/Time/Readme.md
 --- Time/Readme.md	2019-01-30 17:11:53.978520590 +0000
 +++ arduino-home/libraries/Time/Readme.md	2019-01-08 13:36:13.000000000 +0000
