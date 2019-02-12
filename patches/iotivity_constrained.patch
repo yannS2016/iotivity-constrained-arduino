@@ -1,5 +1,5 @@
---- iotivity-constrained/port/oc_log.h	2019-01-24 09:04:16.610631349 +0000
-+++ iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_log.h	2019-01-30 11:56:14.071454920 +0000
+--- port/oc_log.h	2019-01-24 09:04:16.610631349 +0000
++++ port/oc_log.h	2019-01-30 11:56:14.071454920 +0000
 @@ -18,18 +18,29 @@
  #define OC_LOG_H
  
@@ -103,8 +103,8 @@
  
  #ifdef __cplusplus
  }
---- iotivity-constrained/port/oc_connectivity.h	2019-01-30 15:41:16.890198154 +0000
-+++ iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_connectivity.h	2019-01-30 16:27:28.714566033 +0000
+--- port/oc_connectivity.h	2019-01-30 15:41:16.890198154 +0000
++++ port/oc_connectivity.h	2019-01-30 16:27:28.714566033 +0000
 @@ -84,10 +84,13 @@
  #ifdef OC_TCP
  #define OC_PDU_SIZE (oc_get_max_app_data_size() + COAP_MAX_HEADER_SIZE)
@@ -121,18 +121,4 @@
  #endif /* OC_DYNAMIC_ALLOCATION */
  
  struct oc_message_s
---- iotivity-constrained/messaging/coap/engine.c	2019-01-30 15:41:16.880198138 +0000
-+++ iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/engine.c	2019-01-30 15:47:51.270835424 +0000
-@@ -74,8 +74,11 @@
-                                              uint8_t *buffer,
-                                              oc_endpoint_t *endpoint);
- #endif /* !OC_BLOCK_WISE */
--
-+#ifdef OC_CLIENT
-+#define OC_REQUEST_HISTORY_SIZE (50)
-+#else
- #define OC_REQUEST_HISTORY_SIZE (250)
-+#endif
- static uint16_t history[OC_REQUEST_HISTORY_SIZE];
- static uint8_t history_dev[OC_REQUEST_HISTORY_SIZE];
- static uint8_t idx;
+
