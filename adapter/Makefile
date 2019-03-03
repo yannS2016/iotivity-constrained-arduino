@@ -42,6 +42,10 @@ endif
 ifeq ($(IPV4),1)
 	CFLAGS += -DOC_IPV4
 endif
+# activate this if you have an xmem shield added to your arduino board
+ifeq ($(XMEM),1)
+	CFLAGS += -DOC_XMEM
+endif
 
 
 ifeq ($(SERVER),1)

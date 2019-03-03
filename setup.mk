@@ -61,6 +61,59 @@ CXXFLAGS_STD      += -std=gnu++11
 CXXFLAGS         += -Wno-attributes -Wno-variadic-macros -Wall -Wextra
 ### CFLAGS
 CFLAGS           += -Wno-attributes -Wno-variadic-macros -Wall -Wextra
+
+### If avr-gcc -v is higher than 4.9, activate coloring of the output
+ifeq "$(AVR_GCC_VERSION)" "1"
+    CXXFLAGS += -fdiagnostics-color
+endif
+
+### Library Options 
+### Minimalistic printf version
+PRINTF_LIB_MIN = -Wl,-u,vfprintf -lprintf_min
+
+### Floating point printf version (requires MATH_LIB = -lm below)
+PRINTF_LIB_FLOAT = -Wl,-u,vfprintf -lprintf_flt
+
+### If this is left blank, then it will use the Standard printf version.
+#PRINTF_LIB = 
+#PRINTF_LIB = $(PRINTF_LIB_MIN)
+PRINTF_LIB = $(PRINTF_LIB_FLOAT)
+
+
+### Minimalistic scanf version
+SCANF_LIB_MIN = -Wl,-u,vfscanf -lscanf_min
+
+### Floating point + %[ scanf version (requires MATH_LIB = -lm below)
+SCANF_LIB_FLOAT = -Wl,-u,vfscanf -lscanf_flt
+
+### If this is left blank, then it will use the Standard scanf version.
+SCANF_LIB = 
+#SCANF_LIB = $(SCANF_LIB_MIN)
+#SCANF_LIB = $(SCANF_LIB_FLOAT)
+
+### External Memory Options 
+## 64 KB of external RAM, starting after internal RAM (ATmega128!),
+## used for variables (.data/.bss) and heap (malloc()).
+##EXTMEMOPTS = -Wl,-Tdata=0x801100,--defsym=__heap_end=0x80ffff
+##EXTMEMOPTS = -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff
+## 64 KB of external RAM, starting after internal RAM (ATmega128!),
+## only used for heap (malloc()).
+##  -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
+
+ifeq ($(XMEM),1)
+	EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
+else
+	EXTMEMOPTS =
+endif
+
+### Linker Options 
+##  -Wl,...:   tell GCC to pass this to linker.
+##  -Map:      create map file
+##  --cref:    add cross reference to  map file
+LDFLAGS += $(EXTMEMOPTS)
+LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) 
+
+
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
 MONITOR_PORT      = /dev/ttyACM*
