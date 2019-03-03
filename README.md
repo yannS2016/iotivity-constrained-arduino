@@ -38,11 +38,13 @@ is not acceptable from C perspective. i provide a basic tweak to make it usable.
 
 all patch files are under iotivity-constrained-arduino/patches
 
- cd iotivity-constrained-arduino/patches
+ cd iotivity-constrained-arduino/adapter/iotivity-constrained 
+ - patch -p0 < ../../patches/iotivity_constrained.patch
+ 
+ cd $ARDUINO_DIR
+ - patch -p0 < ~/iotivity-constrained-arduino/patches/arduino_socket.patch
+ - patch -p0 < ~/iotivity-constrained-arduino/patches/arduino_time.patch
 
- - patch -p0 < arduino_socket.patch
- - patch -p0 < arduino_time.patch
- - patch -p0 <iotivity_constrained.patch
  
 **Note:** The port was initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [esp32 iotivity](https://github.com/espressif/esp32-iotivity).
 
