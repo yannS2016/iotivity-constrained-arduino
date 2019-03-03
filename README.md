@@ -13,17 +13,6 @@ The iotivity constrained logging system is not directly compatible with arduino 
 the arduino Time library target C++ code, though adding attribute line extern C or _cplusplus the fact that it uses method overloading
 is not acceptable from C perspective. i provide a basic tweak to make it usable. one cam write a C++ class around it a provide a cleaner C wrapper or  just make it plain C. 
 
-### Applying patch
-
-all patch files are under iotivity-constrained-arduino/patches
-
- cd iotivity-constrained-arduino/patches
-
- - patch -p0 < arduino_socket.patch
- 
- - patch -p0 < arduino_time.patch
- 
- - patch -p0 <iotivity_constrained.patch
 
 ## Build tools
 
@@ -45,6 +34,16 @@ all patch files are under iotivity-constrained-arduino/patches
 
 `git clone --recurse-submodules https://github.com/yannS2016/iotivity-constrained-arduino`
 
+### Applying patch
+
+all patch files are under iotivity-constrained-arduino/patches
+
+ cd iotivity-constrained-arduino/patches
+
+ - patch -p0 < arduino_socket.patch
+ - patch -p0 < arduino_time.patch
+ - patch -p0 <iotivity_constrained.patch
+ 
 **Note:** The port was initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [esp32 iotivity](https://github.com/espressif/esp32-iotivity).
 
 cd ../../
