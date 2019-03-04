@@ -6,9 +6,13 @@ WIZ5500_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-wiz5500.a
 RS232_ARCHIVE 	    = build-$(BOARD_TAG)/libarduino-rs232.a
 
 ifeq ($(SERVER),1)
-#  LOCAL_CPP_SRCS 		+= apps/server/server.cpp
-  LOCAL_CPP_SRCS 		+= apps/server/server-xmem.cpp
   CXXFLAGS 				+= -DOC_SERVER
+ifeq ($(XMEM),1)
+	CXXFLAGS += -DOC_XMEM
+  LOCAL_CPP_SRCS 		+= apps/server/server-xmem.cpp
+else
+  LOCAL_CPP_SRCS 		+= apps/server/server.cpp
+endif
 endif
 
 ifeq ($(CLIENT),1)

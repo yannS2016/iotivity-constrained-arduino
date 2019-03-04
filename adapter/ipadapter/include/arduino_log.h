@@ -8,7 +8,7 @@
 #define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
 #endif
 
-extern char *logstr;
+//extern char *logstr;
 
 void OCLogv(PROGMEM const char *level,const char *file, const char * func, 
                           const int lineNum, PROGMEM const char *format, ...);

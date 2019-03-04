@@ -4,13 +4,10 @@
 #else
 #include <WProgram.h>
 #endif
-/*
-* Treat oc_log.h as cpp header because it includes Arduino.h which deals with classes, 
-* function overloading which c will fail to process and return  multiple definition or inknown type
-*/
-//#include "oc_log.h" // wont need to include this: just call IotivitySerial.h
-// we declare this headers inside extern so to enabling linking of c code insde cpp
-//#include "FreeMemory.h"
+
+#ifndef OC_XMEM
+#include "FreeMemory.h"
+#endif
 extern "C" {
 #endif
 #include "oc_api.h"
