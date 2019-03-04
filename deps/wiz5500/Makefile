@@ -3,7 +3,7 @@ include ../../setup.mk
 SRC=$(wildcard ./*.cpp) 
 LOCAL_CPP_SRCS += $(SRC)
 
-CXXFLAGS +=-I../../adapter/ipadater/include -I../../adapter/iotivity-constrained/port \
+CXXFLAGS +=-I../../adapter/ipadapter/include -I../../adapter/iotivity-constrained/port \
           -I$(ARDUINO_DIR)/libraries/Ethernet2/src/utility
 
 include $(ARDMK_DIR)/Arduino.mk 

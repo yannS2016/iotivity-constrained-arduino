@@ -1,6 +1,6 @@
-diff -ru Time/Readme.md arduino-home/libraries/Time/Readme.md
+diff -ru Time/Readme.md libraries/Time/Readme.md
 --- Time/Readme.md	2019-01-30 17:11:53.978520590 +0000
-+++ arduino-home/libraries/Time/Readme.md	2019-01-08 13:36:13.000000000 +0000
++++ libraries/Time/Readme.md	2019-01-08 13:36:13.000000000 +0000
 @@ -90,10 +90,10 @@
    if it is running and connected to the Arduino serial port.
  
@@ -14,9 +14,9 @@ diff -ru Time/Readme.md arduino-home/libraries/Time/Readme.md
    A basic RTC library named DS1307RTC is included in the download.
    To run this sketch the DS1307RTC library must be installed.
  
-diff -ru Time/Time.cpp arduino-home/libraries/Time/Time.cpp
+diff -ru Time/Time.cpp libraries/Time/Time.cpp
 --- Time/Time.cpp	2019-01-30 17:11:53.978520590 +0000
-+++ arduino-home/libraries/Time/Time.cpp	2019-01-08 13:36:13.000000000 +0000
++++ libraries/Time/Time.cpp	2019-01-08 13:36:13.000000000 +0000
 @@ -41,12 +41,16 @@
  
  void refreshCache(time_t t) {
@@ -253,9 +253,9 @@ diff -ru Time/Time.cpp arduino-home/libraries/Time/Time.cpp
  void adjustTime(long adjustment) {
    sysTime += adjustment;
  }
-diff -ru Time/TimeLib.h arduino-home/libraries/Time/TimeLib.h
+diff -ru Time/TimeLib.h libraries/Time/TimeLib.h
 --- Time/TimeLib.h	2019-01-30 17:11:53.978520590 +0000
-+++ arduino-home/libraries/Time/TimeLib.h	2019-01-08 13:36:13.000000000 +0000
++++ libraries/Time/TimeLib.h	2019-01-08 13:36:13.000000000 +0000
 @@ -8,7 +8,6 @@
  */     
  

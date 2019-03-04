@@ -1,18 +1,19 @@
 include ./setup.mk
 SERVER_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-adapter.a
-PRNG_ARCHIVE 			= build-$(BOARD_TAG)/libarduino-prng.a
-TIME_ARCHIVE 			= build-$(BOARD_TAG)/libarduino-time.a
+PRNG_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-prng.a
+TIME_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-time.a
 WIZ5500_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-wiz5500.a
-RS232_ARCHIVE 	  = build-$(BOARD_TAG)/libarduino-rs232.a
+RS232_ARCHIVE 	    = build-$(BOARD_TAG)/libarduino-rs232.a
 
 ifeq ($(SERVER),1)
-  LOCAL_CPP_SRCS 		+= apps/server/server.cpp
-  CXXFLAGS 					+= -DOC_SERVER
+#  LOCAL_CPP_SRCS 		+= apps/server/server.cpp
+  LOCAL_CPP_SRCS 		+= apps/server/server-xmem.cpp
+  CXXFLAGS 				+= -DOC_SERVER
 endif
 
 ifeq ($(CLIENT),1)
   LOCAL_CPP_SRCS 		+= apps/client/client.cpp
-  CXXFLAGS 					+= -DOC_CLIENT
+  CXXFLAGS 				+= -DOC_CLIENT
 endif
 
 

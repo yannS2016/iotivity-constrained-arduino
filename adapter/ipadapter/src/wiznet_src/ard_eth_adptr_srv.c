@@ -20,7 +20,7 @@
 #include <socket.h>
 #include "Wiz5500.h"
 #include "oc_log.h"
-#include "oc_config.h"
+#include "oc_connectivity.h"
 #include "ard_eth_adptr_srv.h"
 
 #define IPNAMESIZE (16)

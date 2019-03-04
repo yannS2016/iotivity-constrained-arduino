@@ -1,5 +1,5 @@
 [submodule "Arduino-Makefile"]
-	path = arduino-mk
+	path = Arduino-Makefile
 	url = https://github.com/sudar/Arduino-Makefile.git
 [submodule "adapter/iotivity-constrained"]
 	path = adapter/iotivity-constrained

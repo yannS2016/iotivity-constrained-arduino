@@ -1,6 +1,8 @@
 #include "../main.h"
 #include "Ethernet2.h"
-
+#ifdef OC_XMEM
+#include "xmem.h"
+#endif
 OC_PROCESS(sample_server_process, "server");
 static bool state = false;
 int power;
@@ -162,7 +164,9 @@ init_serial(void)
   rs232_set_input(USART_PORT, NULL);
 }
 void setup() {
-	
+#ifdef OC_XMEM
+	xmem::begin(0); // we set to false because the the make file has the linker command 
+#endif
 	init_serial();
 	delay(500);
 	if (ConnectToNetwork() != 0)
@@ -171,7 +175,7 @@ void setup() {
 		return;
 	}
 	oc_process_start(&sample_server_process, NULL);
-	OC_DBG("freememory: %d\n\n", freeMemory());
+	//OC_DBG("freememory: %d\n\n", freeMemory());
   delay(2000);
 }
 

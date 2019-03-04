@@ -4,7 +4,7 @@ PROJECT_DIR       = $(PWD)
 IOTIVITY_CONSTRAINED       = adapter/iotivity-constrained
 ### ARDMK_DIR
 ### Path to the Arduino-Makefile directory.
-ARDMK_DIR         = $(HOME)/arduino-mk
+ARDMK_DIR         = $(PROJECT_DIR)/Arduino-Makefile
 
 ### ARDUINO_DIR
 ### Path to the Arduino application and resources directory.
@@ -43,7 +43,7 @@ AVR_TOOLS_DIR     = $(ARDUINO_DIR)/hardware/tools/avr
 AVRDUDE_ARD_PROGRAMMER = wiring
 
 ### ARDUINO LIBS
-ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2
+ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2 xmem
 
 ### CFLAGS_STD
 ### Set the C standard to be used during compilation. Documentation (https://github.com/WeAreLeka/Arduino-Makefile/blob/std-flags/arduino-mk-vars.md#cflags_std)

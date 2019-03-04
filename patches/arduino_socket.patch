@@ -1,6 +1,6 @@
-diff -ru Ethernet2/README.md arduino-home/libraries/Ethernet2/README.md
+diff -ru Ethernet2/README.md libraries/Ethernet2/README.md
 --- Ethernet2/README.md	2019-01-30 15:20:45.608212141 +0000
-+++ arduino-home/libraries/Ethernet2/README.md	2019-01-08 13:36:15.000000000 +0000
++++ libraries/Ethernet2/README.md	2019-01-08 13:36:15.000000000 +0000
 @@ -1,7 +1,21 @@
 -# Deprecated/Archived Library 
 +Ethernet "2" Library for Arduino
@@ -25,9 +25,9 @@ diff -ru Ethernet2/README.md arduino-home/libraries/Ethernet2/README.md
  
  
  License
-diff -ru Ethernet2/src/utility/socket.cpp arduino-home/libraries/Ethernet2/src/utility/socket.cpp
+diff -ru Ethernet2/src/utility/socket.cpp libraries/Ethernet2/src/utility/socket.cpp
 --- Ethernet2/src/utility/socket.cpp	2019-01-30 15:20:45.628212171 +0000
-+++ arduino-home/libraries/Ethernet2/src/utility/socket.cpp	2019-01-30 15:22:28.978362838 +0000
++++ libraries/Ethernet2/src/utility/socket.cpp	2019-01-30 15:22:28.978362838 +0000
 @@ -254,6 +254,7 @@
  {
    uint8_t head[8];
@@ -87,9 +87,9 @@ diff -ru Ethernet2/src/utility/socket.cpp arduino-home/libraries/Ethernet2/src/u
  }
  
  /**
-diff -ru Ethernet2/src/utility/socket.h arduino-home/libraries/Ethernet2/src/utility/socket.h
+diff -ru Ethernet2/src/utility/socket.h libraries/Ethernet2/src/utility/socket.h
 --- Ethernet2/src/utility/socket.h	2019-01-30 15:20:45.628212171 +0000
-+++ arduino-home/libraries/Ethernet2/src/utility/socket.h	2019-01-08 13:36:15.000000000 +0000
++++ libraries/Ethernet2/src/utility/socket.h	2019-01-08 13:36:15.000000000 +0000
 @@ -6,7 +6,9 @@
   
  #ifndef	_SOCKET_H_
@@ -111,9 +111,9 @@ diff -ru Ethernet2/src/utility/socket.h arduino-home/libraries/Ethernet2/src/uti
 +#endif
  #endif
  /* _SOCKET_H_ */
-diff -ru Ethernet2/src/utility/w5500.h arduino-home/libraries/Ethernet2/src/utility/w5500.h
+diff -ru Ethernet2/src/utility/w5500.h libraries/Ethernet2/src/utility/w5500.h
 --- Ethernet2/src/utility/w5500.h	2019-01-30 15:20:45.628212171 +0000
-+++ arduino-home/libraries/Ethernet2/src/utility/w5500.h	2019-01-08 13:36:15.000000000 +0000
++++ libraries/Ethernet2/src/utility/w5500.h	2019-01-08 13:36:15.000000000 +0000
 @@ -16,12 +16,14 @@
  
  #define MAX_SOCK_NUM 8
