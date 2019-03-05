@@ -1,6 +1,8 @@
 #include "../main.h"
 #include "Ethernet2.h"
-
+#ifdef OC_XMEM
+#include "xmem.h"
+#endif
 OC_PROCESS(sample_client_process, "client");
 static int
 app_init(void)
@@ -181,8 +183,11 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
     if (strlen(t) == 10 && strncmp(t, "core.light", 10) == 0) {
 			#ifdef OC_IPV4
       light_server = endpoint->next;
+			OC_DBG("IPV4 Resource ");
+			PRINTipaddr(*light_server);
 			#else
 			light_server = endpoint;
+			OC_DBG("IPV6 Resource ");
 			#endif
       strncpy(a_light, uri, uri_len);
       a_light[uri_len] = '\0';
@@ -270,6 +275,9 @@ init_serial(void)
 }
 void setup() {
 	
+#ifdef OC_XMEM
+	xmem::begin(0); // we set to false because the the make file has the linker command 
+#endif	
 	init_serial();
 	delay(500);
 	if (ConnectToNetwork() != 0)
@@ -279,7 +287,10 @@ void setup() {
 	}
 	
 	oc_process_start(&sample_client_process, NULL);
-	OC_DBG("freememory: %d", freeMemory());
+#ifndef OC_XMEM
+		OC_DBG("freememory: %d", freeMemory());
+#endif
+
   delay(2000);
 }
 

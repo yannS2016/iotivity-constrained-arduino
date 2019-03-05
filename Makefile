@@ -1,23 +1,23 @@
 include ./setup.mk
-SERVER_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-adapter.a
+SERVER_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-adapter.a
 PRNG_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-prng.a
 TIME_ARCHIVE 		= build-$(BOARD_TAG)/libarduino-time.a
-WIZ5500_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-wiz5500.a
-RS232_ARCHIVE 	    = build-$(BOARD_TAG)/libarduino-rs232.a
+WIZ5500_ARCHIVE = build-$(BOARD_TAG)/libarduino-wiz5500.a
+RS232_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-rs232.a
 
 ifeq ($(SERVER),1)
   CXXFLAGS 				+= -DOC_SERVER
 ifeq ($(XMEM),1)
 	CXXFLAGS += -DOC_XMEM
-  LOCAL_CPP_SRCS 		+= apps/server/server-xmem.cpp
+  LOCAL_CPP_SRCS 	+= apps/server/server-xmem.cpp
 else
-  LOCAL_CPP_SRCS 		+= apps/server/server.cpp
+  LOCAL_CPP_SRCS 	+= apps/server/server.cpp
 endif
 endif
 
 ifeq ($(CLIENT),1)
   LOCAL_CPP_SRCS 		+= apps/client/client.cpp
-  CXXFLAGS 				+= -DOC_CLIENT
+  CXXFLAGS 					+= -DOC_CLIENT
 endif
 
 
@@ -27,6 +27,10 @@ endif
 
 ifeq ($(XMEM),1)
 	CXXFLAGS += -DOC_XMEM
+endif
+
+ifeq ($(IPV4),1)
+	CXXFLAGS += -DOC_IPV4
 endif
 
 ### Iotivity contrained includes
