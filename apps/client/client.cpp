@@ -181,14 +181,17 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
   for (i = 0; i < (int)oc_string_array_get_allocated_size(types); i++) {
     char *t = oc_string_array_get_item(types, i);
     if (strlen(t) == 10 && strncmp(t, "core.light", 10) == 0) {
-			#ifdef OC_IPV4
+#ifdef OC_IPV4
+#ifdef OC_ESP32
+      light_server = endpoint;
+#else
       light_server = endpoint->next;
+#endif
 			OC_DBG("IPV4 Resource ");
-			PRINTipaddr(*light_server);
-			#else
+#else
 			light_server = endpoint;
 			OC_DBG("IPV6 Resource ");
-			#endif
+#endif
       strncpy(a_light, uri, uri_len);
       a_light[uri_len] = '\0';
 
@@ -228,8 +231,8 @@ OC_PROCESS_THREAD(sample_client_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .requests_entry = issue_requests };
   static oc_clock_time_t next_event;
-  oc_set_mtu_size(512);
-  oc_set_max_app_data_size(512);
+  oc_set_mtu_size(1024);
+  oc_set_max_app_data_size(1024);
   OC_PROCESS_BEGIN();
   OC_DBG("Initializing client for arduino");
   while (ev != OC_PROCESS_EVENT_EXIT) {
