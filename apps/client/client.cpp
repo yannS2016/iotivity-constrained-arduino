@@ -228,6 +228,8 @@ OC_PROCESS_THREAD(sample_client_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .requests_entry = issue_requests };
   static oc_clock_time_t next_event;
+  oc_set_mtu_size(512);
+  oc_set_max_app_data_size(512);
   OC_PROCESS_BEGIN();
   OC_DBG("Initializing client for arduino");
   while (ev != OC_PROCESS_EVENT_EXIT) {

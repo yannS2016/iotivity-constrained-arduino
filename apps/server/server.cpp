@@ -165,6 +165,7 @@ void setup() {
 	
 	init_serial();
 	delay(500);
+
 	if (ConnectToNetwork() != 0)
 	{
 		OC_ERR("Unable to connect to network\n");
