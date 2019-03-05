@@ -1,8 +1,8 @@
 #include <Arduino.h>
-//#include <stdint.h>
+#include <stdio.h>
 #include "prng.h"
 #include "pRNG.h"
-#include <stdio.h>
+
 struct prng {
     void *cpp_ref;
 };
@@ -16,7 +16,6 @@ prng_t *prng_create()
     cpp_ref_holder     = (typeof(cpp_ref_holder))malloc(sizeof(*cpp_ref_holder));
     cpp_ref    = new pRNG();
     cpp_ref_holder->cpp_ref = cpp_ref;
-    //printf_P(PSTR("\r\nInit Random\r\n"));
     return cpp_ref_holder;
 }
  

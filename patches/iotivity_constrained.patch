@@ -52,8 +52,8 @@
    OC_DBG("CoAP Engine: received datalen=%u from",
           (unsigned int)msg->length);
    OC_LOGipaddr(msg->endpoint);
---- oc_log_old.h	2019-03-04 20:57:00.607291966 +0000
-+++ oc_log.h	2019-03-04 18:11:01.484615447 +0000
+--- port/oc_log_old.h	2019-03-04 20:57:00.607291966 +0000
++++ port/oc_log.h	2019-03-04 18:11:01.484615447 +0000
 @@ -18,18 +18,29 @@
  #define OC_LOG_H
  
@@ -159,8 +159,8 @@
  
  #ifdef __cplusplus
  }
---- observe_old.c	2019-03-04 21:02:27.157578690 +0000
-+++ observe.c	2019-03-04 16:51:13.381567176 +0000
+--- messaging/coap/observe_old.c	2019-03-04 21:02:27.157578690 +0000
++++ messaging/coap/observe.c	2019-03-04 16:51:13.381567176 +0000
 @@ -609,7 +609,7 @@
          }   // response_buf != NULL
        }     //! separate response
