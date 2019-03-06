@@ -1,18 +1,20 @@
-/*
-// Copyright (c) 2016 Intel Corporation
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-*/
+/******************************************************************
+*
+* Copyright 2018 iThemba LABS All Rights Reserved.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+
+*    http://www.apache.org/licenses/LICENSE-2.0
+
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+******************************************************************/
 #include "oc_buffer.h"
 #include "oc_endpoint.h"
 #include "util/oc_process.h"
@@ -44,15 +46,15 @@ handle_incoming_message(uint8_t *addr, uint16_t *port, uint8_t *buffer, uint16_t
 		bytes_read = (bytes_read < OC_MAX_APP_DATA_SIZE) ? bytes_read : OC_MAX_APP_DATA_SIZE;
 		memcpy(message->data, buffer, bytes_read);
 		message->length = bytes_read;
-    message->endpoint.flags = IPV4;
-    memcpy(message->endpoint.addr.ipv4.address, addr, 16);
-    message->endpoint.addr.ipv4.port = *port;
+    	message->endpoint.flags = IPV4;
+    	memcpy(message->endpoint.addr.ipv4.address, addr, 16);
+    	message->endpoint.addr.ipv4.port = *port;
 		OC_DBG("Incoming message of size %d bytes from port %u:  ", message->length, *port);
-    OC_LOGipaddr(message->endpoint);
-    oc_network_event(message);
-    return;
+    	OC_LOGipaddr(message->endpoint);
+    	oc_network_event(message);
+    	return;
 	}
-  OC_WRN("ipadapter: No free RX/TX buffers to handle incoming message\n");
+  	OC_WRN("ipadapter: No free RX/TX buffers to handle incoming message\n");
 }
 
 oc_endpoint_t *
@@ -82,9 +84,9 @@ OC_PROCESS_THREAD(ip_adapter_process, ev, data)
   OC_PROCESS_BEGIN();
 	uint16_t local_port = (uint16_t)OCF_SERVER_PORT_UNSECURED;      // local port to listen on
 	uint16_t mcast_port = (uint16_t)OCF_MCAST_PORT_UNSECURED; 
-  start_arduino_ucast_server(&local_port);
+	init_ip_context();
+  	start_arduino_ucast_server(&local_port);
 	#ifdef OC_SERVER
-
 	start_arduino_mcast_server(OCF_IPv4_MULTICAST, &mcast_port, &mcast_port);
 	OC_DBG("Initializing connectivity for arduino server");
 	#endif
@@ -111,7 +113,6 @@ OC_PROCESS_THREAD(ip_adapter_process, ev, data)
 int
 oc_connectivity_init(size_t device)
 {
-  (void)device;
   oc_process_start(&ip_adapter_process, NULL);
   return 0;
 }
@@ -162,6 +163,6 @@ int oc_send_buffer(oc_message_t *message) {
 void
 oc_send_discovery_request(oc_message_t *message)
 {
-		oc_send_buffer(message);	
+	oc_send_buffer(message);	
 }
 #endif /* OC_CLIENT */

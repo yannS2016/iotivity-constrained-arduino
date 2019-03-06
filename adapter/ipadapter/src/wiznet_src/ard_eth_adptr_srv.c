@@ -1,15 +1,13 @@
 /******************************************************************
 *
-* Copyright 2014 Samsung Electronics All Rights Reserved.
-*
-*
+* Copyright 2018 iThemba LABS All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
+
+*    http://www.apache.org/licenses/LICENSE-2.0
+
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,27 +15,41 @@
 * limitations under the License.
 *
 ******************************************************************/
-#include <socket.h>
+
 #include "Wiz5500.h"
 #include "oc_log.h"
 #include "oc_connectivity.h"
 #include "ard_eth_adptr_srv.h"
+#include "port/oc_assert.h"
 
-#define IPNAMESIZE (16)
 
-uint8_t arduino_unicast_socket = 0;
-uint8_t arduino_mcast_socket = 0;
-uint16_t arduino_ucast_port = 0;
+#ifdef OC_DYNAMIC_ALLOCATION
+ip_context_t *dev;
+#else /* OC_DYNAMIC_ALLOCATION */
+static ip_context_t device ;
+static ip_context_t *dev
+#endif /* !OC_DYNAMIC_ALLOCATION */
+
 static ard_eth_udp_callback ard_eth_packet_recvcb = NULL;
+
 /**
  * @brief Flag to check if multicast server is started
  */
 bool arduino_mcast_serv_started = false;
-static uint8_t active_sockets = 0;
+
+void init_ip_context() {
+#ifdef OC_DYNAMIC_ALLOCATION
+  dev = (ip_context_t *)calloc(1, sizeof(ip_context_t));
+  if (!dev) {
+    oc_abort("Insufficient memory");
+  }
+#else  /* OC_DYNAMIC_ALLOCATION */
+  ip_context_t *dev = &device;
+#endif /* !OC_DYNAMIC_ALLOCATION */
+}
 
 OCResult_t start_arduino_ucast_server(uint16_t *local_port)
 {
-	OC_DBG(("starting ucast serv!"));
 	if(!local_port) {
 	  OC_DBG(("server port null!"));
 		return STATUS_FAILED;
@@ -53,31 +65,35 @@ OCResult_t start_arduino_ucast_server(uint16_t *local_port)
 	uint8_t serverFD = 1; // try this socket
 	if (arduino_init_udp_socket(local_port, &serverFD) != STATUS_OK)
 	{
-		OC_DBG(("ucast sock init failed"));
+		OC_DBG("ucast sock init failed");
 		return STATUS_FAILED;
 	}
-	arduino_ucast_port = *local_port;
-  arduino_unicast_socket = serverFD;
-	active_sockets++;
+
+	dev->arduino_ucast_socket = serverFD;
+	dev-> arduino_ucast_port = *local_port;
+	dev->num_active_sockets++;
+	dev->active_sockets[dev->num_active_sockets - 1] = serverFD;
+
+    OC_DBG("Unicast server started! socket info: socket: %d: port: %u", dev->arduino_ucast_socket, dev->arduino_ucast_port);
 	return STATUS_OK;
 }
 OCResult_t start_arduino_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port)
 {
-	OC_DBG(("starting mcast serv!"));
 	if (arduino_mcast_serv_started == true)
 	{
-		//OC_ERR(("Already Started!"));
 	  return SERVER_STARTED_ALREADY;
 	}
 	uint8_t serverFD = 1; 
 	if (arduino_init_mcast_udp_socket(mcast_addr, mcast_port, local_port, &serverFD)!= STATUS_OK)
 	{
-		OC_DBG(("mcast serv init failed"));
+		OC_DBG("mcast serv init failed");
 		return STATUS_FAILED;
 	}
-	arduino_mcast_socket = serverFD;
-	active_sockets++;
-	arduino_mcast_serv_started = true;
+	dev->arduino_mcast_socket = serverFD;
+	dev->arduino_mcast_port = *local_port;
+	dev->num_active_sockets++;
+	dev->active_sockets[dev->num_active_sockets - 1] = serverFD;
+    OC_DBG("multicast server started! socket info: socket: %d: port: %u", dev->arduino_mcast_socket, dev->arduino_mcast_port);
 	return STATUS_OK;	
 }
 #ifdef OC_SERVER
@@ -102,16 +118,16 @@ OCResult_t start_arduino_servers(){
 #endif
 OCResult_t ard_ucast_server_shutdown()
 {
-	close(arduino_unicast_socket);
-	arduino_unicast_socket = 0;
+	close(dev->arduino_ucast_socket);
+	dev->arduino_ucast_socket = 0;
 	return STATUS_OK;
 }
 
 OCResult_t ard_mcast_server_shutdown()
 {
 	//OC_DBG(("Stop mcast serv!"));
-	close(arduino_mcast_socket);
-	arduino_mcast_socket = 0;
+	close(dev->arduino_mcast_socket);
+	dev->arduino_mcast_socket = 0;
 	return STATUS_OK;
 }
 
@@ -137,11 +153,8 @@ void set_ard_packet_recvcb(ard_eth_udp_callback cb){
 
 void ard_sock_poll_data()
 {
-	// this is crude 
-	//OC_WRN(("Polling data"));
-	uint8_t open_sockect[2] = {arduino_unicast_socket, arduino_mcast_socket};
-	for(int i = 0; i < active_sockets ; i++){
-		if (ard_sock_get_data(&open_sockect[i])!= STATUS_OK){
+	for(int i = 0; i < dev->num_active_sockets ; i++){
+		if (ard_sock_get_data(&dev->active_sockets[i])!= STATUS_OK){
 			OC_ERR(("rcv fail"));
 		}
 	}
@@ -166,9 +179,9 @@ OCResult_t ard_sock_get_data(uint8_t *socketID)
 	{
 		return STATUS_OK;
 	}
-  recvLen = recvLen > OC_MAX_APP_DATA_SIZE ? OC_MAX_APP_DATA_SIZE : recvLen;
+  	recvLen = recvLen > OC_MAX_APP_DATA_SIZE ? OC_MAX_APP_DATA_SIZE : recvLen;
 	uint8_t data[recvLen + 1];
-  // Read available data.
+  	// Read available data.
 	int16_t ret = recvfrom(*socketID, (uint8_t *)data, recvLen + 1, sender_addr, &sender_port);
 	if (ret < 0)
 	{
@@ -181,22 +194,23 @@ OCResult_t ard_sock_get_data(uint8_t *socketID)
 			ard_eth_packet_recvcb((uint8_t *)sender_addr, &sender_port, data, ret);
 		}
 	}
+	OC_WRN("Completed reception!!!");
 	return STATUS_OK;
 }
 
 uint8_t get_mcast_socket() {
-	if(!arduino_mcast_socket){
+	if(!dev->arduino_mcast_socket){
 	 return STATUS_FAILED;
 	}
-  return arduino_mcast_socket;	
- }
+  	return dev->arduino_mcast_socket;	
+}
  
- uint8_t get_ucast_socket() {
-	if(!arduino_unicast_socket){
-	 return STATUS_FAILED;
+uint8_t get_ucast_socket() {
+	if(!dev->arduino_ucast_socket){
+	 	return STATUS_FAILED;
 	}
-  return arduino_unicast_socket;	
- }
+	return dev->arduino_ucast_socket;	
+}
  
 #ifdef OC_SERVER
 OCResult_t ard_send_data(uint8_t *dest_addr, uint16_t *dest_port, 
@@ -216,7 +230,7 @@ OCResult_t ard_send_data(uint8_t *dest_addr, uint16_t *dest_port,
 #ifdef OC_CLIENT
 OCResult_t 
 ard_send_data(uint8_t *dest_addr, uint16_t *dest_port, 
-																 uint8_t *data, uint16_t len, uint8_t isMulticast)
+						uint8_t *data, uint16_t len, uint8_t isMulticast)
 {	
   uint8_t socketID = get_ucast_socket();
 	uint16_t port = *dest_port; // port of listening servers
