@@ -33,6 +33,10 @@ ifeq ($(IPV4),1)
 	CXXFLAGS += -DOC_IPV4
 endif
 
+ifeq ($(ESP32),1)
+	CXXFLAGS += -DOC_ESP32
+endif
+
 ### Iotivity contrained includes
 STACK_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/, messaging/coap util util/pt include  api port .)
 DEPS_HEADERS      +=$(addprefix -I$(PROJECT_DIR)/deps/, pRNG wiz5500 rs232)
