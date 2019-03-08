@@ -1,8 +1,10 @@
-#include "../main.h"
+#include "main.h"
 #include "Ethernet2.h"
+// Use the xmem interface when avalaible
 #ifdef OC_XMEM
 #include "xmem.h"
 #endif
+
 OC_PROCESS(sample_server_process, "server");
 static bool state = false;
 int power;
@@ -113,6 +115,10 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
   static const oc_handler_t handler = {.init = app_init,
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
+#ifdef OC_SECURITY
+  oc_storage_config("srv_cred"); // 
+#endif /* OC_SECURITY */
+
   static oc_clock_time_t next_event;
   oc_set_mtu_size(1024);
   oc_set_max_app_data_size(2048);

@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 #include "Ethernet2.h"
 
 OC_PROCESS(sample_server_process, "server");
@@ -143,6 +143,7 @@ uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
 	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+	//uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
@@ -172,7 +173,6 @@ void setup() {
 		return;
 	}
 	oc_process_start(&sample_server_process, NULL);
-	OC_DBG("freememory: %d\n\n", freeMemory());
   delay(2000);
 }
 

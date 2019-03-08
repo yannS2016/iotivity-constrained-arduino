@@ -116,6 +116,7 @@ LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB)
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
+###MONITOR_PORT      = /dev/ttyUSB*
 MONITOR_PORT      = /dev/ttyACM*
 
 ### CURRENT_DIR

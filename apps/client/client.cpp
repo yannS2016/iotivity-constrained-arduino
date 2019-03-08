@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 #include "Ethernet2.h"
 #ifdef OC_XMEM
 #include "xmem.h"

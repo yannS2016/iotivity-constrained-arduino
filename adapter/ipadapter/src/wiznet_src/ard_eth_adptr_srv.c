@@ -27,7 +27,7 @@
 ip_context_t *dev;
 #else /* OC_DYNAMIC_ALLOCATION */
 static ip_context_t device ;
-static ip_context_t *dev
+static ip_context_t *dev;
 #endif /* !OC_DYNAMIC_ALLOCATION */
 
 static ard_eth_udp_callback ard_eth_packet_recvcb = NULL;
@@ -44,7 +44,7 @@ void init_ip_context() {
     oc_abort("Insufficient memory");
   }
 #else  /* OC_DYNAMIC_ALLOCATION */
-  ip_context_t *dev = &device;
+  dev = &device;
 #endif /* !OC_DYNAMIC_ALLOCATION */
 }
 
