@@ -57,7 +57,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_NUM_REP_OBJECTS (150)
 
 /* Number of devices on the OCF platform */
-#define OC_MAX_NUM_DEVICES (2)
+#define OC_MAX_NUM_DEVICES (1)
 
 /* Maximum number of endpoints */
 #define OC_MAX_NUM_ENDPOINTS (20)
@@ -66,8 +66,8 @@ typedef uint32_t oc_clock_time_t;
 /* Maximum number of authorized clients */
 #define OC_MAX_NUM_SUBJECTS (2)
 
-/* Maximum number of concurrent DTLS sessions */
-#define OC_MAX_DTLS_PEERS (1)
+/* Maximum number of concurrent (D)TLS sessions */
+#define OC_MAX_TLS_PEERS (1)
 
 /* Max inactivity timeout before tearing down DTLS connection */
 #define OC_DTLS_INACTIVITY_TIMEOUT (10)

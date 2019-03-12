@@ -19,6 +19,10 @@ extern "C" {
 #include "oc_clock.h"
 #include "rs232.h"
 #include "util/oc_process.h"
+#ifdef OC_SECURITY
+#include "rsa_internal.h"
+#include "ssl_internal.h"
+#endif
 #ifdef __cplusplus
 }
 #endif

@@ -43,9 +43,16 @@ DEPS_HEADERS      +=$(addprefix -I$(PROJECT_DIR)/deps/, pRNG wiz5500 rs232)
 ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include 
 ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include/wiznet_inc
 TIME_HEADERS      +=-I$(ARDUINO_DIR)/libraries/Time
-CXXFLAGS          += $(TIME_HEADERS) $(ADAPTER_HEADERS) $(STACK_HEADERS) $(DEPS_HEADERS)
+APPS_HEADERS      += -I$(PROJECT_DIR)/apps/include
+
+CXXFLAGS          += $(TIME_HEADERS) $(ADAPTER_HEADERS) $(STACK_HEADERS) $(DEPS_HEADERS) $(APPS_HEADERS)
 
 #CPPFLAGS += -DARDUINO_SERIAL=0
+ifeq ($(SECURE),1)
+	SEC_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/deps/mbedtls/, include include/mbedtls)
+	CXXFLAGS        +=$(SEC_HEADERS)
+endif
+
 
 SERVER_OBJ     = $(PROJECT_DIR)/adapter/$(SERVER_ARCHIVE)
 OTHER_OBJS    += $(SERVER_OBJ)
