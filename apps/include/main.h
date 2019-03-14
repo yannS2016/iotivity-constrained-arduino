@@ -22,6 +22,8 @@ extern "C" {
 #ifdef OC_SECURITY
 #include "rsa_internal.h"
 #include "ssl_internal.h"
+#include "ssl.h"
+#include "ssl_cookie.h"
 #endif
 #ifdef __cplusplus
 }
