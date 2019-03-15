@@ -31,27 +31,27 @@
 typedef uint32_t oc_clock_time_t;
 /* 1 clock tick = 1ms or 1 ticks   1000 ticks -- 1 s --- 1000 ticks --- 1000ms --- 1 tick -- 1 ms*/
 #define OC_CLOCK_CONF_TICKS_PER_SECOND (1)
-#define OC_BYTES_POOL_SIZE (600)
+#define OC_BYTES_POOL_SIZE (1500)
 #define OC_INTS_POOL_SIZE (100)
-#define OC_DOUBLES_POOL_SIZE (4)
+#define OC_DOUBLES_POOL_SIZE (2)
 
 /* Server-side parameters */
 /* Maximum number of server resources */
-#define OC_MAX_APP_RESOURCES (15)
+#define OC_MAX_APP_RESOURCES (5)
 
 // uncomment if using collections 
 //#define OC_MAX_NUM_COLLECTIONS (10)
 
 /* Common paramters */
 /* Prescriptive lower layers MTU size, enable block-wise transfers */
-#define OC_BLOCK_WISE_SET_MTU (700)
+#define OC_BLOCK_WISE_SET_MTU (500)
 
 /* Maximum size of request/response payloads */
 #ifndef OC_DYNAMIC_ALLOCATION
-#define OC_MAX_APP_DATA_SIZE (1024)
+#define OC_MAX_APP_DATA_SIZE (800)
 #endif
 /* Maximum number of concurrent requests */
-#define OC_MAX_NUM_CONCURRENT_REQUESTS (3)
+#define OC_MAX_NUM_CONCURRENT_REQUESTS (2)
 
 /* Maximum number of nodes in a payload tree structure */
 #define OC_MAX_NUM_REP_OBJECTS (150)
@@ -60,7 +60,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_NUM_DEVICES (1)
 
 /* Maximum number of endpoints */
-#define OC_MAX_NUM_ENDPOINTS (20)
+#define OC_MAX_NUM_ENDPOINTS (10)
 
 /* Security layer */
 /* Maximum number of authorized clients */

@@ -24,6 +24,7 @@ extern "C" {
 #include "ssl_internal.h"
 #include "ssl.h"
 #include "ssl_cookie.h"
+#include "memory_buffer_alloc.h"
 #endif
 #ifdef __cplusplus
 }
