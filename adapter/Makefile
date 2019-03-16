@@ -1,15 +1,15 @@
 ###iotivity contrained sources
 include ../setup.mk
 
-DTLS += $(addprefix iotivity-constrained/deps/mbedtls/library/, aes.c aesni.c arc4.c  asn1parse.c asn1write.c base64.c \
+DTLS += $(addprefix iotivity-constrained/deps/mbedtls/library/, aes.c aesni.c arc4.c  asn1parse.c asn1write.c \
 	bignum.c	blowfish.c	camellia.c	ccm.c		cipher.c	cipher_wrap.c 	\
 	cmac.c		ctr_drbg.c	des.c		dhm.c		ecdh.c		ecdsa.c		  	\
 	ecjpake.c	ecp.c		ecp_curves.c	entropy.c	entropy_poll.c	error.c	\
 	gcm.c		havege.c	hmac_drbg.c	md.c		md2.c		md4.c	md5.c	\
-	md_wrap.c	oid.c		padlock.c	pem.c		pk.c	pk_wrap.c	pkcs12.c \
-	pkcs5.c		pkparse.c	pkwrite.c	platform.c	ripemd160.c	rsa.c	sha1.c	 \
-	sha256.c	sha512.c	threading.c	timing.c	version.c	version_features.c \
-	xtea.c  	pkcs11.c 	x509.c 		x509_crt.c	debug.c		net_sockets.c	\
+	md_wrap.c	oid.c		padlock.c	pem.c		pk.c	 \
+		platform.c	ripemd160.c	rsa.c	sha1.c	 \
+	sha256.c	sha512.c	version.c	version_features.c \
+	xtea.c  	debug.c			\
 	ssl_cache.c	ssl_ciphersuites.c		ssl_cli.c	ssl_cookie.c  \
 	ssl_srv.c	ssl_ticket.c	ssl_tls.c rsa_internal.c )
  
@@ -47,10 +47,9 @@ ifeq ($(SECURE),1)
 	SEC_SRC += $(addprefix iotivity-constrained/security/, oc_acl.c oc_cred.c oc_doxm.c oc_pstat.c \
 	                                oc_tls.c oc_svr.c oc_store.c oc_pki.c oc_certs.c oc_sp.c oc_keypair.c oc_csr.c oc_roles.c)
 	SRC += $(SEC_SRC)
-ifeq ($(DYNAMIC),1)
 	SRC_COMMON += ${DTLS}
-else
-	SRC_COMMON += ${DTLS} iotivity-constrained/deps/mbedtls/library/memory_buffer_alloc.c
+ifneq ($(DYNAMIC),1)
+	SRC_COMMON +=iotivity-constrained/deps/mbedtls/library/memory_buffer_alloc.c
 endif
 	CFLAGS += ${DTLSFLAGS} -DOC_SECURITY
 endif
@@ -63,12 +62,10 @@ ifeq ($(COLLECTIONS),1)
 	CFLAGS += -DOC_COLLECTIONS
 endif
 
-
 # activate this if you have an xmem shield added to your arduino board
 ifeq ($(XMEM),1)
 	CFLAGS += -DOC_XMEM
 endif
-
 
 ifeq ($(SERVER),1)
 	CFLAGS 	+= -DOC_SERVER

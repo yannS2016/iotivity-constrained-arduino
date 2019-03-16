@@ -1,0 +1,780 @@
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/bignum.h adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/bignum.h
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/bignum.h	2019-03-12 13:51:36.683757022 +0200
++++ adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/bignum.h	2019-03-15 03:52:00.471153065 +0200
+@@ -99,7 +99,7 @@
+  */
+ #define MBEDTLS_MPI_MAX_BITS_SCALE100          ( 100 * MBEDTLS_MPI_MAX_BITS )
+ #define MBEDTLS_LN_2_DIV_LN_10_SCALE100                 332
+-#define MBEDTLS_MPI_RW_BUFFER_SIZE             ( ((MBEDTLS_MPI_MAX_BITS_SCALE100 + MBEDTLS_LN_2_DIV_LN_10_SCALE100 - 1) / MBEDTLS_LN_2_DIV_LN_10_SCALE100) + 10 + 6 )
++#define MBEDTLS_MPI_RW_BUFFER_SIZE             1250//( ((MBEDTLS_MPI_MAX_BITS_SCALE100 + MBEDTLS_LN_2_DIV_LN_10_SCALE100 - 1) / MBEDTLS_LN_2_DIV_LN_10_SCALE100) + 10 + 6 )
+ 
+ /*
+  * Define the base integer type, architecture-wise.
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/config.h adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/config.h
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/config.h	2019-03-12 13:51:36.687757022 +0200
++++ adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/config.h	2019-03-15 04:45:18.895087098 +0200
+@@ -82,67 +82,8 @@
+  * example, if double-width division is implemented in software, disabling
+  * it can reduce code size in some embedded targets.
+  */
+-//#define MBEDTLS_NO_UDBL_DIVISION
++#define MBEDTLS_NO_UDBL_DIVISION
+ 
+-/**
+- * \def MBEDTLS_HAVE_SSE2
+- *
+- * CPU supports SSE2 instruction set.
+- *
+- * Uncomment if the CPU supports SSE2 (IA-32 specific).
+- */
+-//#define MBEDTLS_HAVE_SSE2
+-
+-/**
+- * \def MBEDTLS_HAVE_TIME
+- *
+- * System has time.h and time().
+- * The time does not need to be correct, only time differences are used,
+- * by contrast with MBEDTLS_HAVE_TIME_DATE
+- *
+- * Defining MBEDTLS_HAVE_TIME allows you to specify MBEDTLS_PLATFORM_TIME_ALT,
+- * MBEDTLS_PLATFORM_TIME_MACRO, MBEDTLS_PLATFORM_TIME_TYPE_MACRO and
+- * MBEDTLS_PLATFORM_STD_TIME.
+- *
+- * Comment if your system does not support time functions
+- */
+-#define MBEDTLS_HAVE_TIME
+-
+-/**
+- * \def MBEDTLS_HAVE_TIME_DATE
+- *
+- * System has time.h and time(), gmtime() and the clock is correct.
+- * The time needs to be correct (not necesarily very accurate, but at least
+- * the date should be correct). This is used to verify the validity period of
+- * X.509 certificates.
+- *
+- * Comment if your system does not have a correct clock.
+- */
+-#define MBEDTLS_HAVE_TIME_DATE
+-
+-/**
+- * \def MBEDTLS_PLATFORM_MEMORY
+- *
+- * Enable the memory allocation layer.
+- *
+- * By default mbed TLS uses the system-provided calloc() and free().
+- * This allows different allocators (self-implemented or provided) to be
+- * provided to the platform abstraction layer.
+- *
+- * Enabling MBEDTLS_PLATFORM_MEMORY without the
+- * MBEDTLS_PLATFORM_{FREE,CALLOC}_MACROs will provide
+- * "mbedtls_platform_set_calloc_free()" allowing you to set an alternative calloc() and
+- * free() function pointer at runtime.
+- *
+- * Enabling MBEDTLS_PLATFORM_MEMORY and specifying
+- * MBEDTLS_PLATFORM_{CALLOC,FREE}_MACROs will allow you to specify the
+- * alternate function at compile time.
+- *
+- * Requires: MBEDTLS_PLATFORM_C
+- *
+- * Enable this layer to allow use of alternative memory allocators.
+- */
+-//#define MBEDTLS_PLATFORM_MEMORY
+ 
+ /**
+  * \def MBEDTLS_PLATFORM_NO_STD_FUNCTIONS
+@@ -444,7 +385,7 @@
+  *
+  * Uncomment this macro to store the AES tables in ROM.
+  */
+-//#define MBEDTLS_AES_ROM_TABLES
++#define MBEDTLS_AES_ROM_TABLES
+ 
+ /**
+  * \def MBEDTLS_CAMELLIA_SMALL_MEMORY
+@@ -453,7 +394,7 @@
+  *
+  * Uncomment this macro to use less memory for Camellia.
+  */
+-//#define MBEDTLS_CAMELLIA_SMALL_MEMORY
++#define MBEDTLS_CAMELLIA_SMALL_MEMORY
+ 
+ /**
+  * \def MBEDTLS_CIPHER_MODE_CBC
+@@ -520,10 +461,10 @@
+  *
+  * Enable padding modes in the cipher layer.
+  */
+-#define MBEDTLS_CIPHER_PADDING_PKCS7
+-#define MBEDTLS_CIPHER_PADDING_ONE_AND_ZEROS
+-#define MBEDTLS_CIPHER_PADDING_ZEROS_AND_LEN
+-#define MBEDTLS_CIPHER_PADDING_ZEROS
++//#define MBEDTLS_CIPHER_PADDING_PKCS7
++//#define MBEDTLS_CIPHER_PADDING_ONE_AND_ZEROS
++//#define MBEDTLS_CIPHER_PADDING_ZEROS_AND_LEN
++//#define MBEDTLS_CIPHER_PADDING_ZEROS
+ 
+ /**
+  * \def MBEDTLS_ENABLE_WEAK_CIPHERSUITES
+@@ -543,6 +484,13 @@
+  */
+ //#define MBEDTLS_ENABLE_WEAK_CIPHERSUITES
+ 
++/*
++ * Use only CCM_8 ciphersuites, and
++ * save ROM and a few bytes of RAM by specifying our own ciphersuite list
++ */
++#define MBEDTLS_SSL_CIPHERSUITES                        \
++        MBEDTLS_TLS_PSK_WITH_AES_256_CCM_8,             \
++        MBEDTLS_TLS_PSK_WITH_AES_128_CCM_8
+ /**
+  * \def MBEDTLS_REMOVE_ARC4_CIPHERSUITES
+  *
+@@ -564,18 +512,18 @@
+  *
+  * Comment macros to disable the curve and functions for it
+  */
+-#define MBEDTLS_ECP_DP_SECP192R1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP224R1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP256R1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP384R1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP521R1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP192K1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP224K1_ENABLED
+-#define MBEDTLS_ECP_DP_SECP256K1_ENABLED
+-#define MBEDTLS_ECP_DP_BP256R1_ENABLED
+-#define MBEDTLS_ECP_DP_BP384R1_ENABLED
+-#define MBEDTLS_ECP_DP_BP512R1_ENABLED
+-#define MBEDTLS_ECP_DP_CURVE25519_ENABLED
++//#define MBEDTLS_ECP_DP_SECP192R1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP224R1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP256R1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP384R1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP521R1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP192K1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP224K1_ENABLED
++//#define MBEDTLS_ECP_DP_SECP256K1_ENABLED
++//#define MBEDTLS_ECP_DP_BP256R1_ENABLED
++//#define MBEDTLS_ECP_DP_BP384R1_ENABLED
++//#define MBEDTLS_ECP_DP_BP512R1_ENABLED
++//#define MBEDTLS_ECP_DP_CURVE25519_ENABLED
+ 
+ /**
+  * \def MBEDTLS_ECP_NIST_OPTIM
+@@ -653,7 +601,7 @@
+  *             See dhm.h for more details.
+  *
+  */
+-#define MBEDTLS_KEY_EXCHANGE_DHE_PSK_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_DHE_PSK_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECDHE_PSK_ENABLED
+@@ -673,7 +621,7 @@
+  *      MBEDTLS_TLS_ECDHE_PSK_WITH_3DES_EDE_CBC_SHA
+  *      MBEDTLS_TLS_ECDHE_PSK_WITH_RC4_128_SHA
+  */
+-#define MBEDTLS_KEY_EXCHANGE_ECDHE_PSK_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_ECDHE_PSK_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
+@@ -698,7 +646,7 @@
+  *      MBEDTLS_TLS_RSA_PSK_WITH_3DES_EDE_CBC_SHA
+  *      MBEDTLS_TLS_RSA_PSK_WITH_RC4_128_SHA
+  */
+-#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
+@@ -726,7 +674,7 @@
+  *      MBEDTLS_TLS_RSA_WITH_RC4_128_SHA
+  *      MBEDTLS_TLS_RSA_WITH_RC4_128_MD5
+  */
+-#define MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
+@@ -759,7 +707,7 @@
+  *             See dhm.h for more details.
+  *
+  */
+-#define MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECDHE_RSA_ENABLED
+@@ -784,7 +732,7 @@
+  *      MBEDTLS_TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA
+  *      MBEDTLS_TLS_ECDHE_RSA_WITH_RC4_128_SHA
+  */
+-#define MBEDTLS_KEY_EXCHANGE_ECDHE_RSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_ECDHE_RSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED
+@@ -808,7 +756,7 @@
+  *      MBEDTLS_TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA
+  *      MBEDTLS_TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+  */
+-#define MBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECDH_ECDSA_ENABLED
+@@ -832,7 +780,7 @@
+  *      MBEDTLS_TLS_ECDH_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+  *      MBEDTLS_TLS_ECDH_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+  */
+-#define MBEDTLS_KEY_EXCHANGE_ECDH_ECDSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_ECDH_ECDSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECDH_RSA_ENABLED
+@@ -856,7 +804,7 @@
+  *      MBEDTLS_TLS_ECDH_RSA_WITH_CAMELLIA_128_GCM_SHA256
+  *      MBEDTLS_TLS_ECDH_RSA_WITH_CAMELLIA_256_GCM_SHA384
+  */
+-#define MBEDTLS_KEY_EXCHANGE_ECDH_RSA_ENABLED
++//#define MBEDTLS_KEY_EXCHANGE_ECDH_RSA_ENABLED
+ 
+ /**
+  * \def MBEDTLS_KEY_EXCHANGE_ECJPAKE_ENABLED
+@@ -889,7 +837,7 @@
+  *
+  * Disable if you only need to support RFC 5915 + 5480 key formats.
+  */
+-#define MBEDTLS_PK_PARSE_EC_EXTENDED
++//#define MBEDTLS_PK_PARSE_EC_EXTENDED
+ 
+ /**
+  * \def MBEDTLS_ERROR_STRERROR_DUMMY
+@@ -913,7 +861,7 @@
+  *
+  * Requires: MBEDTLS_BIGNUM_C
+  */
+-#define MBEDTLS_GENPRIME
++//#define MBEDTLS_GENPRIME
+ 
+ /**
+  * \def MBEDTLS_FS_IO
+@@ -944,7 +892,7 @@
+  *
+  * Uncomment this macro to disable the built-in platform entropy functions.
+  */
+-//#define MBEDTLS_NO_PLATFORM_ENTROPY
++#define MBEDTLS_NO_PLATFORM_ENTROPY
+ 
+ /**
+  * \def MBEDTLS_ENTROPY_FORCE_SHA256
+@@ -1022,7 +970,7 @@
+  *
+  * Comment this macro to disable support for external private RSA keys.
+  */
+-#define MBEDTLS_PK_RSA_ALT_SUPPORT
++//#define MBEDTLS_PK_RSA_ALT_SUPPORT
+ 
+ /**
+  * \def MBEDTLS_PKCS1_V15
+@@ -1033,7 +981,7 @@
+  *
+  * This enables support for PKCS#1 v1.5 operations.
+  */
+-#define MBEDTLS_PKCS1_V15
++//#define MBEDTLS_PKCS1_V15
+ 
+ /**
+  * \def MBEDTLS_PKCS1_V21
+@@ -1044,7 +992,7 @@
+  *
+  * This enables support for RSAES-OAEP and RSASSA-PSS operations.
+  */
+-#define MBEDTLS_PKCS1_V21
++//#define MBEDTLS_PKCS1_V21
+ 
+ /**
+  * \def MBEDTLS_RSA_NO_CRT
+@@ -1077,7 +1025,7 @@
+  *
+  * Uncomment to enable the smaller implementation of SHA256.
+  */
+-//#define MBEDTLS_SHA256_SMALLER
++#define MBEDTLS_SHA256_SMALLER
+ 
+ /**
+  * \def MBEDTLS_SSL_ALL_ALERT_MESSAGES
+@@ -1107,7 +1055,7 @@
+  * a timing side-channel.
+  *
+  */
+-//#define MBEDTLS_SSL_DEBUG_ALL
++#define MBEDTLS_SSL_DEBUG_ALL
+ 
+ /** \def MBEDTLS_SSL_ENCRYPT_THEN_MAC
+  *
+@@ -1204,7 +1152,7 @@
+  *          configuration of this extension).
+  *
+  */
+-#define MBEDTLS_SSL_RENEGOTIATION
++//#define MBEDTLS_SSL_RENEGOTIATION
+ 
+ /**
+  * \def MBEDTLS_SSL_SRV_SUPPORT_SSLV2_CLIENT_HELLO
+@@ -1400,7 +1348,7 @@
+  *
+  * Comment this macro to disable support for server name indication in SSL
+  */
+-#define MBEDTLS_SSL_SERVER_NAME_INDICATION
++//#define MBEDTLS_SSL_SERVER_NAME_INDICATION
+ 
+ /**
+  * \def MBEDTLS_SSL_TRUNCATED_HMAC
+@@ -1480,7 +1428,7 @@
+  *
+  * Comment to skip keyUsage checking for both CA and leaf certificates.
+  */
+-#define MBEDTLS_X509_CHECK_KEY_USAGE
++//#define MBEDTLS_X509_CHECK_KEY_USAGE
+ 
+ /**
+  * \def MBEDTLS_X509_CHECK_EXTENDED_KEY_USAGE
+@@ -1493,7 +1441,7 @@
+  *
+  * Comment to skip extendedKeyUsage checking for certificates.
+  */
+-#define MBEDTLS_X509_CHECK_EXTENDED_KEY_USAGE
++//#define MBEDTLS_X509_CHECK_EXTENDED_KEY_USAGE
+ 
+ /**
+  * \def MBEDTLS_X509_RSASSA_PSS_SUPPORT
+@@ -1503,7 +1451,7 @@
+  *
+  * Comment this macro to disallow using RSASSA-PSS in certificates.
+  */
+-#define MBEDTLS_X509_RSASSA_PSS_SUPPORT
++//#define MBEDTLS_X509_RSASSA_PSS_SUPPORT
+ 
+ /**
+  * \def MBEDTLS_ZLIB_SUPPORT
+@@ -1916,7 +1864,7 @@
+  *
+  * Requires: MBEDTLS_ECP_C
+  */
+-#define MBEDTLS_ECDH_C
++//#define MBEDTLS_ECDH_C
+ 
+ /**
+  * \def MBEDTLS_ECDSA_C
+@@ -1931,7 +1879,7 @@
+  *
+  * Requires: MBEDTLS_ECP_C, MBEDTLS_ASN1_WRITE_C, MBEDTLS_ASN1_PARSE_C
+  */
+-#define MBEDTLS_ECDSA_C
++//#define MBEDTLS_ECDSA_C
+ 
+ /**
+  * \def MBEDTLS_ECJPAKE_C
+@@ -1964,7 +1912,7 @@
+  *
+  * Requires: MBEDTLS_BIGNUM_C and at least one MBEDTLS_ECP_DP_XXX_ENABLED
+  */
+-#define MBEDTLS_ECP_C
++//#define MBEDTLS_ECP_C
+ 
+ /**
+  * \def MBEDTLS_ENTROPY_C
+@@ -2110,7 +2058,7 @@
+  *
+  */
+ #define MBEDTLS_MD5_C
+-
++#define MBEDTLS_PLATFORM_MEMORY
+ /**
+  * \def MBEDTLS_MEMORY_BUFFER_ALLOC_C
+  *
+@@ -2125,7 +2073,7 @@
+  *
+  * Enable this module to enable the buffer memory allocator.
+  */
+-//#define MBEDTLS_MEMORY_BUFFER_ALLOC_C
++#define MBEDTLS_MEMORY_BUFFER_ALLOC_C
+ 
+ /**
+  * \def MBEDTLS_NET_C
+@@ -2231,7 +2179,7 @@
+  *
+  * Uncomment to enable generic public key wrappers.
+  */
+-#define MBEDTLS_PK_C
++//#define MBEDTLS_PK_C
+ 
+ /**
+  * \def MBEDTLS_PK_PARSE_C
+@@ -2246,7 +2194,7 @@
+  *
+  * Uncomment to enable generic public key parse functions.
+  */
+-#define MBEDTLS_PK_PARSE_C
++//#define MBEDTLS_PK_PARSE_C
+ 
+ /**
+  * \def MBEDTLS_PK_WRITE_C
+@@ -2260,7 +2208,7 @@
+  *
+  * Uncomment to enable generic public key write functions.
+  */
+-#define MBEDTLS_PK_WRITE_C
++//#define MBEDTLS_PK_WRITE_C
+ 
+ /**
+  * \def MBEDTLS_PKCS5_C
+@@ -2273,7 +2221,7 @@
+  *
+  * This module adds support for the PKCS#5 functions.
+  */
+-#define MBEDTLS_PKCS5_C
++//#define MBEDTLS_PKCS5_C
+ 
+ /**
+  * \def MBEDTLS_PKCS11_C
+@@ -2304,7 +2252,7 @@
+  *
+  * This module enables PKCS#12 functions.
+  */
+-#define MBEDTLS_PKCS12_C
++//#define MBEDTLS_PKCS12_C
+ 
+ /**
+  * \def MBEDTLS_PLATFORM_C
+@@ -2354,7 +2302,7 @@
+  *
+  * Requires: MBEDTLS_BIGNUM_C, MBEDTLS_OID_C
+  */
+-#define MBEDTLS_RSA_C
++//#define MBEDTLS_RSA_C
+ 
+ /**
+  * \def MBEDTLS_SHA1_C
+@@ -2531,7 +2479,7 @@
+  *
+  * This module is used by the HAVEGE random number generator.
+  */
+-#define MBEDTLS_TIMING_C
++//#define MBEDTLS_TIMING_C
+ 
+ /**
+  * \def MBEDTLS_VERSION_C
+@@ -2559,7 +2507,7 @@
+  *
+  * This module is required for the X.509 parsing modules.
+  */
+-#define MBEDTLS_X509_USE_C
++//#define MBEDTLS_X509_USE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CRT_PARSE_C
+@@ -2575,7 +2523,7 @@
+  *
+  * This module is required for X.509 certificate parsing.
+  */
+-#define MBEDTLS_X509_CRT_PARSE_C
++//#define MBEDTLS_X509_CRT_PARSE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CRL_PARSE_C
+@@ -2589,7 +2537,7 @@
+  *
+  * This module is required for X.509 CRL parsing.
+  */
+-#define MBEDTLS_X509_CRL_PARSE_C
++//#define MBEDTLS_X509_CRL_PARSE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CSR_PARSE_C
+@@ -2603,7 +2551,7 @@
+  *
+  * This module is used for reading X.509 certificate request.
+  */
+-#define MBEDTLS_X509_CSR_PARSE_C
++//#define MBEDTLS_X509_CSR_PARSE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CREATE_C
+@@ -2616,7 +2564,7 @@
+  *
+  * This module is the basis for creating X.509 certificates and CSRs.
+  */
+-#define MBEDTLS_X509_CREATE_C
++//#define MBEDTLS_X509_CREATE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CRT_WRITE_C
+@@ -2629,7 +2577,7 @@
+  *
+  * This module is required for X.509 certificate creation.
+  */
+-#define MBEDTLS_X509_CRT_WRITE_C
++//#define MBEDTLS_X509_CRT_WRITE_C
+ 
+ /**
+  * \def MBEDTLS_X509_CSR_WRITE_C
+@@ -2642,7 +2590,7 @@
+  *
+  * This module is required for X.509 certificate request writing.
+  */
+-#define MBEDTLS_X509_CSR_WRITE_C
++#//define MBEDTLS_X509_CSR_WRITE_C
+ 
+ /**
+  * \def MBEDTLS_XTEA_C
+@@ -2672,8 +2620,8 @@
+  */
+ 
+ /* MPI / BIGNUM options */
+-//#define MBEDTLS_MPI_WINDOW_SIZE            6 /**< Maximum windows size used. */
+-//#define MBEDTLS_MPI_MAX_SIZE            1024 /**< Maximum number of bytes for usable MPIs. */
++#define MBEDTLS_MPI_WINDOW_SIZE            1 /**< Maximum windows size used. */
++#define MBEDTLS_MPI_MAX_SIZE            512/**< Maximum number of bytes for usable MPIs. */
+ 
+ /* CTR_DRBG options */
+ //#define MBEDTLS_CTR_DRBG_ENTROPY_LEN               48 /**< Amount of entropy used per seed by default (48 with SHA-512, 32 with SHA-256) */
+@@ -2736,9 +2684,9 @@
+ //#define MBEDTLS_SSL_CACHE_DEFAULT_MAX_ENTRIES      50 /**< Maximum entries in cache */
+ 
+ /* SSL options */
+-//#define MBEDTLS_SSL_MAX_CONTENT_LEN             16384 /**< Maxium fragment length in bytes, determines the size of each of the two internal I/O buffers */
++#define MBEDTLS_SSL_MAX_CONTENT_LEN             2048 /**< Maxium fragment length in bytes, determines the size of each of the two internal I/O buffers */
+ //#define MBEDTLS_SSL_DEFAULT_TICKET_LIFETIME     86400 /**< Lifetime of session tickets (if enabled) */
+-//#define MBEDTLS_PSK_MAX_LEN               32 /**< Max size of TLS pre-shared keys, in bytes (default 256 bits) */
++#define MBEDTLS_PSK_MAX_LEN               16 /**< Max size of TLS pre-shared keys, in bytes (128-bits keys are generally enough) */
+ //#define MBEDTLS_SSL_COOKIE_TIMEOUT        60 /**< Default expiration delay of DTLS cookies, in seconds if HAVE_TIME, or in number of cookies issued */
+ 
+ /**
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/x509_crt.h adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/x509_crt.h
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/x509_crt.h	2019-03-12 13:51:36.691757021 +0200
++++ adapter/iotivity-constrained/deps/mbedtls/include/mbedtls/x509_crt.h	2019-03-15 01:58:35.491293417 +0200
+@@ -32,7 +32,7 @@
+ 
+ #include "x509.h"
+ #include "x509_crl.h"
+-
++#include "bignum.h"
+ /**
+  * \addtogroup x509_module
+  * \{
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/library/ssl_ciphersuites.c adapter/iotivity-constrained/deps/mbedtls/library/ssl_ciphersuites.c
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/deps/mbedtls/library/ssl_ciphersuites.c	2019-03-12 13:51:36.703757021 +0200
++++ adapter/iotivity-constrained/deps/mbedtls/library/ssl_ciphersuites.c	2019-03-15 02:34:50.403248560 +0200
+@@ -20,7 +20,7 @@
+  *
+  *  This file is part of mbed TLS (https://tls.mbed.org)
+  */
+-
++#include "mbedtls/ssl.h"
+ #if !defined(MBEDTLS_CONFIG_FILE)
+ #include "mbedtls/config.h"
+ #else
+@@ -36,7 +36,7 @@
+ #endif
+ 
+ #include "mbedtls/ssl_ciphersuites.h"
+-#include "mbedtls/ssl.h"
++
+ 
+ #include <string.h>
+ 
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/engine.c adapter/iotivity-constrained/messaging/coap/engine.c
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/engine.c	2019-03-15 04:03:39.731138643 +0200
++++ adapter/iotivity-constrained/messaging/coap/engine.c	2019-03-14 20:13:39.075720277 +0200
+@@ -80,8 +80,31 @@
+ #endif /* !OC_BLOCK_WISE */
+ 
+ #define OC_REQUEST_HISTORY_SIZE (250)
++#ifdef OC_XMEM
++/*AVR Memory Usage
++----------------
++Device: atmega2560
++
++Program:   79956 bytes (30.5% Full)
++(.text + .data + .bootloader)
++
++Data:       5952 bytes (72.7% Full)
++(.data + .bss + .noinit)*/
++static uint16_t *history;
++static uint8_t *history_dev;
++#else
++/*
++Device: atmega2560
++
++Program:   79770 bytes (30.4% Full)
++(.text + .data + .bootloader)
++
++Data:       6698 bytes (81.8% Full)
++(.data + .bss + .noinit)
++*/
+ static uint16_t history[OC_REQUEST_HISTORY_SIZE];
+ static uint8_t history_dev[OC_REQUEST_HISTORY_SIZE];
++#endif
+ static uint8_t idx;
+ 
+ static bool
+@@ -123,7 +146,18 @@
+ coap_receive(oc_message_t *msg)
+ {
+   coap_status_code = COAP_NO_ERROR;
+-
++  
++  #ifdef OC_XMEM
++  if(!history || !history_dev) {
++    OC_DBG("Allocating history buffers");
++      history = malloc(OC_REQUEST_HISTORY_SIZE);
++    history_dev = malloc(OC_REQUEST_HISTORY_SIZE);
++    if(!history || !history_dev) {
++      OC_ERR("Unable the allocated request history buffers");
++      return -1;
++    }
++  }
++  #endif
+   OC_DBG("CoAP Engine: received datalen=%u from",
+          (unsigned int)msg->length);
+   OC_LOGipaddr(msg->endpoint);
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/observe.c adapter/iotivity-constrained/messaging/coap/observe.c
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/messaging/coap/observe.c	2019-03-15 04:03:39.731138643 +0200
++++ adapter/iotivity-constrained/messaging/coap/observe.c	2019-03-14 20:13:39.075720277 +0200
+@@ -609,7 +609,7 @@
+         }   // response_buf != NULL
+       }     //! separate response
+     }       // iterate over observers
+-  leave_notify_observers:
++  leave_notify_observers:;
+ #ifdef OC_DYNAMIC_ALLOCATION
+     if (buffer) {
+       free(buffer);
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_log.h adapter/iotivity-constrained/port/oc_log.h
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/port/oc_log.h	2019-03-15 04:03:39.731138643 +0200
++++ adapter/iotivity-constrained/port/oc_log.h	2019-03-14 20:13:39.075720277 +0200
+@@ -23,13 +23,23 @@
+ extern "C"
+ {
+ #endif
+-
+-#define PRINT(...) printf(__VA_ARGS__)
++#ifdef ARDUINO
++#include "Arduino.h"
++#ifdef __cplusplus
++#define PCF(str)  ((PROGMEM const char *)(F(str)))
++#else
++#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
++#endif
++// from: https://stackoverflow.com/questions/18968070/error-when-defining-a-stringising-macro-with-va-args
++#define PRINT(format, ...)  printf_P(PCF(format), ##__VA_ARGS__)
++#else
++#define PRINT(...) printf(__VA_ARGS__)	
++#endif
+ 
+ #define PRINTipaddr(endpoint)                                                  \
+   do {                                                                         \
+     if ((endpoint).flags & IPV4) {                                             \
+-      PRINT("[%d.%d.%d.%d]:%d", ((endpoint).addr.ipv4.address)[0],             \
++      PRINT("[%d.%d.%d.%d]:%u", ((endpoint).addr.ipv4.address)[0],             \
+             ((endpoint).addr.ipv4.address)[1],                                 \
+             ((endpoint).addr.ipv4.address)[2],                                 \
+             ((endpoint).addr.ipv4.address)[3], (endpoint).addr.ipv4.port);     \
+@@ -37,7 +47,7 @@
+       PRINT(                                                                   \
+         "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%"    \
+         "02x%"                                                                 \
+-        "02x]:%d",                                                             \
++        "02x]:%u",                                                             \
+         ((endpoint).addr.ipv6.address)[0], ((endpoint).addr.ipv6.address)[1],  \
+         ((endpoint).addr.ipv6.address)[2], ((endpoint).addr.ipv6.address)[3],  \
+         ((endpoint).addr.ipv6.address)[4], ((endpoint).addr.ipv6.address)[5],  \
+@@ -52,7 +62,34 @@
+     }                                                                          \
+   } while (0)
+ 
+-#ifdef OC_DEBUG
++#ifdef ARDUINO
++#define OC_LOG(level, format, ...)                                             \
++  do {                                                                         \
++    PRINT(level " : " __FILE__ " <%s:%d>: ",__func__, __LINE__);               \
++    PRINT(format, ##__VA_ARGS__);                                              \
++		PRINT("\n");                                                               \
++  } while (0)
++#define OC_DBG(format, ...)   OC_LOG("DEBUG", format, ##__VA_ARGS__)
++#define OC_WRN(format, ...)   OC_LOG("WARNING", format,##__VA_ARGS__)
++#define OC_ERR(format, ...)   OC_LOG("ERROR", format, ##__VA_ARGS__)
++
++#define OC_LOGipaddr(endpoint)                                                 \
++  do {                                                                         \
++    PRINT("DEBUG:  " __FILE__ " <%s:%d>: ",__func__, __LINE__);                \
++    PRINTipaddr(endpoint);                                                     \
++    PRINT("\n");                                                               \
++  } while (0)
++
++#define OC_LOGbytes(bytes, length)                                             \
++  do {                                                                         \
++    PRINT("DEBUG: " __FILE__ " <%s:%d>: ",__func__, __LINE__);                \
++    uint16_t i;                                                                \
++    for (i = 0; i < length; i)                                               \
++      PRINT(" %02X", bytes[i]);                                                \
++    PRINT("\n");                                                               \
++  } while (0)
++#else
++	
+ #define OC_LOG(level, ...)                                                     \
+   do {                                                                         \
+     PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
+@@ -62,6 +99,7 @@
+ #define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
+ #define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
+ #define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
++
+ #define OC_LOGipaddr(endpoint)                                                 \
+   do {                                                                         \
+     PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
+@@ -72,17 +110,10 @@
+   do {                                                                         \
+     PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
+     uint16_t i;                                                                \
+-    for (i = 0; i < length; i++)                                               \
++    for (i = 0; i < length; i)                                               \
+       PRINT(" %02X", bytes[i]);                                                \
+     PRINT("\n");                                                               \
+   } while (0)
+-#else
+-#define OC_LOG(...)
+-#define OC_DBG(...)
+-#define OC_WRN(...)
+-#define OC_ERR(...)
+-#define OC_LOGipaddr(endpoint)
+-#define OC_LOGbytes(bytes, length)
+ #endif
+ 
+ #ifdef __cplusplus
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/security/oc_doxm.c adapter/iotivity-constrained/security/oc_doxm.c
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/security/oc_doxm.c	2019-03-12 13:51:10.419757563 +0200
++++ adapter/iotivity-constrained/security/oc_doxm.c	2019-03-14 20:13:39.075720277 +0200
+@@ -24,7 +24,7 @@
+ #include "oc_store.h"
+ #include <stddef.h>
+ #include <string.h>
+-#ifndef _WIN32
++#ifdef _WIN32
+ #include <strings.h>
+ #endif
+ 
+diff -ru /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/security/oc_tls.c adapter/iotivity-constrained/security/oc_tls.c
+--- /home/vcs/test/iotivity-constrained-arduino/adapter/iotivity-constrained/security/oc_tls.c	2019-03-12 13:51:10.423757563 +0200
++++ adapter/iotivity-constrained/security/oc_tls.c	2019-03-14 20:18:28.951714299 +0200
+@@ -97,7 +97,7 @@
+ #define GCM_IV_LENGTH (12)
+ #define AES128_KEY_LENGTH (16)
+ #define SHA256_MAC_KEY_LENGTH (32)
+-
++#define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
+ static int *ciphers = NULL;
+ #ifdef OC_PKI
+ static int selected_mfg_cred = -1;

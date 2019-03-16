@@ -20,7 +20,6 @@ ifeq ($(CLIENT),1)
   CXXFLAGS 					+= -DOC_CLIENT
 endif
 
-
 ifeq ($(DYNAMIC),1)
 	CXXFLAGS += -DOC_DYNAMIC_ALLOCATION
 endif
@@ -38,7 +37,7 @@ ifeq ($(ESP32),1)
 endif
 
 ### Iotivity contrained includes
-STACK_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/, messaging/coap util util/pt include  api port .)
+STACK_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/, . messaging/coap util util/pt include  api port security deps/mbedtls/include/mbedtls)
 DEPS_HEADERS      +=$(addprefix -I$(PROJECT_DIR)/deps/, pRNG wiz5500 rs232)
 ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include 
 ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include/wiznet_inc
@@ -53,7 +52,6 @@ ifeq ($(SECURE),1)
 	CXXFLAGS        +=$(SEC_HEADERS)
 endif
 
-
 SERVER_OBJ     = $(PROJECT_DIR)/adapter/$(SERVER_ARCHIVE)
 OTHER_OBJS    += $(SERVER_OBJ)
 
@@ -64,12 +62,10 @@ DEPS_LIBS 		+= $(PROJECT_DIR)/deps/rs232/$(RS232_ARCHIVE)
 OTHER_LIBS  	+= $(DEPS_LIBS) 
 
 
-
 include $(ARDMK_DIR)/Arduino.mk
 
 $(SERVER_OBJ): PRNG_ARCHIVE TIME_ARCHIVE WIZ5500_ARCHIVE RS232_ARCHIVE
 	$(MAKE) -C ./adapter $(SERVER_ARCHIVE)
-	
 
 PRNG_ARCHIVE: 
 	$(MAKE) -C ./deps/pRNG $(PRNG_ARCHIVE)	
