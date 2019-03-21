@@ -6,7 +6,7 @@ WIZ5500_ARCHIVE = build-$(BOARD_TAG)/libarduino-wiz5500.a
 RS232_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-rs232.a
 
 ifeq ($(SERVER),1)
-  CXXFLAGS 				+= -DOC_SERVER
+  CXXFLAGS 				+= -DOC_SERVER 
 ifeq ($(XMEM),1)
 	CXXFLAGS += -DOC_XMEM
   LOCAL_CPP_SRCS 	+= apps/server/server-xmem.cpp
@@ -46,10 +46,11 @@ APPS_HEADERS      += -I$(PROJECT_DIR)/apps/include
 
 CXXFLAGS          += $(TIME_HEADERS) $(ADAPTER_HEADERS) $(STACK_HEADERS) $(DEPS_HEADERS) $(APPS_HEADERS)
 
-#CPPFLAGS += -DARDUINO_SERIAL=0
+
 ifeq ($(SECURE),1)
-	SEC_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/deps/mbedtls/, include include/mbedtls)
-	CXXFLAGS        +=$(SEC_HEADERS)
+	SEC_HEADERS	+=$(addprefix -I$(IOTIVITY_CONSTRAINED)/deps/mbedtls/, include include/mbedtls)
+	CXXFLAGS		+=$(SEC_HEADERS)
+	CXXFLAGS		+= -DOC_SEC
 endif
 
 SERVER_OBJ     = $(PROJECT_DIR)/adapter/$(SERVER_ARCHIVE)

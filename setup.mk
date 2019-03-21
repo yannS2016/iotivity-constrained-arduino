@@ -8,7 +8,7 @@ ARDMK_DIR         = $(PROJECT_DIR)/Arduino-Makefile
 
 ### ARDUINO_DIR
 ### Path to the Arduino application and resources directory.
-ARDUINO_DIR       = $(HOME)/arduino-1.8.8
+ARDUINO_DIR       = $(HOME)/arduino-home
 
 ### USER_LIB_PATH
 ### Path to where the your project's libraries are stored.
@@ -107,7 +107,7 @@ ifeq ($(XMEM),1)
 #|				|	stack |variable|	variable| heap |	 |							
 #|				|				|				 |		      |      |   |
 # -----------------------------------------------
-	##EXTMEMOPTS = -Wl,-Map,MegaXmem.map -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
+EXTMEMOPTS = -Wl,-Map,MegaXmem.map -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
 
 #                         0x802200             0x80ffff    
 # ---------------------------------------------------
@@ -115,7 +115,7 @@ ifeq ($(XMEM),1)
 #| variable	|	variables |       |stack |   |heap |	 |								
 #|					|			      |				|			 |	 |     |   |
 # ---------------------------------------------------
-	##EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
+##EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
 
 #                 0x8021ff 0x802200            0x80ffff    
 # -------------------------------------------
@@ -123,7 +123,7 @@ ifeq ($(XMEM),1)
 #| variable	|      |stack |variable|heap |	 |								
 #|					|      |		  |        |     |   |
 # -------------------------------------------
-	EXTMEMOPTS = -Wl,-Map,MegaDataXmem.map -Wl,--section-start,.bss=0x800200 -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
+##	EXTMEMOPTS = -Wl,-Map,MegaDataXmem.map -Wl,--section-start,.bss=0x800200 -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
 ## result of static build:
 ##AVR Memory Usage
 ##----------------

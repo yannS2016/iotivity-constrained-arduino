@@ -34,7 +34,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_BYTES_POOL_SIZE (1500)
 #define OC_INTS_POOL_SIZE (100)
 #define OC_DOUBLES_POOL_SIZE (2)
-
+#define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
 /* Server-side parameters */
 /* Maximum number of server resources */
 #define OC_MAX_APP_RESOURCES (5)

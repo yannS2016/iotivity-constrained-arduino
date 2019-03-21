@@ -1,9 +1,9 @@
-#include "port/oc_storage.h"
-#include "port/oc_log.h"
 #ifdef OC_SECURITY
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
+#include "port/oc_storage.h"
+#include "port/oc_log.h"
 /*#include <SdFat.h>
 #include <SdFatConfig.h>
 #include <sdios.h>
@@ -28,8 +28,8 @@ static bool path_set = false;
 
 int oc_storage_config(const char *store)
 {
-/*  OC_WRN("Initializing SD card...");
-  store_path_len = strlen(store);
+   OC_WRN("Initializing SD card...");
+/*  store_path_len = strlen(store);
   if (store_path_len > STORE_PATH_SIZE){
     OC_WRN("Error in directory length %d...", store_path_len);
     return -ENOENT;
