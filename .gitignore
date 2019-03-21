@@ -1,1 +1,3 @@
-**/build-mega2560/**
+./build-mega2560
+deps/*/build-mega2560
+adapter/build-mega2560
