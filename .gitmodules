@@ -3,4 +3,4 @@
 	url = https://github.com/sudar/Arduino-Makefile.git
 [submodule "adapter/iotivity-constrained"]
 	path = adapter/iotivity-constrained
-	url = https://github.com/iotivity/iotivity-constrained.git
+	url = https://github.com/iotivity/iotivity-lite
