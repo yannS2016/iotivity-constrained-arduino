@@ -43,7 +43,7 @@ AVR_TOOLS_DIR     = $(ARDUINO_DIR)/hardware/tools/avr
 AVRDUDE_ARD_PROGRAMMER = wiring
 
 ### ARDUINO LIBS
-ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2 xmem
+ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2 
 
 ### CFLAGS_STD
 ### Set the C standard to be used during compilation. Documentation (https://github.com/WeAreLeka/Arduino-Makefile/blob/std-flags/arduino-mk-vars.md#cflags_std)
@@ -75,9 +75,9 @@ PRINTF_LIB_MIN = -Wl,-u,vfprintf -lprintf_min
 PRINTF_LIB_FLOAT = -Wl,-u,vfprintf -lprintf_flt
 
 ### If this is left blank, then it will use the Standard printf version.
-#PRINTF_LIB = 
+PRINTF_LIB = 
 #PRINTF_LIB = $(PRINTF_LIB_MIN)
-PRINTF_LIB = $(PRINTF_LIB_FLOAT)
+#PRINTF_LIB = $(PRINTF_LIB_FLOAT)
 
 
 ### Minimalistic scanf version
@@ -100,8 +100,46 @@ SCANF_LIB =
 ## only used for heap (malloc()).
 ##  -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
 
-ifeq ($(XMEM),1)
-	EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
+ifeq ($(XMEM),1)    
+     
+#                         0x2200             0xffff    
+# ---------------------------------------------------------
+#|		|	<---- |	.data	 | .bss     | ---> |	 		|
+#|		|	stack |variable  |	variable| heap |	 		|							
+#|		|		  |			 |		    |      |     		|
+# ----------------------------------------------------------
+# use this config for static build: all data will be push to external ram
+# might be useful for security build( consult .map file for info)
+EXTMEMOPTS = -Wl,-Map,MegaXmem.map -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
+#                         0x802200             0x80ffff    
+# -------------------------------------------------------
+#| .data	|	.bss      |       |<---- |   |---> |	 |
+#| variable	|	variables |       |stack |   |heap |	 |								
+#|			|			  |		  |		 |	 |     |     |
+# -------------------------------------------------------
+# # Use this to push only dynamic allocation( heap) to external memory( this is the default usage)
+##EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
+
+#                 0x8021ff 0x802200            0x80ffff    
+# -----------------------------------------------
+#| .bss		|      |<---- 	| .data  | ---> |	 |
+#| variables|      | stack 	|variable| heap |	 |								
+#|			|      |		|        |      |    |
+# ------------------------------------------------
+# this config can help with secuirty build as it push .bss in stack space(internal memory)
+# and leaves .data( static or heap) to external memory( consult .map file for info)
+##EXTMEMOPTS = -Wl,-Map,MegaDataXmem.map -Wl,--section-start,.bss=0x800200 -Wl,--section-start,.data=0x802200,--defsym=__heap_end=0x80ffff,--defsym=__stack=0x8021ff
+## result of static build:
+##AVR Memory Usage
+##----------------
+##Device: atmega2560
+##
+##Program:  240064 bytes (91.6% Full)
+##(.text + .data + .bootloader)
+##
+##Data:      59490 bytes (726.2% Full)
+##(.data + .bss + .noinit)
+	
 else
 	EXTMEMOPTS =
 endif
@@ -116,6 +154,7 @@ LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB)
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
+###MONITOR_PORT   = /dev/ttyUSB*
 MONITOR_PORT      = /dev/ttyACM*
 
 ### CURRENT_DIR
