@@ -65,7 +65,7 @@ in contiki-conf.h)."
 
 #ifndef MCU_MHZ
  #define MCU_MHZ 16
- #warning "Setting default MCU_MHZ value (@16MHz)"
+// #warning "Setting default MCU_MHZ value (@16MHz)"
 #endif
 
 /******************************************************************************/
@@ -79,7 +79,7 @@ in contiki-conf.h)."
 	#error  "RS232 header was not included ?"
  #else
   #define USART_PORT (RS232_PORT_0)
-  #warning "Setting default RS232 I/O port (#0)"
+//  #warning "Setting default RS232 I/O port (#0)"
  #endif
 #endif
 
@@ -88,7 +88,7 @@ in contiki-conf.h)."
 	#error  "RS232 header was not included ?"
  #else
   #define USART_BAUD (USART_BAUD_115200)
-  #warning "Setting default RS232 I/O baud rate (@9600)"
+// #warning "Setting default RS232 I/O baud rate (@115200)"
  #endif
 #endif
 
