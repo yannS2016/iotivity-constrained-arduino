@@ -1,7 +1,14 @@
-#include "../main.h"
+#include "main.h"
 #include "Ethernet2.h"
 #ifdef OC_XMEM
-#include "xmem.h"
+void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
+void extRAMinit(void) {
+		// set up the xmem registers
+		XMCRB=0; 
+		XMCRA=1<<SRE; 
+		DDRD|=_BV(PD7);
+		DDRL|=(_BV(PL6)|_BV(PL7));
+} 
 #endif
 OC_PROCESS(sample_server_process, "server");
 static bool state = false;
@@ -115,11 +122,11 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
   oc_set_mtu_size(1024);
-  oc_set_max_app_data_size(1024);
+  oc_set_max_app_data_size(2048);
   
   OC_PROCESS_BEGIN();
 
-  OC_DBG("Initializing server for arduino\n");
+  OC_DBG("Initializing server for arduino");
 	
   while (ev != OC_PROCESS_EVENT_EXIT) {
 		oc_etimer_set(&et, (oc_clock_time_t)next_event);
@@ -127,10 +134,10 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		if(ev == OC_PROCESS_EVENT_INIT){
 			int init = oc_main_init(&handler);
 			if (init < 0){
-				OC_DBG("Server Init failed!\n");
+				OC_DBG("Server Init failed!");
 				return init;
 			}
-      OC_DBG("Server process init!\n");
+      OC_DBG("Server process init!");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
@@ -148,11 +155,11 @@ uint8_t ConnectToNetwork()
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
-		OC_ERR("Error connecting to Network: %d\n", error);
+		OC_ERR("Error connecting to Network: %d", error);
 		return -1;
 	}
   IPAddress ip = Ethernet.localIP();
-  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d\n", ip[0], ip[1], ip[2], ip[3]);
+  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
 	return 0;
 }
 void
@@ -164,19 +171,16 @@ init_serial(void)
   rs232_set_input(USART_PORT, NULL);
 }
 void setup() {
-#ifdef OC_XMEM
-	xmem::begin(0); // we set to false because the the make file has the linker command 
-#endif
+
 	init_serial();
-	delay(500);
+	delay(100);
 	if (ConnectToNetwork() != 0)
 	{
-		OC_ERR("Unable to connect to network\n");
+		OC_ERR("Unable to connect to network");
 		return;
 	}
 	oc_process_start(&sample_server_process, NULL);
-	//OC_DBG("freememory: %d\n\n", freeMemory());
-  delay(2000);
+  delay(500);
 }
 
 void loop() {
