@@ -4,7 +4,7 @@
 #include <string.h>
 #include "port/oc_storage.h"
 #include "port/oc_log.h"
-#include "sdfat.h"
+#include "sdStorage.h"
 #define STORE_PATH_SIZE 20
 // SD chip select pin
 const uint8_t chipSelect = 4;
@@ -26,40 +26,40 @@ int oc_storage_config(const char *store)
   strncpy(store_path, store, store_path_len);
   store_path[store_path_len] = '\0';
   OC_WRN("path : %s", store_path);
-  _sd_holder = sdfat_create(); 
-  path_set = true;
+  sdfat_t *sd_holder = sdfat_create(); 
+  sdfile_t *file_holder = sdfile_create(); 
+
+  /*path_set = true;
+  sd = new SdFat();
   // Initialize at the highest speed supported by the board that is
   // not over 50 MHz. Try a lower speed if SPI errors occur.
-  if (!sdfat_begin(_sd_holder, chipSelect)) {
-    sdfat_initErrorHalt(_sd_holder);
-    return -1;
+  if (!sd->begin(chipSelect, SD_SCK_MHZ(50))) {
+    sd->initErrorHalt();
   }
   OC_WRN("initialization done.");
-  // see if the directory exists, create it if not.
-  
-  if( !sdfat_exists(_sd_holder, store_path)) 
+// see if the directory exists, create it if not.
+  if( !sd->exists(store_path) ) 
   {
-    if( sdfat_mkdir(_sd_holder, store_path) ) 
+    if( sd->mkdir(store_path) ) 
     {
-      OC_ERR("Credential directory: %s created", store_path);
+      OC_ERR("Credential directory:  %s created", store_path);
     } 
     else {
       OC_ERR("Error creating credential directory");
     }
   }
-  _file_holder = sdfile_create(); 
-  list_dir();
+  list_dir();*/
   return 0;
 }
 
 void list_dir(){
 // Initialize at the highest speed supported by the board that is
   // not over 50 MHz. Try a lower speed if SPI errors occur.
-  if (!sdfile_open_read(_file_holder,"/", O_RDONLY)) {
-    sdfat_errorHalt(_sd_holder, "open root failed");
+/*  if (!root.open("/")) {
+    sd->errorHalt("open root failed");
   }
   // list all files in the card with date and size
-  sdfile_ls(_file_holder);
+  root.ls(LS_R | LS_DATE | LS_SIZE);
 }
 
 long
@@ -77,20 +77,6 @@ oc_storage_write(const char *store, uint8_t *buf, size_t len)
   store_path[1 + store_path_len + store_len] = '\0';
 
   OC_WRN("Writing security file: %s", store_path);
-  sdfile_open_write(_file_holder, store_path, O_WRONLY | O_CREAT | O_TRUNC);
-  if(!sdfile_isOpen(_file_holder)) {
-    OC_ERR("error opening %s", store_path);
-    //return -1;
-  }else {
-      //len  =  wrfile.write(buf, len);
-      if((len  =  sdfile_write(_file_holder, buf, len)) == -1) {
-          OC_ERR("Error writing to: %s",store_path );
-         // return -1;
-      }
-      OC_WRN("Bytes written: %d", len);
-      sdfile_close(_file_holder);
-  }
-  /*
   SdFile wrfile(store_path, O_WRONLY | O_CREAT | O_TRUNC);
   if (!wrfile.isOpen()) {
      OC_ERR("error opening %s", store_path);
@@ -109,30 +95,16 @@ long
 oc_storage_read(const char *store, uint8_t *buf, size_t len)
 {
 
-  size_t store_len = strlen(store);
-   OC_ERR("LENGHT BEFORE: %d",len );
+/*  size_t store_len = strlen(store);
+
   if (!path_set || (1 + store_len + store_path_len >= STORE_PATH_SIZE))
     return -ENOENT;
-  OC_WRN("file to open %s", store);
+
   store_path[store_path_len] = '/';
   strncpy(store_path + store_path_len + 1, store, store_len);
   store_path[1 + store_path_len + store_len] = '\0';
   OC_WRN("Reading security file: %s", store_path);
-  sdfile_open_read(_file_holder, store_path,  O_RDONLY);
-
-  if(!sdfile_isOpen(_file_holder)) {
-    OC_ERR("error opening %s", store_path);
-    //return -1;
-  }else {
-      while(sdfile_available(_file_holder)){
-        if((len  =  sdfile_read(_file_holder, buf, len)) == -1) {
-          OC_ERR("Error reading from: %s",store_path );
-        } 
-      }
-       OC_ERR("lenght: %d",len );
-      sdfile_close(_file_holder);
-  }
-/*
+  SdFile rdfile(store_path, O_RDONLY);
  
   // check for open error
   if (!rdfile.isOpen()) {
@@ -146,7 +118,6 @@ oc_storage_read(const char *store, uint8_t *buf, size_t len)
       } 
     rdfile.close(); 
   }*/
-  list_dir();
   return len;
 }
 #endif /* OC_SECURITY */

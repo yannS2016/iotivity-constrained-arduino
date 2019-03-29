@@ -25,11 +25,6 @@ void
 oc_random_init(void)
 {
   iotConstrainedRand = prng_create();
-  #ifdef ARDUINO_SERIAL
-  //OIC_LOG_V("INFO","rand object initialization completed %s", "INIT") ;
-  //OIC_LOG("INFO","rand object initialization completed");
-  #endif
-  
 }
 
 unsigned int

@@ -1,7 +1,7 @@
 ###iotivity contrained sources
 include ../setup.mk
 
-DTLS += $(addprefix iotivity-constrained/deps/mbedtls/library/, aes.c		aesni.c 	arc4.c  	asn1parse.c	asn1write.c	base64.c	\
+DTLS += $(addprefix iotivity-constrained/deps/mbedtls/mbedtls/library/, aes.c		aesni.c 	arc4.c  	asn1parse.c	asn1write.c	base64.c	\
 	bignum.c	blowfish.c	camellia.c	ccm.c		cipher.c	cipher_wrap.c	\
 	cmac.c		ctr_drbg.c	des.c		dhm.c		ecdh.c		ecdsa.c		\
 	ecjpake.c	ecp.c		ecp_curves.c	entropy.c	entropy_poll.c	error.c		\
@@ -15,7 +15,7 @@ DTLS += $(addprefix iotivity-constrained/deps/mbedtls/library/, aes.c		aesni.c 	
 	ssl_srv.c	ssl_ticket.c	ssl_tls.c	rsa_internal.c	x509write_csr.c\
 	x509write_crt.c	x509_create.c )
  
-DTLSFLAGS=$(addprefix -Iiotivity-constrained/, security deps/mbedtls/include) -D__OC_RANDOM
+DTLSFLAGS=$(addprefix -Iiotivity-constrained/, security deps/mbedtls/mbedtls/include) -D__OC_RANDOM
 
 CBOR+=$(addprefix iotivity-constrained/deps/tinycbor/src/, cborencoder.c \
 																		cborencoder_close_container_checked.c cborparser.c)
@@ -29,10 +29,10 @@ SRC+=$(WZNET_SRC)
 
 # Arduino ethernet and iotivity constrained includes
 ADPTER_HEADERS+=-Iipadapter/include -Iipadapter/include/wiznet_inc
-ETH2_UTILS=-I$(ARDUINO_DIR)/libraries/Ethernet2/src/utility
-WRAPPERS_HEADERS+=$(addprefix -I../deps/, pRNG rs232 wiz5500)
+CORE_HEADERS=-I$(ARDUINO_DIR)/libraries/Ethernet2/src/utility -I$(ARDUINO_DIR)/libraries/SdFat/src/FatLib
+WRAPPERS_HEADERS+=$(addprefix -I../deps/, pRNG rs232 wiz5500 sdFat serial)
 HEADERS_STACK+=$(addprefix -Iiotivity-constrained/, messaging/coap util util/pt include  api port .)
-CFLAGS +=$(ADPTER_HEADERS) $(ETH2_UTILS) $(HEADERS_STACK) $(WRAPPERS_HEADERS)
+CFLAGS +=$(ADPTER_HEADERS) $(CORE_HEADERS) $(HEADERS_STACK) $(WRAPPERS_HEADERS)
 
 ifeq ($(DEBUG),1)
 	CFLAGS += -DOC_DEBUG 

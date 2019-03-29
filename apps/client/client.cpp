@@ -2,6 +2,14 @@
 #include "Ethernet2.h"
 #ifdef OC_XMEM
 #include "xmem.h"
+void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
+void extRAMinit(void) {
+		// set up the xmem registers
+		XMCRB=0; 
+		XMCRA=1<<SRE; 
+		DDRD|=_BV(PD7);
+		DDRL|=(_BV(PL6)|_BV(PL7));
+} 
 #endif
 OC_PROCESS(sample_client_process, "client");
 static int
@@ -281,7 +289,7 @@ init_serial(void)
 void setup() {
 	
 #ifdef OC_XMEM
-	xmem::begin(0); // we set to false because the the make file has the linker command 
+	//xmem::begin(0); // we set to false because the the make file has the linker command 
 #endif	
 	init_serial();
 	delay(500);

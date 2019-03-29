@@ -1,7 +1,12 @@
 #include "main.h"
 #include "Ethernet2.h"
+#include <SdFat.h>
+#include <SdFatConfig.h>
+#include <sdios.h>
+#include <SysCall.h>
+#include "sdfat.h"
 #ifdef OC_XMEM
-#include "xmem.h"
+//#include "xmem.h"
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
 		// set up the xmem registers
@@ -123,7 +128,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
   oc_set_mtu_size(1024);
-  oc_set_max_app_data_size(2048);
+  oc_set_max_app_data_size(1024);
   
   OC_PROCESS_BEGIN();
 
@@ -157,37 +162,74 @@ uint8_t ConnectToNetwork()
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
-		OC_ERR("Error connecting to Network: %d\n", error);
+		OC_ERR("Error connecting to Network: %d", error);
 		return -1;
 	}
   IPAddress ip = Ethernet.localIP();
-  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d\n", ip[0], ip[1], ip[2], ip[3]);
+  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
 	return 0;
 }
-void
-init_serial(void)
-{
-  rs232_init(USART_PORT, USART_BAUD,
-             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
-  rs232_redirect_stdout(USART_PORT);
-  rs232_set_input(USART_PORT, NULL);
-}
+
+
 void setup() {
-#ifdef OC_XMEM
-	//extRAMinit();//xmem::extRAMinit(); // we set to false because the the make file has the linker command 
-#endif
-	init_serial();
-	delay(500);
+	Serial.begin(115200);
+	delay(50);
 	if (ConnectToNetwork() != 0)
 	{
-		OC_ERR("Unable to connect to network\n");
+		OC_ERR("Unable to connect to network");
 		return;
 	}
-	oc_process_start(&sample_server_process, NULL);
-	//OC_DBG("freememory: %d\n\n", freeMemory());
-  delay(2000);
+#ifdef OC_SEC
+  oc_storage_config("creds"); 
+	uint8_t mybuf[500];
+  // check for open error
+	const char *store_path = "myacl.txt";
+
+
+oc_storage_read("store_path", mybuf, 500);
+
+
+
+
+  /*OC_WRN("Writing security file: %s", store_path);
+  int size = 500;
+  SdFile wrfile(store_path, O_WRONLY | O_CREAT | O_TRUNC);
+  if (!wrfile.isOpen()) {
+     OC_ERR("error opening %s", store_path);
+  } else {
+      //len  =  wrfile.write(buf, len);
+      if((size  =  wrfile.write(mybuf, size)) == -1) {
+          OC_ERR("Error writing to: %s",store_path );
+      }
+      OC_WRN("Bytes written: %d", size);
+      wrfile.close();
+  }
+
+
+
+//delay(2000);
+
+
+
+	SdFile rdfile(store_path, O_RDONLY);
+	int len = 500;
+  if (!rdfile.isOpen()) {
+   OC_ERR("error opening %s", store_path);
+   return -1;
+  } else {
+      while (rdfile.available()) {
+        if((len =  rdfile.read(mybuf, 500)) == -1 ) {
+          OC_ERR("Error reading: %s",store_path );
+        }
+      } 
+    OC_WRN("Bytes read: %d", len);
+    rdfile.close(); 
+  }*/
+#endif /* OC_SECURITY */
+	//oc_process_start(&sample_server_process, NULL);
+  //delay(500);
 }
 
 void loop() {
-	oc_process_run();
+//	oc_process_run();
 }
