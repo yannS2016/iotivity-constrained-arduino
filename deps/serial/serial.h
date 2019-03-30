@@ -8,24 +8,28 @@
 extern "C" {
 #endif
 
-#ifdef __cplusplus
-#define PCF(str)  ((PROGMEM const char *)(F(str)))
-#else
-#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
-#endif
 
 typedef struct _serial {
     void *serial;
 }serial_t;
 
-// allocate memory for Holder and serial object
 extern serial_t *_serial_holder;// = NULL;
 
-void logV(PROGMEM const char *format, ...);
-                          													
+#if defined(__AVR__)
+#ifdef __cplusplus
+#define PCF(str)  ((PROGMEM const char *)(F(str)))
+#else
+#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
+#endif
+void avr_log(PROGMEM const char *format, ...);
+#define AVR_LOG(format, ...) avr_log(PCF(format),##__VA_ARGS__)                       													
+#elif defined(__arm__)
+void arm_log(const char *format, ...);
+#define ARM_LOG(format, ...) arm_log(format,##__VA_ARGS__) 
+#else
+#error Architecture or board not supported.
+#endif
 
-#define LOG_V(format, ...) logV(format,##__VA_ARGS__) 
-    
 #ifdef __cplusplus
 }
 #endif

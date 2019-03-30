@@ -81,7 +81,13 @@ LOCAL_C_SRCS += $(SRC_COMMON)
 LOCAL_C_SRCS += $(SRC) 
 
 
-include $(ARDMK_DIR)/Arduino.mk
+ifeq ($(ARCH),avr)
+	include ../avr.mk
+else ifeq ($(ARCH),samd)
+	include ../samd.mk
+else
+$(error Target Architecture must be define to proceed!)	
+endif
 	
 build-$(BOARD_TAG)/libarduino-adapter.a: $(LOCAL_OBJS)
 	$(AR) rcs $@ $(LOCAL_OBJS) 

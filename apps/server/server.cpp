@@ -1,5 +1,4 @@
 #include "main.h"
-#include "Ethernet2.h"
 
 OC_PROCESS(sample_server_process, "server");
 static bool state = false;
@@ -154,18 +153,10 @@ uint8_t ConnectToNetwork()
   OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d\n", ip[0], ip[1], ip[2], ip[3]);
 	return 0;
 }
-void
-init_serial(void)
-{
-  rs232_init(USART_PORT, USART_BAUD,
-             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
-  rs232_redirect_stdout(USART_PORT);
-  rs232_set_input(USART_PORT, NULL);
-}
+
 void setup() {
-	
-	init_serial();
-	delay(500);
+	Serial.begin(115200);
+	delay(50);
 
 	if (ConnectToNetwork() != 0)
 	{
@@ -173,7 +164,7 @@ void setup() {
 		return;
 	}
 	oc_process_start(&sample_server_process, NULL);
-  delay(2000);
+  delay(200);
 }
 
 void loop() {

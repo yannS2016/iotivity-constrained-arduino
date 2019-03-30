@@ -4,7 +4,7 @@
 #else
 #include <WProgram.h>
 #endif
-
+#include "Ethernet2.h"
 #ifndef OC_XMEM
 #include "FreeMemory.h"
 #endif

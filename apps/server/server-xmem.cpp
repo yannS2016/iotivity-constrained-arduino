@@ -6,7 +6,6 @@
 #include <SysCall.h>
 #include "sdfat.h"
 #ifdef OC_XMEM
-//#include "xmem.h"
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
 		// set up the xmem registers
@@ -181,55 +180,11 @@ void setup() {
 	}
 #ifdef OC_SEC
   oc_storage_config("creds"); 
-	uint8_t mybuf[500];
-  // check for open error
-	const char *store_path = "myacl.txt";
-
-
-oc_storage_read("store_path", mybuf, 500);
-
-
-
-
-  /*OC_WRN("Writing security file: %s", store_path);
-  int size = 500;
-  SdFile wrfile(store_path, O_WRONLY | O_CREAT | O_TRUNC);
-  if (!wrfile.isOpen()) {
-     OC_ERR("error opening %s", store_path);
-  } else {
-      //len  =  wrfile.write(buf, len);
-      if((size  =  wrfile.write(mybuf, size)) == -1) {
-          OC_ERR("Error writing to: %s",store_path );
-      }
-      OC_WRN("Bytes written: %d", size);
-      wrfile.close();
-  }
-
-
-
-//delay(2000);
-
-
-
-	SdFile rdfile(store_path, O_RDONLY);
-	int len = 500;
-  if (!rdfile.isOpen()) {
-   OC_ERR("error opening %s", store_path);
-   return -1;
-  } else {
-      while (rdfile.available()) {
-        if((len =  rdfile.read(mybuf, 500)) == -1 ) {
-          OC_ERR("Error reading: %s",store_path );
-        }
-      } 
-    OC_WRN("Bytes read: %d", len);
-    rdfile.close(); 
-  }*/
 #endif /* OC_SECURITY */
-	//oc_process_start(&sample_server_process, NULL);
-  //delay(500);
+	oc_process_start(&sample_server_process, NULL);
+  delay(500);
 }
 
 void loop() {
-//	oc_process_run();
+	oc_process_run();
 }
