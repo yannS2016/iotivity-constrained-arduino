@@ -1,16 +1,18 @@
 #include "main.h"
-#include "Ethernet2.h"
+#ifdef __AVR__
 #ifdef OC_XMEM
 #include "xmem.h"
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
-		// set up the xmem registers
-		XMCRB=0; 
-		XMCRA=1<<SRE; 
-		DDRD|=_BV(PD7);
-		DDRL|=(_BV(PL6)|_BV(PL7));
+    // set up the xmem registers
+    XMCRB=0; 
+    XMCRA=1<<SRE; 
+    DDRD|=_BV(PD7);
+    DDRL|=(_BV(PL6)|_BV(PL7));
 } 
 #endif
+#endif
+
 OC_PROCESS(sample_client_process, "client");
 static int
 app_init(void)
@@ -195,10 +197,10 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
 #else
       light_server = endpoint->next;
 #endif
-			OC_DBG("IPV4 Resource ");
+      OC_DBG("IPV4 Resource ");
 #else
-			light_server = endpoint;
-			OC_DBG("IPV6 Resource ");
+      light_server = endpoint;
+      OC_DBG("IPV6 Resource ");
 #endif
       strncpy(a_light, uri, uri_len);
       a_light[uri_len] = '\0';
@@ -218,7 +220,6 @@ discovery(const char *anchor, const char *uri, oc_string_array_t types,
   oc_free_server_endpoints(endpoint);
   return OC_CONTINUE_DISCOVERY;
 }
-
 static void
 issue_requests(void)
 {
@@ -244,20 +245,20 @@ OC_PROCESS_THREAD(sample_client_process, ev, data)
   OC_PROCESS_BEGIN();
   OC_DBG("Initializing client for arduino");
   while (ev != OC_PROCESS_EVENT_EXIT) {
-		oc_etimer_set(&et, (oc_clock_time_t)next_event);
-		
-		if(ev == OC_PROCESS_EVENT_INIT){
-			int init = oc_main_init(&handler);
-			if (init < 0){
-				OC_DBG("Client Init failed!");
-				return init;
-			}
+    oc_etimer_set(&et, (oc_clock_time_t)next_event);
+    
+    if(ev == OC_PROCESS_EVENT_INIT){
+      int init = oc_main_init(&handler);
+      if (init < 0){
+        OC_DBG("Client Init failed!");
+        return init;
+      }
       OC_DBG("Client process init!");
-		}
-		else if(ev == OC_PROCESS_EVENT_TIMER){
-			next_event = oc_main_poll();
-			next_event -= oc_clock_time();
-		}
+    }
+    else if(ev == OC_PROCESS_EVENT_TIMER){
+      next_event = oc_main_poll();
+      next_event -= oc_clock_time();
+    }
     OC_PROCESS_WAIT_EVENT();
   }
  OC_PROCESS_END();
@@ -266,53 +267,39 @@ OC_PROCESS_THREAD(sample_client_process, ev, data)
 // Arduino Ethernet Shield
 uint8_t ConnectToNetwork()
 {
-	// Note: ****Update the MAC address here with your shield's MAC address****
-	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
-	uint8_t error = Ethernet.begin(ETHERNET_MAC);
-	if (error  == 0)
-	{
-		OC_ERR("Error connecting to Network: %d", error);
-		return -1;
-	}
+  // Note: ****Update the MAC address here with your shield's MAC address****
+  uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+  Ethernet.init(5); // CS Pin for MKRZERO
+  uint8_t error = Ethernet.begin(ETHERNET_MAC);
+  if (error  == 0)
+  {
+    OC_ERR("Error connecting to Network: %d", error);
+    return -1;
+  }
   IPAddress ip = Ethernet.localIP();
   OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
-	return 0;
+  return 0;
 }
-void
-init_serial(void)
-{
-  rs232_init(USART_PORT, USART_BAUD,
-             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
-  rs232_redirect_stdout(USART_PORT);
-  rs232_set_input(USART_PORT, NULL);
-}
+
 void setup() {
-	
-#ifdef OC_XMEM
-	//xmem::begin(0); // we set to false because the the make file has the linker command 
-#endif	
-	init_serial();
-	delay(500);
-	if (ConnectToNetwork() != 0)
-	{
-		OC_ERR("Unable to connect to network");
-		return;
-	}
-	
-	oc_process_start(&sample_client_process, NULL);
-#ifndef OC_XMEM
-		OC_DBG("freememory: %d", freeMemory());
-#endif
-
-  delay(2000);
+  Serial.begin((uint32_t)9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  if (ConnectToNetwork() != 0)
+  {
+    OC_ERR("Unable to connect to network");
+    return;
+  }
+  delay(500);
+#ifdef OC_SEC
+  oc_storage_config("creds"); 
+#endif /* OC_SECURITY */
+  oc_process_start(&sample_client_process, NULL);
+  delay(200);
 }
 
-//main loop
 void loop() {
   
-  for (;;)
-  {
-		oc_process_run();
-  }
-  oc_main_shutdown();
+  oc_process_run();
 }

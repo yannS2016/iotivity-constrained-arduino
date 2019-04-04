@@ -111,12 +111,12 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
-  oc_set_mtu_size(1024);
-  oc_set_max_app_data_size(1024);
+  oc_set_mtu_size(512);
+  oc_set_max_app_data_size(512);
   
   OC_PROCESS_BEGIN();
 
-  OC_DBG("Initializing server for arduino\n");
+  OC_DBG("Initializing server for arduino");
 	
   while (ev != OC_PROCESS_EVENT_EXIT) {
 		oc_etimer_set(&et, (oc_clock_time_t)next_event);
@@ -124,10 +124,10 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		if(ev == OC_PROCESS_EVENT_INIT){
 			int init = oc_main_init(&handler);
 			if (init < 0){
-				OC_DBG("Server Init failed!\n");
+				OC_DBG("Server Init failed!");
 				return init;
 			}
-      OC_DBG("Server process init!\n");
+      OC_DBG("Server process init!");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
@@ -142,31 +142,36 @@ uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
 	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
-	//uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
+  Ethernet.init(5); // CS Pin for MKRZERO
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
-		OC_ERR("Error connecting to Network: %d\n", error);
+		OC_ERR("Error connecting to Network: %d", error);
 		return -1;
 	}
   IPAddress ip = Ethernet.localIP();
-  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d\n", ip[0], ip[1], ip[2], ip[3]);
+  OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
 	return 0;
 }
 
 void setup() {
-	Serial.begin(115200);
-	delay(50);
-
+	Serial.begin((uint32_t)9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
 	if (ConnectToNetwork() != 0)
 	{
-		OC_ERR("Unable to connect to network\n");
+		OC_ERR("Unable to connect to network");
 		return;
 	}
+#ifdef OC_SEC
+  oc_storage_config("creds"); 
+#endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
   delay(200);
 }
 
 void loop() {
+  
 	oc_process_run();
 }

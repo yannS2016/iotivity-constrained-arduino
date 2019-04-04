@@ -6,7 +6,7 @@
 #endif
 #include "Ethernet2.h"
 #ifndef OC_XMEM
-#include "FreeMemory.h"
+//#include "FreeMemory.h"
 #endif
 extern "C" {
 #endif

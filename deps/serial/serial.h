@@ -23,12 +23,15 @@ extern serial_t *_serial_holder;// = NULL;
 #endif
 void avr_log(PROGMEM const char *format, ...);
 #define AVR_LOG(format, ...) avr_log(PCF(format),##__VA_ARGS__)                       													
-#elif defined(__arm__)
+#elif defined(__SAMD21G18A__) || defined(__SAM3X8E__) 
 void arm_log(const char *format, ...);
-#define ARM_LOG(format, ...) arm_log(format,##__VA_ARGS__) 
+#define ARM_LOG(format, ...) arm_log(format,##__VA_ARGS__)
 #else
 #error Architecture or board not supported.
 #endif
+
+
+
 
 #ifdef __cplusplus
 }

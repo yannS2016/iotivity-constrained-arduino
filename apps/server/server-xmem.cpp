@@ -126,7 +126,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
-  oc_set_mtu_size(1024);
+  oc_set_mtu_size(512);
   oc_set_max_app_data_size(1024);
   
   OC_PROCESS_BEGIN();
@@ -156,8 +156,8 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
-	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
-	//uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
+	//uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+	uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
@@ -186,5 +186,5 @@ void setup() {
 }
 
 void loop() {
-	oc_process_run();
+	//oc_process_run();
 }

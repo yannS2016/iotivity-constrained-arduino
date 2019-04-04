@@ -15,21 +15,32 @@
 * limitations under the License.
 *
 ******************************************************************/
+
 #include "port/oc_random.h"
-#include "prng.h"
 #include "oc_log.h"
 #include "oc_helpers.h"
 
+#ifdef __AVR__
+#include "prng.h"
+#else
+#include <WMath.h>
+#endif 
 
 void
 oc_random_init(void)
 {
+#ifdef __AVR__
   iotConstrainedRand = prng_create();
+#else
+  //randomSeed(analogRead(0));
+#endif
+
 }
 
 unsigned int
 oc_random_value(void)
 {
+#ifdef __AVR__
   if(iotConstrainedRand == NULL) {
     iotConstrainedRand = prng_create();
   }
@@ -37,10 +48,15 @@ oc_random_value(void)
   if (iotConstrainedRand == NULL)
       return 0;    
   return (unsigned int)prng_getRndInt(iotConstrainedRand);
+#else
+  return 0;
+#endif
 }
 
 void
 oc_random_destroy(void)
 {
+#ifdef __AVR__
   prng_destroy(iotConstrainedRand);
+#endif
 }

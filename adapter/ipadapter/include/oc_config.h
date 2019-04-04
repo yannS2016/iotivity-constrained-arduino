@@ -24,7 +24,8 @@
 #include <TimeLib.h>
 
 #define OCF_MCAST_PORT_UNSECURED (5683)
-#define OCF_SERVER_PORT_UNSECURED (56789)
+#define OCF_PORT_UNSECURED (56789)
+#define OCF_PORT_SECURED (42536)
 /** Multicast IP address.*/
 #define OCF_IPv4_MULTICAST      "224.0.1.187"
 //arduino does not define a 64 bits int

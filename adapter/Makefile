@@ -1,12 +1,12 @@
 ###iotivity contrained sources
 include ../setup.mk
 
-DTLS += $(addprefix iotivity-constrained/deps/mbedtls/mbedtls/library/, aes.c		aesni.c 	arc4.c  	asn1parse.c	asn1write.c	base64.c	\
-	bignum.c	blowfish.c	camellia.c	ccm.c		cipher.c	cipher_wrap.c	\
-	cmac.c		ctr_drbg.c	des.c		dhm.c		ecdh.c		ecdsa.c		\
-	ecjpake.c	ecp.c		ecp_curves.c	entropy.c	entropy_poll.c	error.c		\
-	gcm.c		havege.c	hmac_drbg.c	md.c		md2.c		md4.c		\
-	md5.c		md_wrap.c	oid.c		padlock.c	\
+DTLS += $(addprefix iotivity-constrained/deps/mbedtls/library/, aes.c  aesni.c 	arc4.c  asn1parse.c	asn1write.c	base64.c\
+	bignum.c  blowfish.c	camellia.c	ccm.c  cipher.c	cipher_wrap.c		\
+	cmac.c  ctr_drbg.c	des.c  dhm.c  ecdh.c  ecdsa.c						\
+	ecjpake.c	ecp.c  ecp_curves.c	entropy.c	entropy_poll.c	error.c		\
+	gcm.c  havege.c	hmac_drbg.c	md.c  md2.c	 md4.c		\
+	md5.c  md_wrap.c  oid.c	 padlock.c							\
 	pem.c		pk.c		pk_wrap.c	pkcs12.c	pkcs5.c		pkparse.c	\
 	pkwrite.c	platform.c	ripemd160.c	rsa.c		sha1.c		sha256.c	\
 	sha512.c	threading.c	timing.c	version.c	version_features.c		\
@@ -15,7 +15,7 @@ DTLS += $(addprefix iotivity-constrained/deps/mbedtls/mbedtls/library/, aes.c		a
 	ssl_srv.c	ssl_ticket.c	ssl_tls.c	rsa_internal.c	x509write_csr.c\
 	x509write_crt.c	x509_create.c )
  
-DTLSFLAGS=$(addprefix -Iiotivity-constrained/, security deps/mbedtls/mbedtls/include) -D__OC_RANDOM
+DTLSFLAGS=$(addprefix -Iiotivity-constrained/, security deps/mbedtls/include) -D__OC_RANDOM
 
 CBOR+=$(addprefix iotivity-constrained/deps/tinycbor/src/, cborencoder.c \
 																		cborencoder_close_container_checked.c cborparser.c)
@@ -29,7 +29,7 @@ SRC+=$(WZNET_SRC)
 
 # Arduino ethernet and iotivity constrained includes
 ADPTER_HEADERS+=-Iipadapter/include -Iipadapter/include/wiznet_inc
-CORE_HEADERS=-I$(ARDUINO_DIR)/libraries/Ethernet2/src/utility -I$(ARDUINO_DIR)/libraries/SdFat/src/FatLib
+CORE_HEADERS  =-I$(ARDUINO_DIR)/libraries/Ethernet2/src/utility -I$(ARDUINO_DIR)/libraries/SdFat/src/FatLib
 WRAPPERS_HEADERS+=$(addprefix -I../deps/, pRNG rs232 wiz5500 sdFat serial)
 HEADERS_STACK+=$(addprefix -Iiotivity-constrained/, messaging/coap util util/pt include  api port .)
 CFLAGS +=$(ADPTER_HEADERS) $(CORE_HEADERS) $(HEADERS_STACK) $(WRAPPERS_HEADERS)

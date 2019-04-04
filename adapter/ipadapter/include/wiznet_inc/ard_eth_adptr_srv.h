@@ -26,19 +26,27 @@ extern "C"
 {
 #endif
 
-typedef struct ip_context_t {
-	struct ip_context_t *next;
-	uint8_t arduino_ucast_socket;
-	uint16_t arduino_ucast_port;
-	uint8_t arduino_mcast_socket;
-	uint16_t arduino_mcast_port;
-#ifdef OC_SECURITY
-	uint8_t arduino_secure_socket;
-	uint16_t dtls_port;
-#endif
-	uint8_t active_sockets[MAX_SOCK_NUM];
-	uint8_t num_active_sockets;
-} ip_context_t;
+typedef struct  sdset_t {
+  uint8_t sdsset;
+  uint8_t sds[MAX_SOCK_NUM];
+  uint8_t ready_sds;
+  uint16_t rcv_size;
+} sdset_t;
+
+#define SETSIZE (8)
+#define SD_ZERO(_setsds) (((sdset_t*)_setsds)->sdsset = 0 )
+//	OC_WRN("socket %d added to set %d",((sdset_t*)_setsds)->sds[sd], ((sdset_t*)_setsds)->sdsset);	
+#define SD_SET(sd,_setsds)											\
+do {																\
+	((sdset_t*)_setsds)->sds[sd] = sd; 								\
+	((sdset_t*)_setsds)->sdsset |= (1 << (sd % SETSIZE));			\
+} while(0)
+
+#define SD_CLR(sd, _setsds)   (((sdset_t*)_setsds)->sdsset &= ~(1 << (sd % SETSIZE)))
+#define SD_ISSET(sd, _setsds) (((sdset_t*)_setsds)->sdsset & (1 << (sd % SETSIZE)))
+uint8_t select(uint8_t nsds, sdset_t *setsds);
+int16_t recv_msg(uint8_t *socketID, uint8_t *sender_addr, 
+				uint16_t *sender_port, uint8_t *data, uint16_t packets_size);
 
 
 void init_ip_context();
@@ -46,14 +54,9 @@ void init_ip_context();
 typedef void (* ard_eth_udp_callback)(uint8_t *sender_addr, uint16_t *sender_port,
                                      uint8_t *data, const uint16_t dataLength);
                                     
-OCResult_t start_arduino_servers();
-OCResult_t ard_ucast_server_shutdown();                                       
-OCResult_t ard_mcast_server_shutdown();
-void ard_servers_shutdown();
+uint8_t start_udp_server(uint16_t *local_port);
 
-OCResult_t start_arduino_ucast_server(uint16_t *local_port);
-
-OCResult_t start_arduino_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port);	
+uint8_t start_udp_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port);	
 
                                         
 // definitions for hadling the reception of data

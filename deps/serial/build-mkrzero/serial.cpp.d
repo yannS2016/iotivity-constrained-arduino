@@ -1,4 +1,4 @@
-build-mkrzero/./Wiz5500.cpp.o: Wiz5500.cpp \
+build-mkrzero/./serial.cpp.o: serial.cpp \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/Arduino.h \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/avr/pgmspace.h \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/avr/interrupt.h \
@@ -101,6 +101,4 @@ build-mkrzero/./Wiz5500.cpp.o: Wiz5500.cpp \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/RingBuffer.h \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/USB/USB_host.h \
  /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/cores/arduino/USB/samd21_host.h \
- Wiz5500.h /home/pi/arduino-home/libraries/Ethernet2/src/utility/w5500.h \
- /home/pi/.arduino15/packages/arduino/hardware/samd/1.6.20/libraries/SPI/SPI.h \
- ../../adapter/iotivity-constrained/port/oc_log.h ../serial/serial.h
+ serial.h

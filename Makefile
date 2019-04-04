@@ -28,9 +28,9 @@ else
   LOCAL_CPP_SRCS 	+= apps/client/client-xmem.cpp
 endif		
 else
-$(error Target Architecture must be define to proceed!)	
+$(error Must define an app server/client to proceed!)	
 endif
-else 
+else
 # ARM
 ifeq ($(SERVER),1)
   CXXFLAGS 			+= -DOC_SERVER
@@ -39,7 +39,8 @@ else ifeq ($(CLIENT),1)
   CXXFLAGS 			+= -DOC_CLIENT
   LOCAL_CPP_SRCS 	+= apps/client/client.cpp
 else
-$(error Target Architecture must be define to proceed!)	
+#$(error Target Architecture must be define to proceed!)	
+$(error Must define an app server/client to proceed!)	
 endif
 endif
 
@@ -83,13 +84,14 @@ SERVER_OBJ     = $(PROJECT_DIR)/adapter/$(SERVER_ARCHIVE)
 OTHER_OBJS    += $(SERVER_OBJ)
 
 ifeq ($(ARCH),avr)
-DEPS_LIBS 		+= $(PROJECT_DIR)/deps/pRNG/$(PRNG_ARCHIVE)	
+OTHER_OBJS 		+= $(PROJECT_DIR)/deps/pRNG/$(PRNG_ARCHIVE)	
 endif
-DEPS_LIBS 		+= $(PROJECT_DIR)/deps/Time/$(TIME_ARCHIVE)
-DEPS_LIBS 		+= $(PROJECT_DIR)/deps/wiz5500/$(WIZ5500_ARCHIVE)
-DEPS_LIBS 		+= $(PROJECT_DIR)/deps/serial/$(SERIAL_ARCHIVE)	
-DEPS_LIBS 		+= $(PROJECT_DIR)/deps/sdFat/$(SDFAT_ARCHIVE)
-OTHER_LIBS  	+= $(DEPS_LIBS) 
+OTHER_OBJS 		+= $(PROJECT_DIR)/deps/Time/$(TIME_ARCHIVE)
+OTHER_OBJS 		+= $(PROJECT_DIR)/deps/wiz5500/$(WIZ5500_ARCHIVE)
+OTHER_OBJS 		+= $(PROJECT_DIR)/deps/serial/$(SERIAL_ARCHIVE)	
+OTHER_OBJS 		+= $(PROJECT_DIR)/deps/sdFat/$(SDFAT_ARCHIVE)
+
+#OTHER_LIBS  	+= $(DEPS_LIBS) 
 
 ifeq ($(ARCH),avr)
 	include ./avr.mk
@@ -124,7 +126,9 @@ SDFAT_ARCHIVE:
 
 clean::
 	$(MAKE) -C ./adapter clean
+ifeq ($(ARCH),avr)
 	$(MAKE) -C ./deps/pRNG clean  
+endif
 	$(MAKE) -C ./deps/Time clean
 	$(MAKE) -C ./deps/wiz5500 clean
 	$(MAKE) -C ./deps/serial clean
