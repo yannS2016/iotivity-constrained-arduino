@@ -75,8 +75,8 @@ LDFLAGS += $(EXTMEMOPTS)
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
-MONITOR_PORT   = /dev/ttyUSB*
-##MONITOR_PORT      = /dev/ttyACM1
+##MONITOR_PORT   = /dev/ttyUSB*
+MONITOR_PORT      = /dev/ttyACM*
 
 include $(ARDMK_DIR)/Arduino.mk
 

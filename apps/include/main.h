@@ -5,9 +5,14 @@
 #include <WProgram.h>
 #endif
 #include "Ethernet2.h"
-#ifndef OC_XMEM
-//#include "FreeMemory.h"
+
+#if defined(OC_MEM_MONITOR)
+#include <MemoryFree.h>;
+#if defined(__AVR__)
+#include <pgmStrToRAM.h>; 
 #endif
+#endif
+
 extern "C" {
 #endif
 #include "serial.h"

@@ -83,6 +83,8 @@ LOCAL_C_SRCS += $(SRC)
 
 ifeq ($(ARCH),avr)
 	include ../avr.mk
+else ifeq ($(ARCH),sam)
+	include ../sam.mk
 else ifeq ($(ARCH),samd)
 	include ../samd.mk
 else

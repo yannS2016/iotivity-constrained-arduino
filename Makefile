@@ -91,10 +91,10 @@ OTHER_OBJS 		+= $(PROJECT_DIR)/deps/wiz5500/$(WIZ5500_ARCHIVE)
 OTHER_OBJS 		+= $(PROJECT_DIR)/deps/serial/$(SERIAL_ARCHIVE)	
 OTHER_OBJS 		+= $(PROJECT_DIR)/deps/sdFat/$(SDFAT_ARCHIVE)
 
-#OTHER_LIBS  	+= $(DEPS_LIBS) 
-
 ifeq ($(ARCH),avr)
 	include ./avr.mk
+else ifeq ($(ARCH),sam)
+	include ./sam.mk
 else ifeq ($(ARCH),samd)
 	include ./samd.mk
 else

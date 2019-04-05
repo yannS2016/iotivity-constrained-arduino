@@ -32,20 +32,22 @@
 typedef uint32_t oc_clock_time_t;
 /* 1 clock tick = 1ms or 1 ticks   1000 ticks -- 1 s --- 1000 ticks --- 1000ms --- 1 tick -- 1 ms*/
 #define OC_CLOCK_CONF_TICKS_PER_SECOND (1)
+#define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
+
 #define OC_BYTES_POOL_SIZE (1500)
 #define OC_INTS_POOL_SIZE (100)
 #define OC_DOUBLES_POOL_SIZE (2)
-#define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
+
 /* Server-side parameters */
 /* Maximum number of server resources */
-#define OC_MAX_APP_RESOURCES (5)
+#define OC_MAX_APP_RESOURCES (4)
 
 // uncomment if using collections 
 //#define OC_MAX_NUM_COLLECTIONS (10)
 
 /* Common paramters */
 /* Prescriptive lower layers MTU size, enable block-wise transfers */
-#define OC_BLOCK_WISE_SET_MTU (500)
+#define OC_BLOCK_WISE_SET_MTU (700)
 
 /* Maximum size of request/response payloads */
 #ifndef OC_DYNAMIC_ALLOCATION
@@ -61,7 +63,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_NUM_DEVICES (1)
 
 /* Maximum number of endpoints */
-#define OC_MAX_NUM_ENDPOINTS (10)
+#define OC_MAX_NUM_ENDPOINTS (4)
 
 /* Security layer */
 /* Maximum number of authorized clients */
@@ -70,8 +72,9 @@ typedef uint32_t oc_clock_time_t;
 /* Maximum number of concurrent (D)TLS sessions */
 #define OC_MAX_TLS_PEERS (1)
 
+/* Security Layer */
 /* Max inactivity timeout before tearing down DTLS connection */
-#define OC_DTLS_INACTIVITY_TIMEOUT (10)
+#define OC_DTLS_INACTIVITY_TIMEOUT (1000)
 
 
 #endif /* CONFIG_H */

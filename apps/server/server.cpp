@@ -112,7 +112,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
   oc_set_mtu_size(512);
-  oc_set_max_app_data_size(512);
+  oc_set_max_app_data_size(1024);
   
   OC_PROCESS_BEGIN();
 
@@ -132,6 +132,9 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
+#if defined(OC_MEM_MONITOR)
+      OC_WRN("Free RAM = %d", freeMemory());
+#endif
 		}
     OC_PROCESS_WAIT_EVENT();
   }
@@ -142,7 +145,9 @@ uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
 	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+#if defined(__SAMD21G18A__)
   Ethernet.init(5); // CS Pin for MKRZERO
+#endif
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
@@ -155,19 +160,26 @@ uint8_t ConnectToNetwork()
 }
 
 void setup() {
-	Serial.begin((uint32_t)9600);
+	Serial.begin(115200);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
   }
 	if (ConnectToNetwork() != 0)
 	{
 		OC_ERR("Unable to connect to network");
 		return;
 	}
+#if defined(OC_MEM_MONITOR)
+  // print how much RAM is available.
+  OC_WRN("Free RAM = %d", freeMemory());
+#endif
 #ifdef OC_SEC
   oc_storage_config("creds"); 
 #endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
+#if defined(OC_MEM_MONITOR)
+  // print how much RAM is available.
+  OC_WRN("Free RAM = %d", freeMemory());
+#endif
   delay(200);
 }
 

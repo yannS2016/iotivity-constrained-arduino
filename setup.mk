@@ -15,9 +15,9 @@ AVRDUDE_ARD_PROGRAMMER = wiring
 
 ### ARDUINO LIBS
 ifeq ($(ARCH),avr)
-	ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2 xmem SdFat
+	ARDUINO_LIBS +=  Wire SPI Time pRNG Ethernet2 xmem SdFat Arduino-MemoryFree
 else 
-	ARDUINO_LIBS +=  Wire SPI Time Ethernet2 SdFat
+	ARDUINO_LIBS +=  Wire SPI Time Ethernet2 SdFat Arduino-MemoryFree
 endif
 
 ### CFLAGS_STD

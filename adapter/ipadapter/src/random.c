@@ -20,18 +20,28 @@
 #include "oc_log.h"
 #include "oc_helpers.h"
 
-#ifdef __AVR__
+#if defined(__AVR__)
 #include "prng.h"
-#else
+#elif defined(__arm__) && defined(__SAMD21G18A__)
 #include <WMath.h>
-#endif 
+#elif defined(__SAM3X8E__ )
+#include <sam.h>
+#include <trng.h>
+#endif
 
 void
 oc_random_init(void)
 {
-#ifdef __AVR__
+#if defined(__AVR__)
   iotConstrainedRand = prng_create();
-#else
+#elif defined(__SAM3X8E__ )
+/*(almost) all the devices inside SAM3X are clocked through a Clock Controller
+called PMC.Basically you need to start clocking each device before starting using it.
+This is done throught the function: pmc_enable_periph_clk(ID_TRNG);*/
+  pmc_enable_periph_clk(ID_TRNG);
+  TRNG->TRNG_IDR = 0xFFFFFFFF;
+  TRNG->TRNG_CR = TRNG_CR_KEY(0x524e47) | TRNG_CR_ENABLE; 
+#elif defined(__arm__) && defined(__SAMD21G18A__)
   //randomSeed(analogRead(0));
 #endif
 
@@ -40,17 +50,22 @@ oc_random_init(void)
 unsigned int
 oc_random_value(void)
 {
-#ifdef __AVR__
+unsigned int rand_val = 0;
+#if defined(__AVR__)
   if(iotConstrainedRand == NULL) {
     iotConstrainedRand = prng_create();
   }
  
   if (iotConstrainedRand == NULL)
       return 0;    
-  return (unsigned int)prng_getRndInt(iotConstrainedRand);
-#else
-  return 0;
+  rand_val =  (unsigned int)prng_getRndInt(iotConstrainedRand);
+#elif defined(__SAM3X8E__ )
+  while (! (TRNG->TRNG_ISR & TRNG_ISR_DATRDY));
+  rand_val = TRNG->TRNG_ODATA;
+#elif defined(__arm__) && defined(__SAMD21G18A__)
+  rand_val = 0;
 #endif
+  return rand_val;
 }
 
 void

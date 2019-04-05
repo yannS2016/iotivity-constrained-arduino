@@ -7,8 +7,11 @@ LOCAL_CPP_SRCS += $(SRC)
 CORE_HEADERS      +=-I$(ARDUINO_DIR)/libraries/SdFat/src/FatLib
 
 CXXFLAGS += $(CORE_HEADERS)
+
 ifeq ($(ARCH),avr)
 	include ../../avr.mk
+else ifeq ($(ARCH),sam)
+	include ../../sam.mk
 else ifeq ($(ARCH),samd)
 	include ../../samd.mk
 else

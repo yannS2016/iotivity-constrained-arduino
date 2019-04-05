@@ -273,36 +273,28 @@ oc_udp_add_socks_to_SD_SET(ip_context_t *dev)
 
 OC_PROCESS_THREAD(ip_adapter_process, ev, data)
 {
-  //(ip_context_t *)data;
   static struct oc_etimer et;
   uint8_t i = 0, n = 0;
-
-  //setsds = dev->rsds;
   OC_PROCESS_BEGIN();
   static uint8_t maxsd;
   static ip_context_t *dev;
   static sdset_t setsds;
   while (ev != OC_PROCESS_EVENT_EXIT) {
-    oc_etimer_set(&et, (oc_clock_time_t)0.5);
+    oc_etimer_set(&et, (oc_clock_time_t)0.8);
     
     if(ev == OC_PROCESS_EVENT_INIT){
 
       dev = (ip_context_t *)data;
-      //setsds = dev->rsds;
       oc_udp_add_socks_to_SD_SET(dev);
       memcpy(&setsds, &dev->rsds, sizeof(sdset_t));
       maxsd =  (dev->server4_sock > dev->mcast4_sock) ? dev->server4_sock : dev->mcast4_sock;
 #ifdef OC_SECURITY
       maxsd = (dev->secure4_sock > dev->mcast4_sock) ? dev->secure4_sock : dev->mcast4_sock;
 #endif
-      //OC_WRN("Active socket in list: %d:%d",setsds.sds[1], setsds.sds[2]);
-      // Get the number of socket descriptor to cycle.
       OC_DBG("ipadapter: Initialized ip_adapter_process");
     }
     else if(ev == OC_PROCESS_EVENT_TIMER){
-      //OC_WRN("Active socket in list: %d:%d",setsds.sds[1], setsds.sds[2]);
       n = select( maxsd + 1 , &setsds);
-      //OC_DBG("Ready Sockets: %d", maxsd);
       if(n > 0) {
         for(i = 0; i < n; i++) {
 
@@ -318,11 +310,9 @@ OC_PROCESS_THREAD(ip_adapter_process, ev, data)
           oc_message_unref(message);
           continue;
         common:
-//#ifdef OC_DEBUG
           PRINT("Incoming message of size %u bytes from ", message->length);
           PRINTipaddr(message->endpoint);
           PRINT("\r\n");
-//#endif /* OC_DEBUG */
           oc_network_event(message);
         }
       }

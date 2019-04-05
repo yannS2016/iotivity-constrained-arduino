@@ -6,6 +6,8 @@ LOCAL_CPP_SRCS += $(ARDUINO_TIME_SRC)
 
 ifeq ($(ARCH),avr)
 	include ../../avr.mk
+else ifeq ($(ARCH),sam)
+	include ../../sam.mk
 else ifeq ($(ARCH),samd)
 	include ../../samd.mk
 else

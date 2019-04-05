@@ -1,10 +1,5 @@
 #include "main.h"
-#include "Ethernet2.h"
-#include <SdFat.h>
-#include <SdFatConfig.h>
-#include <sdios.h>
-#include <SysCall.h>
-#include "sdfat.h"
+
 #ifdef OC_XMEM
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
@@ -147,6 +142,9 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
+#if defined(OC_MEM_MONITOR)
+      OC_WRN("Free RAM = %d", freeMemory());
+#endif
 		}
     OC_PROCESS_WAIT_EVENT();
   }
@@ -156,7 +154,6 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
-	//uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
 	uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
@@ -178,10 +175,16 @@ void setup() {
 		OC_ERR("Unable to connect to network");
 		return;
 	}
+#if defined(OC_MEM_MONITOR)
+      OC_WRN("Free RAM = %d", freeMemory());
+#endif
 #ifdef OC_SEC
   oc_storage_config("creds"); 
 #endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
+#if defined(OC_MEM_MONITOR)
+      OC_WRN("Free RAM = %d", freeMemory());
+#endif
   delay(500);
 }
 
