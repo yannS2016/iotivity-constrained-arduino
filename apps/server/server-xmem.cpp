@@ -1,5 +1,9 @@
 #include "main.h"
+<<<<<<< HEAD
 #include "Ethernet2.h"
+=======
+
+>>>>>>> security
 #ifdef OC_XMEM
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
@@ -30,7 +34,7 @@ get_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data)
   (void)user_data;
   ++power;
 
-  OC_DBG("GET_light:\n");
+  OC_DBG("GET_light:");
   oc_rep_start_root_object();
   switch (interface) {
   case OC_IF_BASELINE:
@@ -53,18 +57,18 @@ post_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data
 {
   (void)interface;
   (void)user_data;
-  OC_DBG("POST_light:\n");
+  OC_DBG("POST_light:");
   oc_rep_t *rep = request->request_payload;
   while (rep != NULL) {
     OC_DBG(("key: %s "), oc_string(rep->name));
     switch (rep->type) {
     case OC_REP_BOOL:
       state = rep->value.boolean;
-      OC_DBG("value: %d\n", state);
+      OC_DBG("value: %d", state);
       break;
     case OC_REP_INT:
       power = rep->value.integer;
-      OC_DBG("value: %d\n", power);
+      OC_DBG("value: %d", power);
       break;
     case OC_REP_STRING:
       oc_free_string(&name);
@@ -121,8 +125,13 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
+<<<<<<< HEAD
   oc_set_mtu_size(1024);
   oc_set_max_app_data_size(2048);
+=======
+  oc_set_mtu_size(512);
+  oc_set_max_app_data_size(1024);
+>>>>>>> security
   
   OC_PROCESS_BEGIN();
 
@@ -151,7 +160,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
-	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+	uint8_t ETHERNET_MAC[] = {0xA8, 0x61, 0xA0, 0xAE, 0x14, 0xA7};
 	uint8_t error = Ethernet.begin(ETHERNET_MAC);
 	if (error  == 0)
 	{
@@ -162,23 +171,24 @@ uint8_t ConnectToNetwork()
   OC_DBG("Connected to Ethernet IP: %d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]);
 	return 0;
 }
-void
-init_serial(void)
-{
-  rs232_init(USART_PORT, USART_BAUD,
-             USART_PARITY_NONE | USART_STOP_BITS_1 | USART_DATA_BITS_8);
-  rs232_redirect_stdout(USART_PORT);
-  rs232_set_input(USART_PORT, NULL);
-}
+
 void setup() {
+<<<<<<< HEAD
 
 	init_serial();
 	delay(100);
+=======
+	Serial.begin(115200);
+	delay(50);
+>>>>>>> security
 	if (ConnectToNetwork() != 0)
 	{
 		OC_ERR("Unable to connect to network");
 		return;
 	}
+#ifdef OC_SEC
+  oc_storage_config("creds"); 
+#endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
   delay(500);
 }

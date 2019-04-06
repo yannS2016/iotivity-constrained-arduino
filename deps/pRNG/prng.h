@@ -9,7 +9,7 @@ extern "C" {
 struct prng;
 typedef struct prng prng_t;
 
-extern prng_t *iotConstrainedRand;// = NULL; 
+extern prng_t *_prng_holder; 
 
 prng_t *prng_create();
 void prng_destroy(prng_t *m);

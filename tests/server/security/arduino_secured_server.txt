@@ -1,0 +1,1304 @@
+DEBUG : apps/server/server.cpp <ConnectToNetwork:155>: Connected to Ethernet IP: 192.168.8.103
+WARNING : ipadapter/src/storage.c <oc_storage_config:47>: initialization done.
+2000-01-01 01:00:00          0 creds/
+  2000-01-01 01:00:00        215 doxm_0
+  2000-01-01 01:00:00        234 cred_0
+  2000-01-01 01:00:00        825 acl_0
+  2000-01-01 01:00:00        123 pstat_0
+  2000-01-01 01:00:00         86 u_ids_0
+DEBUG : apps/server/server.cpp <process_thread_sample_server_prInitializing server for arduino
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meStarted buffer handler process
+DEBUG : iotivity-constrained/api/oc_introspection.c <oc_create_oc_introspection: Initializing introspection resource
+DEBUG : ipadapter/src/ipadapter.c <oc_connectivity_init:163>: Initializing IPv4 connectivity for device 0
+DEBUG : ipadapter/src/ipadapter.c <oc_udp_add_socks_to_SD_SET:2reset sockets descriptor: 0
+DEBUG : ipadapter/src/ipadapter.c <process_thread_ip_adapter_pripadapter: Initialized ip_adapter_process
+DEBUG : ipadapter/src/ipadapter.c <oc_connectivity_init:187>: =======ip port info.========
+DEBUG : ipadapter/src/ipadapter.c <oc_connectivity_init:188>:   ipv4 port   : 56789
+DEBUG : ipadapter/src/ipadapter.c <oc_connectivity_init:190>:   ipv4 secure : 42536
+DEBUG : ipadapter/src/ipadapter.c <oc_connectivity_init:192>: Successfully initialized connectivity for device 0
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oic/p with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oc/con with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oc/wk/introspection with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oc/introspection with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oic/res with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oic/d with permission 2
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oic/sec/doxm with permission 14
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_ace_get_Adding resource /oic/sec/pstat with permission 14
+DEBUG : iotivity-constrained/api/oc_main.c <oc_main_init:210>: oc_main: stack initialized
+DEBUG : apps/server/server.cpp <process_thread_sample_server_prServer process init!
+Incoming message of size 43 bytes from [192.168.8.104]:37325
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=43 from
+DEBUG <coap_receive:129:> [192.168.8.104]:37325
+DEBUG <coap_receive:130:>  58 01 39 55 61 1C 5D 9D E9 E1 D2 56 B3 6F 69 63 03 72 65 73 4D 00 72 74 3D 63 6F 72 65 2E 6C 69 67 68 74 22 27 10 E2 06 E3 08 00
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  61 1C 5D 9D E9 E1 D2 56
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 11, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [oic]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [oic/res]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 15 (delta 4, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Query [rt=core.light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 2, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14677: 0x200039c8
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 2 for anon-clear connec
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 2 for anon-clear connec
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33866 to 0x20005128
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  61 1C 5D 9D E9 E1 D2 56
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005134
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 12, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x2000513c----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 202 B (header len 21, payload len 181)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 4A 61 1C 5D 9D
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 202: 0x3955
+DEBUG <coap_send_transaction:117:>  58 45 84 4A 61 1C 5D 9D E9 E1 D2 56 C2 27 10 E2 06 EC 08 00 FF 9F BF 66 61 6E 63 68 6F 72 78 2A 6F 63 66 3A 2F 2F 66 39 66 66 3F
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (202)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14677: 0x200039c8
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: unicast message
+Outgoing message to: [192.168.8.104]:37325
+Incoming message of size 113 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_add_peeroc_tls: Allocating new peer
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 145 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 08 8C BA 3D 73 CA 0F E1 17 D3 C3 5B 05 0F 15 6A 3E 96 22 54 20 6C 27 77 34 DE BF AA 0B A2 20 A6 A7 1F B9 15 19 0C 55 1
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 08 8C BA 3D 73 CA 0F E1 17 D3 C3 5B 05 0F 15 6A 3E 96 22 54 20 6C 27 77 34 DE BF AA 0B A2 20 A6 A7 1F B9 15 19 0C 55 1
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 08 8C BA 3D 73 CA 0F E1 17 D3 C3 5B 05 0F 15 6A 3E 96 22 54 20 6C 27 77 34 DE BF AA 0B A2 20 A6 A7 1F B9 15 19 0C 55 1
+Incoming message of size 145 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 08 8C BA 3D 73 CA 0F E1 17 D3 C3 5B 05 0F 15 6A 3E 96 22 54 20 6C 27 77 34 DE BF AA 0B A2 20 A6 A7 1F B9 15 19 0C 55 1
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  2E A4 71 31 F4 D1 B4 82 71 2D A9 1C 73 7F AE 4C 72 3D 8D 65 F3 B8 86 C8 DA DE D9 24 69 3F 64 52 C2 AF EC F9 8A 9A 72 06 E6 BB 9
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  2E A4 71 31 F4 D1 B4 82 71 2D A9 1C 73 7F AE 4C 72 3D 8D 65 F3 B8 86 C8 DA DE D9 24 69 3F 64 52 C2 AF EC F9 8A 9A 72 06 E6 BB 9
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  2E A4 71 31 F4 D1 B4 82 71 2D A9 1C 73 7F AE 4C 72 3D 8D 65 F3 B8 86 C8 DA DE D9 24 69 3F 64 52 C2 AF EC F9 8A 9A 72 06 E6 BB 9
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: (D)TLS Session is connected via ciphersuite [0xff00]
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 109 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=34 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 01 39 59 CD BB 53 EB 31 F9 8D 5E B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  CD BB 53 EB 31 F9 8D 5E
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 11, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14681: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33867 to 0x200039f0
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  CD BB 53 EB 31 F9 8D 5E
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x200039fc
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 12, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a04----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 37 B (header len 21, payload len 16)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 4B CD BB 53 EB
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 37: 0x3959
+DEBUG <coap_send_transaction:117:>  58 45 84 4B CD BB 53 EB 31 F9 8D 5E C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F 77 65 72 01 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (37)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14681: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 125 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=51 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 03 39 5B 10 55 77 19 97 96 40 5B B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  10 55 77 19 97 96 40 5B
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 11, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14683: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <post_light:46>: POST_light:
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: state
+DEBUG : apps/server/server.cpp <post_light:53>: value: 1
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: power
+DEBUG : apps/server/server.cpp <post_light:57>: value: 15
+
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33868 to 0x20003a58
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  10 55 77 19 97 96 40 5B
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20003a64
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 0
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a64----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 12 B (header len 12, payload len 0)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 44 84 4C 10 55 77 19
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 12: 0x395b
+DEBUG <coap_send_transaction:117:>  58 44 84 4C 10 55 77 19 97 96 40 5B
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (12)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14683: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+WARNING : iotivity-constrained/messaging/coap/observe.c <coap_ncoap_notify_observers: no observers
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 125 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=52 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 02 39 5D C0 AD 3E 8C DF 69 69 D2 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F4 65 70 6F
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  C0 AD 3E 8C DF 69 69 D2
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 11, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14685: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <post_light:46>: POST_light:
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: state
+DEBUG : apps/server/server.cpp <post_light:53>: value: 0
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: power
+DEBUG : apps/server/server.cpp <post_light:57>: value: 105
+
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33869 to 0x20003a58
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 AD 3E 8C DF 69 69 D2
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20003a64
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 0
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a64----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 12 B (header len 12, payload len 0)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 44 84 4D C0 AD 3E 8C
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 12: 0x395d
+DEBUG <coap_send_transaction:117:>  58 44 84 4D C0 AD 3E 8C DF 69 69 D2
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (12)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14685: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+WARNING : iotivity-constrained/messaging/coap/observe.c <coap_ncoap_notify_observers: no observers
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 125 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=52 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 02 39 5F A7 11 E1 BD 89 B4 29 33 B1 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  A7 11 E1 BD 89 B4 29 33
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 11, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14687: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <post_light:46>: POST_light:
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: state
+DEBUG : apps/server/server.cpp <post_light:53>: value: 1
+
+DEBUG : apps/server/server.cpp <post_light:49>: key: power
+DEBUG : apps/server/server.cpp <post_light:57>: value: 55
+
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33870 to 0x20003a58
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  A7 11 E1 BD 89 B4 29 33
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20003a64
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 0
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a64----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 12 B (header len 12, payload len 0)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 44 84 4E A7 11 E1 BD
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 12: 0x395f
+DEBUG <coap_send_transaction:117:>  58 44 84 4E A7 11 E1 BD 89 B4 29 33
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (12)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14687: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+WARNING : iotivity-constrained/messaging/coap/observe.c <coap_ncoap_notify_observers: no observers
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 109 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=35 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 01 39 61 C0 DA CF A5 82 55 5F 91 60 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 6 (delta 6, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Observe [0]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14689: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <add_obseAdding observer (1) for /a/light [0xC0DA]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33871 to 0x20003a58
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20003a64
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [0]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a6d----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 39 B (header len 22, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 4F C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 39: 0x3961
+DEBUG <coap_send_transaction:117:>  58 45 84 4F C0 DA CF A5 82 55 5F 91 60 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 38 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (39)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14689: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33872: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33872 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [3]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 50 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8450
+DEBUG <coap_send_transaction:117:>  58 45 84 50 C0 DA CF A5 82 55 5F 91 61 03 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 39 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33872: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33873: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33873 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [4]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 51 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8451
+DEBUG <coap_send_transaction:117:>  58 45 84 51 C0 DA CF A5 82 55 5F 91 61 04 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3A FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33873: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_observe_notify: forcing CON notification to check for clie
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33874: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33874 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [5]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  48 45 84 52 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8452
+DEBUG <coap_send_transaction:117:>  48 45 84 52 C0 DA CF A5 82 55 5F 91 61 05 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3B FF
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaKeeping transaction 33874: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaInitial interval 3
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 77 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=4 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  60 00 84 52
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 0)
+DEBUG <coap_parse_token_option:561:>
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFound transaction for MID 33874: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33874: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33875: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33875 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [6]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 53 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8453
+DEBUG <coap_send_transaction:117:>  58 45 84 53 C0 DA CF A5 82 55 5F 91 61 06 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3C FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33875: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33876: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33876 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [7]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 54 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8454
+DEBUG <coap_send_transaction:117:>  58 45 84 54 C0 DA CF A5 82 55 5F 91 61 07 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3D FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33876: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33877: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33877 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [8]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 55 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8455
+DEBUG <coap_send_transaction:117:>  58 45 84 55 C0 DA CF A5 82 55 5F 91 61 08 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3E FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33877: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33878: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33878 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [9]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 56 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8456
+DEBUG <coap_send_transaction:117:>  58 45 84 56 C0 DA CF A5 82 55 5F 91 61 09 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 3F FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33878: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_observe_notify: forcing CON notification to check for clie
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33879: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33879 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [10]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  48 45 84 57 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8457
+DEBUG <coap_send_transaction:117:>  48 45 84 57 C0 DA CF A5 82 55 5F 91 61 0A 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 40 FF
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaKeeping transaction 33879: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaInitial interval 3
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 77 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=4 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  60 00 84 57
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 0)
+DEBUG <coap_parse_token_option:561:>
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFound transaction for MID 33879: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33879: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33880: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33880 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [11]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 58 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8458
+DEBUG <coap_send_transaction:117:>  58 45 84 58 C0 DA CF A5 82 55 5F 91 61 0B 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 41 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33880: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33881: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33881 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [12]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 59 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8459
+DEBUG <coap_send_transaction:117:>  58 45 84 59 C0 DA CF A5 82 55 5F 91 61 0C 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 42 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33881: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33882: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33882 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [13]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 5A C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845a
+DEBUG <coap_send_transaction:117:>  58 45 84 5A C0 DA CF A5 82 55 5F 91 61 0D 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 43 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33882: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33883: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33883 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [14]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 5B C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845b
+DEBUG <coap_send_transaction:117:>  58 45 84 5B C0 DA CF A5 82 55 5F 91 61 0E 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 44 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33883: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_observe_notify: forcing CON notification to check for clie
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33884: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33884 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [15]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  48 45 84 5C C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845c
+DEBUG <coap_send_transaction:117:>  48 45 84 5C C0 DA CF A5 82 55 5F 91 61 0F 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 45 FF
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaKeeping transaction 33884: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaInitial interval 3
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 77 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=4 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  60 00 84 5C
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 0)
+DEBUG <coap_parse_token_option:561:>
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFound transaction for MID 33884: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33884: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33885: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33885 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [16]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 5D C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845d
+DEBUG <coap_send_transaction:117:>  58 45 84 5D C0 DA CF A5 82 55 5F 91 61 10 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 46 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33885: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33886: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33886 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [17]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 5E C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845e
+DEBUG <coap_send_transaction:117:>  58 45 84 5E C0 DA CF A5 82 55 5F 91 61 11 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 47 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33886: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33887: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33887 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [18]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 5F C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x845f
+DEBUG <coap_send_transaction:117:>  58 45 84 5F C0 DA CF A5 82 55 5F 91 61 12 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 48 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33887: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33888: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33888 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [19]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 60 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8460
+DEBUG <coap_send_transaction:117:>  58 45 84 60 C0 DA CF A5 82 55 5F 91 61 13 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 49 FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33888: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_observe_notify: forcing CON notification to check for clie
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33889: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33889 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [20]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  48 45 84 61 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8461
+DEBUG <coap_send_transaction:117:>  48 45 84 61 C0 DA CF A5 82 55 5F 91 61 14 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4A FF
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaKeeping transaction 33889: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaInitial interval 3
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 77 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=4 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  60 00 84 61
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 0)
+DEBUG <coap_parse_token_option:561:>
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFound transaction for MID 33889: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33889: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33890: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33890 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [21]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 62 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8462
+DEBUG <coap_send_transaction:117:>  58 45 84 62 C0 DA CF A5 82 55 5F 91 61 15 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4B FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33890: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33891: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33891 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [22]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 63 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8463
+DEBUG <coap_send_transaction:117:>  58 45 84 63 C0 DA CF A5 82 55 5F 91 61 16 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4C FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33891: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: Issue GET request to resource /a/light
+
+
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_notcoap_notify_observers: notifying observer
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 33892: 0x20003858
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33892 to 0x20005e80
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x20005e8c
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 6 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialObserve [23]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 6, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20005e96----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 40 B (header len 23, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 64 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 40: 0x8464
+DEBUG <coap_send_transaction:117:>  58 45 84 64 C0 DA CF A5 82 55 5F 91 61 17 62 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4D FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (40)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 33892: 0x20003858
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_inactiveoc_tls: DTLS inactivity callback
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_free_pee
+                                                               oc_tls: removing peer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remUnregistering observers for client at:
+DEBUG <coap_remove_observer_by_client:185:> [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remRemoving observer for /a/light [0xC0DA]
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remRemoved 1 observers
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_inactiveoc_tls: Terminating DTLS inactivity callback
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+WARNING : iotivity-constrained/messaging/coap/observe.c <coap_ncoap_notify_observers: no observers
+Incoming message of size 113 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_add_peeroc_tls: Allocating new peer
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Incoming message of size 145 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 33 A0 6F 3F 9E 10 80 3F BA E4 7D 5E 3E E9 01 A8 71 B2 BC 4B 4F 2C 57 FC 4F 40 1C 40 2D 81 72 49 09 FB B4 8F D5 36 D2 F
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 33 A0 6F 3F 9E 10 80 3F BA E4 7D 5E 3E E9 01 A8 71 B2 BC 4B 4F 2C 57 FC 4F 40 1C 40 2D 81 72 49 09 FB B4 8F D5 36 D2 F
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 33 A0 6F 3F 9E 10 80 3F BA E4 7D 5E 3E E9 01 A8 71 B2 BC 4B 4F 2C 57 FC 4F 40 1C 40 2D 81 72 49 09 FB B4 8F D5 36 D2 F
+Incoming message of size 145 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got nonce
+DEBUG <read_application_data:1394:>  5C A8 F1 33 A0 6F 3F 9E 10 80 3F BA E4 7D 5E 3E E9 01 A8 71 B2 BC 4B 4F 2C 57 FC 4F 40 1C 40 2D 81 72 49 09 FB B4 8F D5 36 D2 F
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  FE F9 31 12 88 0F 33 A8 0A A4 DC 64 B7 58 FC 5E A7 24 6F D5 57 15 BB 68 5A 38 15 66 C5 EF CC 47 2C 89 FA A7 30 93 80 65 CC A1 5
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  FE F9 31 12 88 0F 33 A8 0A A4 DC 64 B7 58 FC 5E A7 24 6F D5 57 15 BB 68 5A 38 15 66 C5 EF CC 47 2C 89 FA A7 30 93 80 65 CC A1 5
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Got master secret
+DEBUG <read_application_data:1387:>  FE F9 31 12 88 0F 33 A8 0A A4 DC 64 B7 58 FC 5E A7 24 6F D5 57 15 BB 68 5A 38 15 66 C5 EF CC 47 2C 89 FA A7 30 93 80 65 CC A1 5
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: (D)TLS Session is connected via ciphersuite [0xff00]
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 91 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 14 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 93 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+Incoming message of size 109 bytes from [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: encrypted request
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+Outgoing message to: [192.168.8.104]:57113
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Received WantRead/WantWrite
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: In read_application_data
+DEBUG : iotivity-constrained/security/oc_tls.c <read_applicatiooc_tls: Decrypted incoming message
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meInbound network event: decrypted request
+DEBUG : iotivity-constrained/messaging/coap/engine.c <coap_receCoAP Engine: received datalen=36 from
+DEBUG <coap_receive:129:> [192.168.8.104]:57113
+DEBUG <coap_receive:130:>  58 01 39 77 C0 DA CF A5 82 55 5F 91 61 01 51 61 05 6C 69 67 68 74 12 27 10 52 27 10 E2 06 E3 08 00 42 08 00
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_Token (len 8)
+DEBUG <coap_parse_token_option:561:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 6 (delta 6, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Observe [1]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 11 (delta 0, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Uri-Path [a/light]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 12 (delta 1, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_OPTION 17 (delta 5, len zu):
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Accept [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_  Content-format/accept-Version: [2048]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_parse_-Done parsing-------
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaCreated new transaction 14711: 0x20003858
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for auth-crypt conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : iotivity-constrained/security/oc_acl.c <oc_sec_check_acoc_check_acl: Found ACE with permission 22 for anon-clear conne
+DEBUG : apps/server/server.cpp <get_light:23>: GET_light:
+
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remUnregistering observers for request token 0xC0DA
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remRemoved 0 observers
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialCaculating size of options
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Serializing MID 33893 to 0x200039f0
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialToken (len 8)
+DEBUG <coap_serialize_message:1052:>  C0 DA CF A5 82 55 5F 91
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerializing options at 0x200039fc
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialSerialize content format: 10000
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 12 (delta 12, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialContent-Format [10000]
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialOPTION 2053 (delta 2041, len zu)
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_set_opWRITTEN zu B opt header
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done serializing at 0x20003a04----
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serial-Done 38 B (header len 21, payload len 17)-
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_serialDump
+DEBUG <coap_serialize_message:1083:>  58 45 84 65 C0 DA CF A5
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaSending transaction(len: zd) 38: 0x3977
+DEBUG <coap_send_transaction:117:>  58 45 84 65 C0 DA CF A5 82 55 5F 91 C2 27 10 E2 06 EC 08 00 FF BF 65 73 74 61 74 65 F5 65 70 6F 77 65 72 18 4E FF
+DEBUG : iotivity-constrained/messaging/coap/coap.c <coap_send_m-sending OCF message (38)-
+DEBUG : iotivity-constrained/messaging/coap/transactions.c <coaFreeing transaction 14711: 0x20003858
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_meOutbound network event: forwarding to TLS
+DEBUG : iotivity-constrained/api/oc_buffer.c <process_thread_mePosting RI_TO_TLS_EVENT
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_inactiveoc_tls: DTLS inactivity callback
+Outgoing message to: [192.168.8.104]:57113
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_free_pee
+                                                               oc_tls: removing peer
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remUnregistering observers for client at:
+DEBUG <coap_remove_observer_by_client:185:> [192.168.8.104]:57113
+DEBUG : iotivity-constrained/messaging/coap/observe.c <coap_remRemoved 0 observers
+DEBUG : iotivity-constrained/security/oc_tls.c <oc_tls_inactiveoc_tls: Terminating DTLS inactivity callback

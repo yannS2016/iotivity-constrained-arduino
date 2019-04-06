@@ -1,15 +1,13 @@
 /******************************************************************
 *
-* Copyright 2014 Samsung Electronics All Rights Reserved.
-*
-*
+* Copyright 2018 iThemba LABS All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
+
+*    http://www.apache.org/licenses/LICENSE-2.0
+
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,37 +18,38 @@
 #ifndef ARD_ETH_ADPTR_SRV_
 #define ARD_ETH_ADPTR_SRV_
 
+#include <socket.h>
 #include "ard_eth_adptr_utls.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-typedef void (* ard_eth_udp_callback)(uint8_t *sender_addr, uint16_t *sender_port,
-                                     uint8_t *data, const uint16_t dataLength);
-                                    
-OCResult_t start_arduino_servers();
-OCResult_t ard_ucast_server_shutdown();                                       
-OCResult_t ard_mcast_server_shutdown();
-void ard_servers_shutdown();
 
-OCResult_t start_arduino_ucast_server(uint16_t *local_port);
+typedef struct  sdset_t {
+  uint8_t sdsset;
+  uint8_t sds[MAX_SOCK_NUM];
+  uint8_t ready_sds;
+  uint16_t rcv_size;
+} sdset_t;
 
-OCResult_t start_arduino_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port);	
+#define SETSIZE (8)
+#define SD_ZERO(_setsds) (((sdset_t*)_setsds)->sdsset = 0 )
+#define SD_SET(sd,_setsds)																	\
+do {																													\
+	((sdset_t*)_setsds)->sds[sd] = sd; 											\
+	((sdset_t*)_setsds)->sdsset |= (1 << (sd % SETSIZE));	\
+} while(0)
+#define SD_CLR(sd, _setsds)   (((sdset_t*)_setsds)->sdsset &= ~(1 << (sd % SETSIZE)))
+#define SD_ISSET(sd, _setsds) (((sdset_t*)_setsds)->sdsset & (1 << (sd % SETSIZE)))
+uint8_t select(uint8_t nsds, sdset_t *setsds);
+int16_t recv_msg(uint8_t *socketID, uint8_t *sender_addr, 
+				uint16_t *sender_port, uint8_t *data, uint16_t packets_size);
+                                
+uint8_t start_udp_server(uint16_t *local_port);
 
-                                        
-// definitions for hadling the reception of data
-// and com with the itovity constrained stack
-void ard_sock_poll_data();
-/** Retrieve any available data from UDP socket and call callback.
- *  This is a non-blocking call.
- */
-OCResult_t ard_sock_get_data(uint8_t *socketID);
-// call this method from user init code
-//OCResult_t arduino_recv_data(uint8_t *sockFd);                          
-void set_ard_packet_recvcb(ard_eth_udp_callback cb);
-
-
+uint8_t start_udp_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port);	
+                                     
 #ifdef __cplusplus
 }
 #endif

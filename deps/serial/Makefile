@@ -1,8 +1,9 @@
+###iotivity contrained sources
 include ../../setup.mk 
 
-ARDUINO_TIME_SRC  = $(wildcard $(ARDUINO_DIR)/libraries/Time/*.cpp)
+SRC=$(wildcard ./*.cpp) 
 
-LOCAL_CPP_SRCS += $(ARDUINO_TIME_SRC) 
+LOCAL_CPP_SRCS += $(SRC) 
 
 ifeq ($(ARCH),avr)
 	include ../../avr.mk
@@ -14,6 +15,7 @@ else
 $(error Target Architecture must be define to proceed!)	
 endif
 
-build-$(BOARD_TAG)/libarduino-time.a: $(LOCAL_OBJS)
+build-$(BOARD_TAG)/libarduino-serial.a: $(LOCAL_OBJS)
 	$(AR) rcs $@ $(LOCAL_OBJS)
 	
+

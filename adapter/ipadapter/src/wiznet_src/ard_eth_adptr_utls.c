@@ -1,15 +1,13 @@
 /******************************************************************
 *
-* Copyright 2014 Samsung Electronics All Rights Reserved.
-*
-*
+* Copyright 2018 iThemba LABS All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
+
+*    http://www.apache.org/licenses/LICENSE-2.0
+
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,7 +23,6 @@
 #include "oc_log.h"
 #include "ard_eth_adptr_utls.h"
 
-//#define OC_MAX_NUM_ENDPOINTS 8
 OCResult_t arduino_get_free_socket(uint8_t *sockID){
 	
 	uint8_t state;
@@ -60,7 +57,7 @@ OCResult_t arduino_get_free_socket(uint8_t *sockID){
 	*/
 	if (*sockID == 0)
 	{
-		OC_ERR(("No socket sockID 0"));
+		OC_ERR("No socket sockID 0");
 		return SOCKET_OPERATION_FAILED;
 	}
 	return STATUS_OK;	
@@ -68,34 +65,31 @@ OCResult_t arduino_get_free_socket(uint8_t *sockID){
 
 OCResult_t arduino_init_udp_socket(uint16_t *local_port, uint8_t *socketID){
    
-	OC_DBG(("Init udp socket!"));
 	if(!socketID) {
-		OC_ERR(("Socket ID not provided!"));
+		OC_ERR("Socket ID not provided!");
 		return SOCKET_OPERATION_FAILED;
 	} 
 	/*Get an availlable socket(closing or closed)*/
 	OCResult_t ret = arduino_get_free_socket(socketID);
 	if (ret != STATUS_OK)
 	{
-		OC_ERR(("Get sock failed!"));
+		OC_ERR("Get sock failed!");
 		return ret;
 	}
 	//Create a datagram socket on which to recv/send.
 	if (!socket(*socketID, SnMR_UDP, *local_port, 0))
 	{
-		OC_ERR(("socket create failed!"));
+		OC_ERR("socket create failed!");
 		return STATUS_FAILED;
 	}
-	OC_DBG(("socketId: %d"), *socketID);
-	OC_DBG(("Udp socket create done!"));
 	return STATUS_OK;	
 }
 OCResult_t 
 arduino_init_mcast_udp_socket(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port, uint8_t *socketID)
 {
-	OC_DBG(("Init mcast udp socket!"));
+	//OC_DBG(("Init mcast udp socket!"));
 	if(!socketID || !mcast_addr) {
-		OC_ERR(("Socket ID or mcast addr null!"));
+		OC_ERR("Socket ID or mcast addr null!");
 		return SOCKET_OPERATION_FAILED;
 	} 
 	uint8_t mcast_mac_addr[] = { 0x01, 0x00, 0x5E, 0x00, 0x00, 0x00};
@@ -104,35 +98,29 @@ arduino_init_mcast_udp_socket(const char *mcast_addr, uint16_t *mcast_port, uint
 	uint16_t parsed_port = 0;
 	if (arduino_parse_IPv4_addr(mcast_addr, ip_addr, sizeof(ip_addr), &parsed_port) != STATUS_OK)
 	{
-		OC_ERR(("mcast ip parse fail!"));
+		OC_ERR("mcast ip parse fail!");
 		return STATUS_FAILED;
 	}
 	*socketID = 0;
 	OCResult_t ret = arduino_get_free_socket(socketID);
 	if (ret != STATUS_OK)
 	{
-		OC_ERR(("Get sock fail!"));
+		OC_ERR("Get sock fail!");
 		return ret;
 	}
 	//Calculate Multicast MAC address
 	mcast_mac_addr[3] = ip_addr[1] & 0x7F;
 	mcast_mac_addr[4] = ip_addr[2];
 	mcast_mac_addr[5] = ip_addr[3];
-	OC_WRN(("mcast address: %d.%d.%d.%d"), ip_addr[0], ip_addr[1], ip_addr[2], ip_addr[3]);
-	// get c handler to w5500 object to setup w5500 for udp multicast
+	//OC_WRN("mcast address: %d.%d.%d.%d", ip_addr[0], ip_addr[1], ip_addr[2], ip_addr[3]);
 	wiz5500_writeSnDIPR(wiznet5500, socketID, (uint8_t *)ip_addr);
 	wiz5500_writeSnDHAR(wiznet5500, socketID, (uint8_t *)mcast_mac_addr);
 	wiz5500_writeSnDPORT(wiznet5500, socketID, mcast_port);
-	//Create a datagram socket on which to recv/send.
-	// if server the local_port  =  multicast_port
-	// if client local_port is unicast port: 56789
 	if (!socket(*socketID, SnMR_UDP, *local_port, SnMR_MULTI))
 	{
-		OC_ERR(("sock create fail!"));
+		OC_ERR("sock create fail!");
 		return SOCKET_OPERATION_FAILED;
 	}
-	//OC_DBG(("socketId:%d"), *socketID);
-	//OC_DBG(("Udp socket create done!"));
 	return STATUS_OK;																						 
 }
 /// Retrieves the IP address assigned to Arduino Ethernet shield
@@ -153,7 +141,7 @@ OCResult_t arduino_parse_IPv4_addr(const char *ip_addrStr, uint8_t *ip_addr,
 {
 	if (!ip_addr || !isdigit(ip_addrStr[0]) || !port)
 	{
-		OC_ERR(("invalid param!"));
+		OC_ERR("invalid param!");
 		return STATUS_INVALID_PARAM;
 	}
 	uint8_t index = 0;

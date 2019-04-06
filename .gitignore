@@ -1,1 +1,8 @@
-**/build-mega2560/**
+build-**
+adapter/build-**
+deps/wiz5500/build-**
+deps/pRNG/build-**
+deps/sdFat/build-**
+deps/serial/build-**
+deps/Time/build-**
+**.map
