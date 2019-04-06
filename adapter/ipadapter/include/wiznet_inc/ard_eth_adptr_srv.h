@@ -35,42 +35,21 @@ typedef struct  sdset_t {
 
 #define SETSIZE (8)
 #define SD_ZERO(_setsds) (((sdset_t*)_setsds)->sdsset = 0 )
-//	OC_WRN("socket %d added to set %d",((sdset_t*)_setsds)->sds[sd], ((sdset_t*)_setsds)->sdsset);	
-#define SD_SET(sd,_setsds)											\
-do {																\
-	((sdset_t*)_setsds)->sds[sd] = sd; 								\
-	((sdset_t*)_setsds)->sdsset |= (1 << (sd % SETSIZE));			\
+#define SD_SET(sd,_setsds)																	\
+do {																													\
+	((sdset_t*)_setsds)->sds[sd] = sd; 											\
+	((sdset_t*)_setsds)->sdsset |= (1 << (sd % SETSIZE));	\
 } while(0)
-
 #define SD_CLR(sd, _setsds)   (((sdset_t*)_setsds)->sdsset &= ~(1 << (sd % SETSIZE)))
 #define SD_ISSET(sd, _setsds) (((sdset_t*)_setsds)->sdsset & (1 << (sd % SETSIZE)))
 uint8_t select(uint8_t nsds, sdset_t *setsds);
 int16_t recv_msg(uint8_t *socketID, uint8_t *sender_addr, 
 				uint16_t *sender_port, uint8_t *data, uint16_t packets_size);
-
-
-void init_ip_context();
-
-typedef void (* ard_eth_udp_callback)(uint8_t *sender_addr, uint16_t *sender_port,
-                                     uint8_t *data, const uint16_t dataLength);
-                                    
+                                
 uint8_t start_udp_server(uint16_t *local_port);
 
 uint8_t start_udp_mcast_server(const char *mcast_addr, uint16_t *mcast_port, uint16_t *local_port);	
-
-                                        
-// definitions for hadling the reception of data
-// and com with the itovity constrained stack
-void ard_sock_poll_data();
-/** Retrieve any available data from UDP socket and call callback.
- *  This is a non-blocking call.
- */
-OCResult_t ard_sock_get_data(uint8_t *socketID);
-// call this method from user init code
-//OCResult_t arduino_recv_data(uint8_t *sockFd);                          
-void set_ard_packet_recvcb(ard_eth_udp_callback cb);
-
-
+                                     
 #ifdef __cplusplus
 }
 #endif

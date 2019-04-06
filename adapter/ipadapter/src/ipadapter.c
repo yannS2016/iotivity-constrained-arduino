@@ -24,9 +24,7 @@
 #include "port/oc_connectivity.h"
 #include "ard_eth_adptr_srv.h"
 
-
 OC_PROCESS(ip_adapter_process, "IP Adapter");
-
 OC_LIST(ip_contexts);
 OC_MEMB(ip_context_s, ip_context_t, OC_MAX_NUM_DEVICES);
 OC_MEMB(device_eps, oc_endpoint_t, OC_MAX_NUM_DEVICES); // fix
@@ -65,7 +63,6 @@ free_endpoints_list(ip_context_t *dev)
     ep = oc_list_pop(dev->eps);
   }
 }
-
 /*We not handling potential change of network interface as yet*/
 static void
 get_interface_addresses(ip_context_t *dev, uint16_t port, bool secure)
@@ -115,11 +112,9 @@ int oc_send_buffer(oc_message_t *message) {
   PRINT("Outgoing message to: ");
   PRINTipaddr(message->endpoint);
   PRINT("\r\n");
-
   uint8_t send_sock = 0;
   uint16_t send_port = 0;  
   ip_context_t *dev = get_ip_context_for_device(message->endpoint.device);
-
 #ifdef OC_CLIENT
   if (message->endpoint.flags & DISCOVERY) {
       send_sock = dev->mcast4_sock;
@@ -263,7 +258,7 @@ static void
 oc_udp_add_socks_to_SD_SET(ip_context_t *dev)
 {
   SD_ZERO(&dev->rsds);
-  OC_DBG("Clearing sockets descriptor list: %d", dev->rsds.sdsset);
+  OC_DBG("reset sockets descriptor: %d", dev->rsds.sdsset);
   SD_SET(dev->server4_sock, &dev->rsds);
   SD_SET(dev->mcast4_sock, &dev->rsds);
 #ifdef OC_SECURITY

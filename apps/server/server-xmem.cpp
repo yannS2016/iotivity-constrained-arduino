@@ -30,7 +30,7 @@ get_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data)
   (void)user_data;
   ++power;
 
-  OC_DBG("GET_light:\n");
+  OC_DBG("GET_light:");
   oc_rep_start_root_object();
   switch (interface) {
   case OC_IF_BASELINE:
@@ -53,18 +53,18 @@ post_light(oc_request_t *request, oc_interface_mask_t interface, void *user_data
 {
   (void)interface;
   (void)user_data;
-  OC_DBG("POST_light:\n");
+  OC_DBG("POST_light:");
   oc_rep_t *rep = request->request_payload;
   while (rep != NULL) {
     OC_DBG(("key: %s "), oc_string(rep->name));
     switch (rep->type) {
     case OC_REP_BOOL:
       state = rep->value.boolean;
-      OC_DBG("value: %d\n", state);
+      OC_DBG("value: %d", state);
       break;
     case OC_REP_INT:
       power = rep->value.integer;
-      OC_DBG("value: %d\n", power);
+      OC_DBG("value: %d", power);
       break;
     case OC_REP_STRING:
       oc_free_string(&name);
@@ -126,7 +126,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
   
   OC_PROCESS_BEGIN();
 
-  OC_DBG("Initializing server for arduino\n");
+  OC_DBG("Initializing server for arduino");
 	
   while (ev != OC_PROCESS_EVENT_EXIT) {
 		oc_etimer_set(&et, (oc_clock_time_t)next_event);
@@ -134,17 +134,14 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		if(ev == OC_PROCESS_EVENT_INIT){
 			int init = oc_main_init(&handler);
 			if (init < 0){
-				OC_DBG("Server Init failed!\n");
+				OC_DBG("Server Init failed!");
 				return init;
 			}
-      OC_DBG("Server process init!\n");
+      OC_DBG("Server process init!");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
-#if defined(OC_MEM_MONITOR)
-      OC_WRN("Free RAM = %d", freeMemory());
-#endif
 		}
     OC_PROCESS_WAIT_EVENT();
   }
@@ -166,7 +163,6 @@ uint8_t ConnectToNetwork()
 	return 0;
 }
 
-
 void setup() {
 	Serial.begin(115200);
 	delay(50);
@@ -175,19 +171,13 @@ void setup() {
 		OC_ERR("Unable to connect to network");
 		return;
 	}
-#if defined(OC_MEM_MONITOR)
-      OC_WRN("Free RAM = %d", freeMemory());
-#endif
 #ifdef OC_SEC
   oc_storage_config("creds"); 
 #endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
-#if defined(OC_MEM_MONITOR)
-      OC_WRN("Free RAM = %d", freeMemory());
-#endif
   delay(500);
 }
 
 void loop() {
-	//oc_process_run();
+	oc_process_run();
 }

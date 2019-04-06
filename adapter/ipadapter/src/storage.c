@@ -18,7 +18,6 @@ const uint8_t chipSelect = SDCARD_SS_PIN;
 
 static char store_path[STORE_PATH_SIZE];
 static int8_t store_path_len;
-static bool path_set = 0;
 
 void list_dir(){
 // Initialize at the highest speed supported by the board that is
@@ -38,9 +37,7 @@ int oc_storage_config(const char *store)
   }
   strncpy(store_path, store, store_path_len);
   store_path[store_path_len] = '\0';
-  OC_WRN("path : %s", store_path);
   _sd_holder = sdfat_create(); 
-  path_set = 0;
   /* Initialize at the highest speed supported by the board that is
    not over 50 MHz. Try a lower speed if SPI errors occur.*/
   if (!sdfat_begin(_sd_holder, chipSelect)) {
@@ -48,8 +45,6 @@ int oc_storage_config(const char *store)
     return -1;
   }
   OC_WRN("initialization done.");
-  // see if the directory exists, create it if not.
-  
   if( !sdfat_exists(_sd_holder, store_path)) 
   {
     if(!sdfat_mkdir(_sd_holder, store_path) ) 
@@ -67,24 +62,19 @@ int oc_storage_config(const char *store)
 long
 oc_storage_write(const char *store, uint8_t *buf, size_t len)
 {
-
   size_t store_len = strlen(store);
-  if (path_set) {
-    return -ENOENT;
-  }
   store_path[store_path_len] = '/';
   strncpy(store_path + store_path_len + 1, store, store_len);
   store_path[1 + store_path_len + store_len] = '\0';
   sdfile_open_write(_file_holder, store_path, O_WRONLY | O_CREAT | O_TRUNC);
   if(!sdfile_isOpen(_file_holder)) {
-    //OC_ERR("error opening %s", store_path);
     return -1;
   }else {
-      if((len  =  sdfile_write(_file_holder, buf, len)) == -1) {
-          OC_ERR("Error writing to: %s",store_path );
-          return -1;
-      }
-      sdfile_close(_file_holder);
+		if((len  =  sdfile_write(_file_holder, buf, len)) == -1) {
+			OC_ERR("Error writing to: %s",store_path );
+			return -1;
+		}
+		sdfile_close(_file_holder);
   }
   return len;
 }
@@ -92,10 +82,7 @@ oc_storage_write(const char *store, uint8_t *buf, size_t len)
 long
 oc_storage_read(const char *store, uint8_t *buf, size_t len)
 {
-
   size_t store_len = strlen(store);
-  if (path_set || (1 + store_len + store_path_len >= STORE_PATH_SIZE))
-    return -ENOENT;
   store_path[store_path_len] = '/';
   strncpy(store_path + store_path_len + 1, store, store_len);
   store_path[1 + store_path_len + store_len] = '\0';

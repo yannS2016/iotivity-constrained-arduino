@@ -112,7 +112,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
   oc_set_mtu_size(512);
-  oc_set_max_app_data_size(1024);
+  oc_set_max_app_data_size(880);
   
   OC_PROCESS_BEGIN();
 
@@ -132,9 +132,6 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 		else if(ev == OC_PROCESS_EVENT_TIMER){
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
-#if defined(OC_MEM_MONITOR)
-      OC_WRN("Free RAM = %d", freeMemory());
-#endif
 		}
     OC_PROCESS_WAIT_EVENT();
   }
@@ -160,30 +157,25 @@ uint8_t ConnectToNetwork()
 }
 
 void setup() {
+	
 	Serial.begin(115200);
+#if defined(__SAMD21G18A__)
   while (!Serial) {
   }
+#endif
 	if (ConnectToNetwork() != 0)
 	{
 		OC_ERR("Unable to connect to network");
 		return;
 	}
-#if defined(OC_MEM_MONITOR)
-  // print how much RAM is available.
-  OC_WRN("Free RAM = %d", freeMemory());
-#endif
+
 #ifdef OC_SEC
   oc_storage_config("creds"); 
 #endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
-#if defined(OC_MEM_MONITOR)
-  // print how much RAM is available.
-  OC_WRN("Free RAM = %d", freeMemory());
-#endif
   delay(200);
 }
 
 void loop() {
-  
 	oc_process_run();
 }

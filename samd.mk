@@ -17,7 +17,7 @@ VARIANT			= mkrzero
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
 #MONITOR_PORT   = /dev/ttyUSB*
-MONITOR_PORT      = /dev/ttyACM*
+MONITOR_PORT    = /dev/ttyACM*
 
 # Define Arduino support package installation path where SAM device support has been installed
 # Linux

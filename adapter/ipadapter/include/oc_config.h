@@ -28,9 +28,9 @@
 #define OCF_PORT_SECURED (42536)
 /** Multicast IP address.*/
 #define OCF_IPv4_MULTICAST      "224.0.1.187"
-//arduino does not define a 64 bits int
+
 typedef uint32_t oc_clock_time_t;
-/* 1 clock tick = 1ms or 1 ticks   1000 ticks -- 1 s --- 1000 ticks --- 1000ms --- 1 tick -- 1 ms*/
+
 #define OC_CLOCK_CONF_TICKS_PER_SECOND (1)
 #define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
 
@@ -41,9 +41,6 @@ typedef uint32_t oc_clock_time_t;
 /* Server-side parameters */
 /* Maximum number of server resources */
 #define OC_MAX_APP_RESOURCES (4)
-
-// uncomment if using collections 
-//#define OC_MAX_NUM_COLLECTIONS (10)
 
 /* Common paramters */
 /* Prescriptive lower layers MTU size, enable block-wise transfers */
@@ -57,7 +54,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_NUM_CONCURRENT_REQUESTS (2)
 
 /* Maximum number of nodes in a payload tree structure */
-#define OC_MAX_NUM_REP_OBJECTS (150)
+#define OC_MAX_NUM_REP_OBJECTS (15)
 
 /* Number of devices on the OCF platform */
 #define OC_MAX_NUM_DEVICES (1)
@@ -74,7 +71,7 @@ typedef uint32_t oc_clock_time_t;
 
 /* Security Layer */
 /* Max inactivity timeout before tearing down DTLS connection */
-#define OC_DTLS_INACTIVITY_TIMEOUT (1000)
+#define OC_DTLS_INACTIVITY_TIMEOUT (5000)
 
 
 #endif /* CONFIG_H */

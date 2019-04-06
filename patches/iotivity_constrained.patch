@@ -1,44 +1,24 @@
---- messaging/coap/engine_new.c	2019-03-04 20:49:37.226791060 +0000
-+++ messaging/coap/engine.c	2019-03-04 20:35:40.975642345 +0000
-@@ -80,8 +80,31 @@
+--- messaging/coap/engine.c  2019-03-24 17:21:07.334349254 +0200
++++ messaging/coap/engine.c  2019-03-24 17:03:51.473591324 +0200
+@@ -80,8 +80,13 @@
  #endif /* !OC_BLOCK_WISE */
  
  #define OC_REQUEST_HISTORY_SIZE (250)
-+#ifdef OC_XMEM
-+/*AVR Memory Usage
-+----------------
-+Device: atmega2560
-+
-+Program:   79956 bytes (30.5% Full)
-+(.text + .data + .bootloader)
-+
-+Data:       5952 bytes (72.7% Full)
-+(.data + .bss + .noinit)*/
++#ifdef OC_DYNAMIC_ALLOCATION
 +static uint16_t *history;
 +static uint8_t *history_dev;
 +#else
-+/*
-+Device: atmega2560
-+
-+Program:   79770 bytes (30.4% Full)
-+(.text + .data + .bootloader)
-+
-+Data:       6698 bytes (81.8% Full)
-+(.data + .bss + .noinit)
-+*/
  static uint16_t history[OC_REQUEST_HISTORY_SIZE];
  static uint8_t history_dev[OC_REQUEST_HISTORY_SIZE];
 +#endif
  static uint8_t idx;
  
  static bool
-@@ -123,7 +146,18 @@
- coap_receive(oc_message_t *msg)
+@@ -124,6 +129,17 @@
  {
    coap_status_code = COAP_NO_ERROR;
--
-+  
-+  #ifdef OC_XMEM
+ 
++#ifdef OC_DYNAMIC_ALLOCATION
 +  if(!history || !history_dev) {
 +    OC_DBG("Allocating history buffers");
 +      history = malloc(OC_REQUEST_HISTORY_SIZE);
@@ -48,13 +28,13 @@
 +      return -1;
 +    }
 +  }
-+  #endif
++#endif
    OC_DBG("CoAP Engine: received datalen=%u from",
           (unsigned int)msg->length);
    OC_LOGipaddr(msg->endpoint);
---- messaging/coap/observe_old.c	2019-03-04 21:02:27.157578690 +0000
-+++ messaging/coap/observe.c	2019-03-04 16:51:13.381567176 +0000
-@@ -609,7 +609,7 @@
+--- messaging/coap/observe.c 2019-03-24 17:21:07.334349254 +0200
++++ messaging/coap/observe.c 2019-03-24 17:04:59.191238443 +0200
+@@ -615,7 +615,7 @@
          }   // response_buf != NULL
        }     //! separate response
      }       // iterate over observers
@@ -63,32 +43,38 @@
  #ifdef OC_DYNAMIC_ALLOCATION
      if (buffer) {
        free(buffer);
---- port/oc_log.h	2019-03-13 11:38:04.181886044 +0000
-+++ port/oc_log_new.h	2019-03-13 11:28:46.651380724 +0000
-@@ -18,18 +18,29 @@
- #define OC_LOG_H
+
+--- port/oc_log.h	2019-04-04 23:09:08.584088241 +0000
++++ port/oc_log.h	2019-04-06 17:33:20.675098748 +0000
+@@ -19,26 +19,26 @@
  
  #include <stdio.h>
+ 
+-#ifdef __ANDROID__
+-#include "android/oc_log_android.h"
+-#endif
 -
-+// the size of OC_PDU_SIZE and OC_MAX_APP_DATA_SIZE
  #ifdef __cplusplus
  extern "C"
  {
  #endif
+-
+-#ifdef __ANDROID__
+-#define TAG "OC-JNI"
+-#define PRINT(...) __android_log_print(ANDROID_LOG_INFO, TAG, __VA_ARGS__)
+-#else
+-#define PRINT(...) printf(__VA_ARGS__)
 +#ifdef ARDUINO
 +#include "Arduino.h"
-+#ifdef __cplusplus
-+#define PCF(str)  ((PROGMEM const char *)(F(str)))
-+#else
-+#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
++#include "serial.h"
++#if defined(__AVR__)
++#define PRINT(format, ...)  AVR_LOG(format, ##__VA_ARGS__)
++#elif defined(__SAMD21G18A__)
++#define PRINT(format, ...)  ARM_LOG(format, ##__VA_ARGS__)  
++#elif defined(__SAM3X8E__)
++#define PRINT(...) printf(__VA_ARGS__)  
 +#endif
-+// from: https://stackoverflow.com/questions/18968070/error-when-defining-a-stringising-macro-with-va-args
-+#define PRINT(format, ...)  printf_P(PCF(format), ##__VA_ARGS__)
-+#else
-+#define PRINT(...) printf(__VA_ARGS__)	
-+#endif
- 
--#define PRINT(...) printf(__VA_ARGS__)
+ #endif
  
  #define PRINTipaddr(endpoint)                                                  \
    do {                                                                         \
@@ -98,7 +84,7 @@
              ((endpoint).addr.ipv4.address)[1],                                 \
              ((endpoint).addr.ipv4.address)[2],                                 \
              ((endpoint).addr.ipv4.address)[3], (endpoint).addr.ipv4.port);     \
-@@ -37,7 +48,7 @@
+@@ -46,7 +46,7 @@
        PRINT(                                                                   \
          "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%"    \
          "02x%"                                                                 \
@@ -107,55 +93,55 @@
          ((endpoint).addr.ipv6.address)[0], ((endpoint).addr.ipv6.address)[1],  \
          ((endpoint).addr.ipv6.address)[2], ((endpoint).addr.ipv6.address)[3],  \
          ((endpoint).addr.ipv6.address)[4], ((endpoint).addr.ipv6.address)[5],  \
-@@ -52,41 +63,46 @@
+@@ -61,45 +61,36 @@
      }                                                                          \
    } while (0)
  
 -#ifdef OC_DEBUG
+-#ifdef __ANDROID__
+-#define OC_LOG(level, ...)          android_log(level, __FILE__, __func__, __LINE__, __VA_ARGS__)
+-#define OC_LOGipaddr(endpoint)      android_log_ipaddr("DEBUG", __FILE__, __func__, __LINE__, endpoint)
+-#define OC_LOGbytes(bytes, length)  android_log_bytes("DEBUG", __FILE__, __func__, __LINE__, bytes, length)
+-#else  /* ! __ANDROID */
+-#define OC_LOG(level, ...)                                                     \
++
 +#ifdef ARDUINO
 +#define OC_LOG(level, format, ...)                                             \
-+  do {                                                                         \
-+    PRINT(level " : " __FILE__ " <%s:%d>: ",__func__, __LINE__);               \
+   do {                                                                         \
+-    PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
+-    PRINT(__VA_ARGS__);                                                        \
+-    PRINT("\n");                                                               \
++    PRINT(level " : " __FILE__ " <%s:%d>: ", __func__, __LINE__);              \
 +    PRINT(format, ##__VA_ARGS__);                                              \
-+		PRINT("\n");                                                               \
-+  } while (0)
++    PRINT("\r\n");                                                             \
+   } while (0)
 +#define OC_DBG(format, ...)   OC_LOG("DEBUG", format, ##__VA_ARGS__)
 +#define OC_WRN(format, ...)   OC_LOG("WARNING", format,##__VA_ARGS__)
 +#define OC_ERR(format, ...)   OC_LOG("ERROR", format, ##__VA_ARGS__)
-+#else
-+
- #define OC_LOG(level, ...)                                                     \
-   do {                                                                         \
--    PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
-+    PRINT("<%s:%s:%d>: ", level,__FILE__, __LINE__);                           \
-     PRINT(__VA_ARGS__);                                                        \
--    PRINT("\n");                                                               \
-+		PRINT("\n");                                                               \
-   } while (0)
--#define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
--#define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
--#define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
-+#define OC_DBG(...)   OC_LOG("DEBUG",__VA_ARGS__)
-+#define OC_WRN(...)   OC_LOG("WARNING",__VA_ARGS__)
-+#define OC_ERR(...)   OC_LOG("ERROR", __VA_ARGS__)
-+#endif
 +
  #define OC_LOGipaddr(endpoint)                                                 \
    do {                                                                         \
 -    PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
-+    PRINT("DEBUG: <%d>: ", __LINE__);                                          \
++    PRINT("DEBUG " "<%s:%d:> " , __func__, __LINE__);                             \
      PRINTipaddr(endpoint);                                                     \
-     PRINT("\n");                                                               \
+-    PRINT("\n");                                                               \
++    PRINT("\r\n");                                                             \
    } while (0)
++
  #define OC_LOGbytes(bytes, length)                                             \
    do {                                                                         \
 -    PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
-+    PRINT("DEBUG: <%d>: ", __LINE__);                                          \
++    PRINT("DEBUG " "<%s:%d:> " , __func__, __LINE__);                             \
      uint16_t i;                                                                \
      for (i = 0; i < length; i++)                                               \
        PRINT(" %02X", bytes[i]);                                                \
-     PRINT("\n");                                                               \
--  } while (0)
+-    PRINT("\n");                                                               \
++    PRINT("\r\n");                                                             \
+   } while (0)
+-#endif /* __ANDROID__ */
+-#define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
+-#define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
+-#define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
 -#else
 -#define OC_LOG(...)
 -#define OC_DBG(...)
@@ -163,13 +149,35 @@
 -#define OC_ERR(...)
 -#define OC_LOGipaddr(endpoint)
 -#define OC_LOGbytes(bytes, length)
--#endif
-+  } while (0)	
+ #endif
  
++
  #ifdef __cplusplus
  }
  #endif
- 
--#endif /* OC_LOG_H */
-\ No newline at end of file
-+#endif /* OC_LOG_H */
+--- security/oc_store.c	2019-04-06 17:26:46.414070603 +0000
++++ /home/pi/legacy_iot/iotivity-constrained/security/oc_store.c	2019-04-04 23:07:40.274098586 +0000
+@@ -36,7 +36,7 @@
+ gen_svr_tag(const char *name, size_t device_index, char *svr_tag)
+ {
+   int svr_tag_len =
+-    snprintf(svr_tag, SVR_TAG_MAX, "%s_%d", name, device_index);
++    snprintf(svr_tag, SVR_TAG_MAX, "%s_%zd", name, device_index);
+   svr_tag_len =
+     (svr_tag_len < SVR_TAG_MAX - 1) ? svr_tag_len + 1 : SVR_TAG_MAX - 1;
+   svr_tag[svr_tag_len] = '\0';
+--- security/oc_doxm.c	2019-04-06 18:27:39.910957219 +0000
++++ /home/pi/legacy_iot/iotivity-constrained/security/oc_doxm.c	2019-04-04 23:07:40.264098588 +0000
+@@ -24,11 +24,10 @@
+ #include "oc_store.h"
+ #include <stddef.h>
+ #include <string.h>
+-#ifndef ARDUINO
+ #ifndef _WIN32
+ #include <strings.h>
+ #endif
+-#endif
++
+ #ifdef OC_DYNAMIC_ALLOCATION
+ #include "port/oc_assert.h"
+ #include <stdlib.h>

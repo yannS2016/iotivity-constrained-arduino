@@ -42,7 +42,7 @@ else
 endif
 
 ifeq ($(DYNAMIC),1)
-	CFLAGS += -DOC_DYNAMIC_ALLOCATION
+	CFLAGS += -DOC_DYNAMIC_ALLOCATION 
 endif
 
 ifeq ($(SECURE),1)
