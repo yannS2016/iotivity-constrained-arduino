@@ -1,24 +1,5 @@
-<<<<<<< HEAD
-diff -ru iotivity-constrained/api/oc_ri.c iotivity-constrained_new/api/oc_ri.c
---- iotivity-constrained/api/oc_ri.c	2019-03-24 17:22:57.740959607 +0200
-+++ iotivity-constrained_new/api/oc_ri.c	2019-03-24 17:22:52.856844177 +0200
-@@ -1061,8 +1061,7 @@
-      * altered the resource state, so attempt to notify all observers
-      * of that resource with the change.
-      */
--    if (!resource_is_collection && cur_resource &&
--        (method == OC_PUT || method == OC_POST) &&
-+    if (cur_resource && (method == OC_PUT || method == OC_POST) &&
-         response_buffer.code < oc_status_code(OC_STATUS_BAD_REQUEST))
-       oc_ri_add_timed_event_callback_ticks(cur_resource,
-                                            &oc_observe_notification_delayed, 0);
-diff -ru iotivity-constrained/messaging/coap/engine.c iotivity-constrained_new/messaging/coap/engine.c
---- iotivity-constrained/messaging/coap/engine.c	2019-03-24 17:21:07.334349254 +0200
-+++ iotivity-constrained_new/messaging/coap/engine.c	2019-03-24 17:03:51.473591324 +0200
-=======
 --- messaging/coap/engine.c  2019-03-24 17:21:07.334349254 +0200
 +++ messaging/coap/engine.c  2019-03-24 17:03:51.473591324 +0200
->>>>>>> security
 @@ -80,8 +80,13 @@
  #endif /* !OC_BLOCK_WISE */
  
@@ -51,14 +32,8 @@ diff -ru iotivity-constrained/messaging/coap/engine.c iotivity-constrained_new/m
    OC_DBG("CoAP Engine: received datalen=%u from",
           (unsigned int)msg->length);
    OC_LOGipaddr(msg->endpoint);
-<<<<<<< HEAD
-diff -ru iotivity-constrained/messaging/coap/observe.c iotivity-constrained_new/messaging/coap/observe.c
---- iotivity-constrained/messaging/coap/observe.c	2019-03-24 17:21:07.334349254 +0200
-+++ iotivity-constrained_new/messaging/coap/observe.c	2019-03-24 17:04:59.191238443 +0200
-=======
 --- messaging/coap/observe.c 2019-03-24 17:21:07.334349254 +0200
 +++ messaging/coap/observe.c 2019-03-24 17:04:59.191238443 +0200
->>>>>>> security
 @@ -615,7 +615,7 @@
          }   // response_buf != NULL
        }     //! separate response
@@ -68,18 +43,10 @@ diff -ru iotivity-constrained/messaging/coap/observe.c iotivity-constrained_new/
  #ifdef OC_DYNAMIC_ALLOCATION
      if (buffer) {
        free(buffer);
-<<<<<<< HEAD
-diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log.h
---- iotivity-constrained/port/oc_log.h	2019-03-24 17:21:07.334349254 +0200
-+++ iotivity-constrained_new/port/oc_log.h	2019-03-24 16:56:44.306978716 +0200
-@@ -20,18 +20,27 @@
- #define OC_LOG_H
-=======
 
 --- port/oc_log.h	2019-04-04 23:09:08.584088241 +0000
 +++ port/oc_log.h	2019-04-06 17:33:20.675098748 +0000
 @@ -19,26 +19,26 @@
->>>>>>> security
  
  #include <stdio.h>
  
@@ -99,22 +66,12 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
 -#define PRINT(...) printf(__VA_ARGS__)
 +#ifdef ARDUINO
 +#include "Arduino.h"
-<<<<<<< HEAD
-+#ifdef __cplusplus
-+#define PCF(str)  ((PROGMEM const char *)(F(str)))
-+#else
-+#define PCF(str)  ((PROGMEM const char *)(PSTR(str)))
-+#endif
-+#define PRINT(format, ...)  printf_P(PCF(format), ##__VA_ARGS__)
-+#else
-=======
 +#include "serial.h"
 +#if defined(__AVR__)
 +#define PRINT(format, ...)  AVR_LOG(format, ##__VA_ARGS__)
 +#elif defined(__SAMD21G18A__)
 +#define PRINT(format, ...)  ARM_LOG(format, ##__VA_ARGS__)  
 +#elif defined(__SAM3X8E__)
->>>>>>> security
 +#define PRINT(...) printf(__VA_ARGS__)  
 +#endif
  #endif
@@ -127,11 +84,7 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
              ((endpoint).addr.ipv4.address)[1],                                 \
              ((endpoint).addr.ipv4.address)[2],                                 \
              ((endpoint).addr.ipv4.address)[3], (endpoint).addr.ipv4.port);     \
-<<<<<<< HEAD
-@@ -39,7 +48,7 @@
-=======
 @@ -46,7 +46,7 @@
->>>>>>> security
        PRINT(                                                                   \
          "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%"    \
          "02x%"                                                                 \
@@ -140,11 +93,7 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
          ((endpoint).addr.ipv6.address)[0], ((endpoint).addr.ipv6.address)[1],  \
          ((endpoint).addr.ipv6.address)[2], ((endpoint).addr.ipv6.address)[3],  \
          ((endpoint).addr.ipv6.address)[4], ((endpoint).addr.ipv6.address)[5],  \
-<<<<<<< HEAD
-@@ -54,16 +63,43 @@
-=======
 @@ -61,45 +61,36 @@
->>>>>>> security
      }                                                                          \
    } while (0)
  
@@ -158,54 +107,6 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
 +
 +#ifdef ARDUINO
 +#define OC_LOG(level, format, ...)                                             \
-<<<<<<< HEAD
-+  do {                                                                         \
-+    PRINT(level " : " __FILE__ " <%s:%d>: ",__func__, __LINE__);               \
-+    PRINT(format, ##__VA_ARGS__);                                              \
-+    PRINT("\n");                                                               \
-+  } while (0)
-+#define OC_DBG(format, ...)   OC_LOG("DEBUG", format, ##__VA_ARGS__)
-+#define OC_WRN(format, ...)   OC_LOG("WARNING", format,##__VA_ARGS__)
-+#define OC_ERR(format, ...)   OC_LOG("ERROR", format, ##__VA_ARGS__)
-+
-+#define OC_LOGipaddr(endpoint)                                                 \
-+  do {                                                                         \
-+    PRINT("DEBUG: " __FILE__ " <%s:%d>: ",__func__, __LINE__);               \
-+    PRINTipaddr(endpoint);                                                     \
-+    PRINT("\n");                                                               \
-+  } while (0)
-+#define OC_LOGbytes(bytes, length)                                             \
-+  do {                                                                         \
-+    PRINT("DEBUG: " __FILE__ " <%s:%d>: ",__func__, __LINE__);               \
-+    uint16_t i;                                                                \
-+    for (i = 0; i < length; i++)                                               \
-+      PRINT(" %02X", bytes[i]);                                                \
-+    PRINT("\n");                                                               \
-+  } while (0) 
-+
-+#else
- #define OC_LOG(level, ...)                                                     \
-   do {                                                                         \
--    PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
-+    PRINT("<%s:%s:%d>: ", level,__FILE__, __LINE__);                           \
-     PRINT(__VA_ARGS__);                                                        \
-     PRINT("\n");                                                               \
-   } while (0)
--#define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
--#define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
--#define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
-+#define OC_DBG(...)   OC_LOG("DEBUG",__VA_ARGS__)
-+#define OC_WRN(...)   OC_LOG("WARNING",__VA_ARGS__)
-+#define OC_ERR(...)   OC_LOG("ERROR", __VA_ARGS__)
-+
- #define OC_LOGipaddr(endpoint)                                                 \
-   do {                                                                         \
-     PRINT("DEBUG: %s <%s:%d>: ", __FILE__, __func__, __LINE__);                \
-@@ -78,15 +114,7 @@
-       PRINT(" %02X", bytes[i]);                                                \
-     PRINT("\n");                                                               \
-   } while (0)
-=======
    do {                                                                         \
 -    PRINT("%s: %s <%s:%d>: ", level, __FILE__, __func__, __LINE__);            \
 -    PRINT(__VA_ARGS__);                                                        \
@@ -241,7 +142,6 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
 -#define OC_DBG(...) OC_LOG("DEBUG", __VA_ARGS__)
 -#define OC_WRN(...) OC_LOG("WARNING", __VA_ARGS__)
 -#define OC_ERR(...) OC_LOG("ERROR", __VA_ARGS__)
->>>>>>> security
 -#else
 -#define OC_LOG(...)
 -#define OC_DBG(...)
@@ -250,24 +150,6 @@ diff -ru iotivity-constrained/port/oc_log.h iotivity-constrained_new/port/oc_log
 -#define OC_LOGipaddr(endpoint)
 -#define OC_LOGbytes(bytes, length)
  #endif
-<<<<<<< HEAD
--
- #ifdef __cplusplus
- }
- #endif
-diff -ru iotivity-constrained/util/oc_mmem.c iotivity-constrained_new/util/oc_mmem.c
---- iotivity-constrained/util/oc_mmem.c	2019-03-24 17:21:07.334349254 +0200
-+++ iotivity-constrained_new/util/oc_mmem.c	2019-03-24 16:51:04.846062620 +0200
-@@ -175,7 +175,7 @@
-       break;
-     case INT_POOL:
-       memmove(m->ptr, m->next->ptr,
--              &ints[OC_INTS_POOL_SIZE - avail_ints] - (int *)m->next->ptr);
-+              &ints[OC_INTS_POOL_SIZE - avail_ints] - (int64_t*)m->next->ptr);
-       break;
-     case DOUBLE_POOL:
-       memmove(m->ptr, m->next->ptr,
-=======
  
 +
  #ifdef __cplusplus
@@ -299,4 +181,3 @@ diff -ru iotivity-constrained/util/oc_mmem.c iotivity-constrained_new/util/oc_mm
  #ifdef OC_DYNAMIC_ALLOCATION
  #include "port/oc_assert.h"
  #include <stdlib.h>
->>>>>>> security

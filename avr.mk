@@ -55,7 +55,7 @@ EXTMEMOPTS = -Wl,-Map,MegaXmem.map -Wl,--section-start,.data=0x802200,--defsym=_
 # ---------------------------------------------------
 #EXTMEMOPTS = -Wl,--defsym=__heap_start=0x802200,--defsym=__heap_end=0x80ffff
 
-#                 0x8021ff 0x802200            0x80ffff    
+#                 0x8021ff 0x802200          0x80ffff    
 # -------------------------------------------
 #| .bss		  |      |<---- |  .data |---> |	 |
 #| variable	|      |stack |variable|heap |	 |								
@@ -68,7 +68,6 @@ else
 endif
 
 LDFLAGS += $(EXTMEMOPTS)
-
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.

@@ -4,10 +4,6 @@ ifeq ($(ARCH),avr)
 	PRNG_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-prng.a
 endif
 SERVER_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-adapter.a
-<<<<<<< HEAD
-PRNG_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-prng.a
-=======
->>>>>>> security
 TIME_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-time.a
 WIZ5500_ARCHIVE = build-$(BOARD_TAG)/libarduino-wiz5500.a
 SERIAL_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-serial.a
@@ -18,14 +14,7 @@ SDFAT_ARCHIVE 	= build-$(BOARD_TAG)/libarduino-sdfat.a
 ifeq ($(ARCH),avr)
 ifeq ($(SERVER),1)
   CXXFLAGS 			+= -DOC_SERVER
-<<<<<<< HEAD
-ifeq ($(XMEM),1)
-	CXXFLAGS 		+= -DOC_XMEM
-  LOCAL_CPP_SRCS 	+= apps/server/server-xmem.cpp
-else
-=======
 ifneq ($(XMEM),1)
->>>>>>> security
   LOCAL_CPP_SRCS 	+= apps/server/server.cpp
 else
   CXXFLAGS 		    += -DOC_XMEM
@@ -53,13 +42,6 @@ else
 #$(error Target Architecture must be define to proceed!)	
 $(error Must define an app server/client to proceed!)	
 endif
-<<<<<<< HEAD
-
-ifeq ($(CLIENT),1)
-  LOCAL_CPP_SRCS 		+= apps/client/client.cpp
-  CXXFLAGS 				+= -DOC_CLIENT
-=======
->>>>>>> security
 endif
 
 
@@ -80,15 +62,6 @@ ifeq ($(ESP32),1)
 endif
 
 ### Iotivity contrained includes
-<<<<<<< HEAD
-STACK_HEADERS     +=$(addprefix -I$(IOTIVITY_CONSTRAINED)/, messaging/coap util util/pt include  api port .)
-DEPS_HEADERS      +=$(addprefix -I$(PROJECT_DIR)/deps/, pRNG wiz5500 rs232)
-ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include 
-ADAPTER_HEADERS   +=-I$(PROJECT_DIR)/adapter/ipadapter/include/wiznet_inc
-TIME_HEADERS      +=-I$(ARDUINO_DIR)/libraries/Time
-APPS_HEADERS      += -I$(PROJECT_DIR)/apps/include
-CXXFLAGS          += $(TIME_HEADERS) $(ADAPTER_HEADERS) $(STACK_HEADERS) $(DEPS_HEADERS) $(APPS_HEADERS)
-=======
 ifeq ($(ARCH),avr)
 	DEPS_HEADERS      +=$(addprefix -I$(PROJECT_DIR)/deps/, pRNG wiz5500 serial sdFat)
 else
@@ -106,7 +79,6 @@ ifeq ($(SECURE),1)
 	CXXFLAGS		+=$(SEC_HEADERS)
 	CXXFLAGS		+= -DOC_SEC
 endif
->>>>>>> security
 
 SERVER_OBJ     = $(PROJECT_DIR)/adapter/$(SERVER_ARCHIVE)
 OTHER_OBJS    += $(SERVER_OBJ)
@@ -146,16 +118,11 @@ TIME_ARCHIVE:
 WIZ5500_ARCHIVE: 
 	$(MAKE) -C ./deps/wiz5500 $(WIZ5500_ARCHIVE)	
 
-<<<<<<< HEAD
-RS232_ARCHIVE: 
-	$(MAKE) -C ./deps/rs232 $(RS232_ARCHIVE)  
-=======
 SERIAL_ARCHIVE : 
 	$(MAKE) -C ./deps/serial $(SERIAL_ARCHIVE)  
 
 SDFAT_ARCHIVE: 
 	$(MAKE) -C ./deps/sdFat $(SDFAT_ARCHIVE)  
->>>>>>> security
 
 clean::
 	$(MAKE) -C ./adapter clean

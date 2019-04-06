@@ -1,9 +1,5 @@
 #include "main.h"
-<<<<<<< HEAD
-#include "Ethernet2.h"
-=======
 
->>>>>>> security
 #ifdef OC_XMEM
 void extRAMinit(void)__attribute__ ((used, naked, section (".init3")));
 void extRAMinit(void) {
@@ -125,13 +121,8 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
-<<<<<<< HEAD
-  oc_set_mtu_size(1024);
-  oc_set_max_app_data_size(2048);
-=======
   oc_set_mtu_size(512);
   oc_set_max_app_data_size(1024);
->>>>>>> security
   
   OC_PROCESS_BEGIN();
 
@@ -173,14 +164,8 @@ uint8_t ConnectToNetwork()
 }
 
 void setup() {
-<<<<<<< HEAD
-
-	init_serial();
-	delay(100);
-=======
 	Serial.begin(115200);
 	delay(50);
->>>>>>> security
 	if (ConnectToNetwork() != 0)
 	{
 		OC_ERR("Unable to connect to network");
