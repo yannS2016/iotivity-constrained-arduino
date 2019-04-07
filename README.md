@@ -29,6 +29,8 @@ The arduino Time library target C++ code, though adding attribute like extern C 
 
 **Note:** For the ARM ARCH, the Due , we make use on the internal random module(TRNG), although for the SAMD, one can provide n efficient PRNG for those, at the moment we making use of the  utility from the SAMD core stdlib.
 
+**Note:** Arduino sdk depends on the building platform thus one will need to define the path to arduino-home(arduino core, libraries... path) in the setup.mk manually. For ARM board(SAM/SAMD), intall toolchain and cores via the Arduino IDE(see below):
+
 ### Arduino SAM/SAMD tools and cores
 ![Arduino SAM/SAMD tools and cores](arm_tools_cores.PNG)
    
@@ -52,9 +54,6 @@ all patch files are under iotivity-constrained-arduino/patches
 **Note:** The port was initially tested on commit(0840e0a41a95fcff725e498fc7245a828a1a65a3) based on this work [esp32 iotivity](https://github.com/espressif/esp32-iotivity).
 
 cd ../../
-
-**Note:** Arduino sdk depends on the building platform thus one will need to define the path to arduino-home(arduino core, libraries... path) in the setup.mk manually. For ARM board(SAM/SAMD), intall toolchain and cores via the Arduino IDE(see below):
-
 
 ### Unsecure build
 ```
