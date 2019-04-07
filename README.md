@@ -18,7 +18,7 @@ The arduino Time library target C++ code, though adding attribute like extern C 
 - **Arduino Makefile** [Arduino mk](https://github.com/sudar/Arduino-Makefile) Used to compile and upload the hex file to the arduino board. this is added as a submodule to this repository, thus it will fetch automatically.
 
 - **Arduino sdk** [Arduino home](https://github.com/arduino/ArduinoCore-avr.git) , one can just provide a path to the local arduino IDE
-
+   
 - **Arduino libraries**
 
    - **Time library** [Time](https://github.com/PaulStoffregen/Time) for implementing (oc_clock.c method)
@@ -29,8 +29,12 @@ The arduino Time library target C++ code, though adding attribute like extern C 
 
    - **Arduino FAT16/FAT32 Library**[SdFat](https://github.com/greiman/SdFat.git) for implementing (oc_storage.c method)
 
-#### Note: For the ARM ARCH, the Due , we make use on the internal random module(TRNG), although for the SAMD, one can provide n efficient PRNG for those, at the moment we making use of the  utility from the SAMD core stdlib.
+**Note:** For the ARM ARCH, the Due , we make use on the internal random module(TRNG), although for the SAMD, one can provide n efficient PRNG for those, at the moment we making use of the  utility from the SAMD core stdlib.
 
+Arduino SAM/SAMD tools and cores
+---------------------------------
+![Arduino SAM/SAMD tools and cores](arm_tools_cores.PNG)
+   
 ## Build process: linux (mainly Debian) 
 
 ### Get the development sources
@@ -53,7 +57,8 @@ all patch files are under iotivity-constrained-arduino/patches
 
 cd ../../
 
-**Note:** Arduino sdk depends on the building platform thus one will need to define the path to arduino-home(arduino core, libraries... path) in the setup.mk manually.
+**Note:** Arduino sdk depends on the building platform thus one will need to define the path to arduino-home(arduino core, libraries... path) in the setup.mk manually. For ARM board(SAM/SAMD), intall toolchain and cores via the Arduino IDE(see below):
+
 
 ### Unsecure build
 
@@ -61,7 +66,7 @@ cd ../../
 `make ARCH=avr SERVER=1 IPV4=1 DYNAMIC=1 XMEM=1 upload`
 #### Using an External SRAM: 
 ```
-Consult the setup.mk to select the memory configuration that suite your needs
+Consult the avr.mk to select the memory configuration that suite your needs
 make SERVER=1 IPV4=1  DYNAMIC=1 XMEM=1 upload
 ```
 ### For ARM(SAM or DUE) target
