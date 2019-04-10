@@ -73,6 +73,7 @@ static uint16_t socket_ready(uint8_t *socketID){
   if(recvLen == 0) {
     return 0;
   } else {
+    //OC_ERR("DATA READY.....");
     return recvLen;
   }
 }
@@ -84,11 +85,10 @@ uint8_t select(uint8_t nsds, sdset_t *setsds){
       // Good: data has been receive on this socket: clear it and increase socket ready count
       if(ret != 0) {
 				SD_CLR(setsds->sds[i], setsds);
-				setsds->ready_sds++;
+        n++;
 				setsds->rcv_size = ret;
       }
   }
-  n = setsds->ready_sds;
   return n;
 }
 

@@ -5,7 +5,9 @@
 #include <WProgram.h>
 #endif
 #include "Ethernet2.h"
-
+#ifdef __AVR__
+#include "FreeMemory.h"
+#endif
 extern "C" {
 #endif
 #include "serial.h"

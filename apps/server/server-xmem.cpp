@@ -8,6 +8,8 @@ void extRAMinit(void) {
 		XMCRA=1<<SRE; 
 		DDRD|=_BV(PD7);
 		DDRL|=(_BV(PL6)|_BV(PL7));
+		//__malloc_heap_end=static_cast<char *>(XMEM_END);
+		//__malloc_heap_start=static_cast<char *>(XMEM_START);
 } 
 #endif
 OC_PROCESS(sample_server_process, "server");
@@ -121,7 +123,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
-  oc_set_mtu_size(512);
+  oc_set_mtu_size(1024);
   oc_set_max_app_data_size(1024);
   
   OC_PROCESS_BEGIN();
@@ -140,6 +142,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
       OC_DBG("Server process init!");
 		}
 		else if(ev == OC_PROCESS_EVENT_TIMER){
+      OC_WRN("FreeMemory: %u", freeMemory());
 			next_event = oc_main_poll();
 			next_event -= oc_clock_time();
 		}
@@ -175,6 +178,7 @@ void setup() {
   oc_storage_config("creds"); 
 #endif /* OC_SECURITY */
 	oc_process_start(&sample_server_process, NULL);
+  OC_WRN("FreeMemory: %u", freeMemory());
   delay(500);
 }
 

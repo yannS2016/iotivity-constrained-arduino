@@ -34,7 +34,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_CLOCK_CONF_TICKS_PER_SECOND (1)
 #define MBEDTLS_TLS_ECDH_ANON_WITH_AES_128_CBC_SHA256 0xFF00
 
-#define OC_BYTES_POOL_SIZE (1500)
+#define OC_BYTES_POOL_SIZE (2000)
 #define OC_INTS_POOL_SIZE (100)
 #define OC_DOUBLES_POOL_SIZE (2)
 
@@ -51,7 +51,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_APP_DATA_SIZE (800)
 #endif
 /* Maximum number of concurrent requests */
-#define OC_MAX_NUM_CONCURRENT_REQUESTS (2)
+#define OC_MAX_NUM_CONCURRENT_REQUESTS (3)
 
 /* Maximum number of nodes in a payload tree structure */
 #define OC_MAX_NUM_REP_OBJECTS (15)

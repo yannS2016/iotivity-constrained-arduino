@@ -27,7 +27,7 @@
 OC_PROCESS(ip_adapter_process, "IP Adapter");
 OC_LIST(ip_contexts);
 OC_MEMB(ip_context_s, ip_context_t, OC_MAX_NUM_DEVICES);
-OC_MEMB(device_eps, oc_endpoint_t, OC_MAX_NUM_DEVICES); // fix
+OC_MEMB(device_eps, oc_endpoint_t, 2*OC_MAX_NUM_DEVICES); // fix
 
 void
 oc_network_event_handler_mutex_init(void){}
@@ -86,7 +86,7 @@ get_interface_addresses(ip_context_t *dev, uint16_t port, bool secure)
 static void
 refresh_endpoints_list(ip_context_t *dev)
 {
-  free_endpoints_list(dev);
+  free_endpoints_list(dev); 
   get_interface_addresses(dev, dev->port4, false);
 #ifdef OC_SECURITY
   get_interface_addresses(dev, dev->dtls4_port, true);
@@ -275,7 +275,7 @@ OC_PROCESS_THREAD(ip_adapter_process, ev, data)
   static ip_context_t *dev;
   static sdset_t setsds;
   while (ev != OC_PROCESS_EVENT_EXIT) {
-    oc_etimer_set(&et, (oc_clock_time_t)0.8);
+    oc_etimer_set(&et, (oc_clock_time_t)0.01);
     
     if(ev == OC_PROCESS_EVENT_INIT){
 
