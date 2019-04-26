@@ -6,7 +6,7 @@
 #include "Uart.h"
 #endif
 #include "serial.h"
-#define MAX_LOG_BUFFER_SIZE 64
+#define MAX_LOG_BUFFER_SIZE 80
 
 serial_t *_serial_holder = NULL;
 

@@ -40,7 +40,7 @@ typedef uint32_t oc_clock_time_t;
 
 /* Server-side parameters */
 /* Maximum number of server resources */
-#define OC_MAX_APP_RESOURCES (4)
+#define OC_MAX_APP_RESOURCES (2)
 
 /* Common paramters */
 /* Prescriptive lower layers MTU size, enable block-wise transfers */
@@ -51,7 +51,7 @@ typedef uint32_t oc_clock_time_t;
 #define OC_MAX_APP_DATA_SIZE (800)
 #endif
 /* Maximum number of concurrent requests */
-#define OC_MAX_NUM_CONCURRENT_REQUESTS (3)
+#define OC_MAX_NUM_CONCURRENT_REQUESTS (1)
 
 /* Maximum number of nodes in a payload tree structure */
 #define OC_MAX_NUM_REP_OBJECTS (15)

@@ -25,9 +25,11 @@
 #include "ard_eth_adptr_srv.h"
 
 OC_PROCESS(ip_adapter_process, "IP Adapter");
+#ifdef OC_DYNAMIC_ALLOCATION
 OC_LIST(ip_contexts);
-OC_MEMB(ip_context_s, ip_context_t, OC_MAX_NUM_DEVICES);
-OC_MEMB(device_eps, oc_endpoint_t, 2*OC_MAX_NUM_DEVICES); // fix
+#else /* OC_DYNAMIC_ALLOCATION */
+static ip_context_t devices[OC_MAX_NUM_DEVICES];
+#endif /* !OC_DYNAMIC_ALLOCATION */
 
 void
 oc_network_event_handler_mutex_init(void){}
@@ -43,6 +45,7 @@ void oc_network_event_handler_mutex_destroy(void) {}
 static ip_context_t *
 get_ip_context_for_device(size_t device)
 {
+#ifdef OC_DYNAMIC_ALLOCATION
   ip_context_t *dev = oc_list_head(ip_contexts);
   while (dev != NULL && dev->device != device) {
     dev = dev->next;
@@ -50,19 +53,12 @@ get_ip_context_for_device(size_t device)
   if (!dev) {
     return NULL;
   }
+#else  /* OC_DYNAMIC_ALLOCATION */
+  ip_context_t *dev = &devices[device];
+#endif /* !OC_DYNAMIC_ALLOCATION */
   return dev;
 }
 
-static void
-free_endpoints_list(ip_context_t *dev)
-{
-  oc_endpoint_t *ep = oc_list_pop(dev->eps);
-
-  while (ep != NULL) {
-    oc_memb_free(&device_eps, ep);
-    ep = oc_list_pop(dev->eps);
-  }
-}
 /*We not handling potential change of network interface as yet*/
 static void
 get_interface_addresses(ip_context_t *dev, uint16_t port, bool secure)
@@ -75,7 +71,7 @@ get_interface_addresses(ip_context_t *dev, uint16_t port, bool secure)
   if (secure) {
     ep.flags |= SECURED;
   }
-  oc_endpoint_t *new_ep = oc_memb_alloc(&device_eps);
+  oc_endpoint_t *new_ep = (oc_endpoint_t *)calloc(1, sizeof(oc_endpoint_t));
   if (!new_ep) {
     return;
   }
@@ -86,7 +82,6 @@ get_interface_addresses(ip_context_t *dev, uint16_t port, bool secure)
 static void
 refresh_endpoints_list(ip_context_t *dev)
 {
-  free_endpoints_list(dev); 
   get_interface_addresses(dev, dev->port4, false);
 #ifdef OC_SECURITY
   get_interface_addresses(dev, dev->dtls4_port, true);
@@ -94,7 +89,7 @@ refresh_endpoints_list(ip_context_t *dev)
 }
 
 oc_endpoint_t *
-oc_connectivity_get_endpoints(size_t device)
+oc_connectivity_get_endpoints(int device)
 {
   ip_context_t *dev = get_ip_context_for_device(device);
   if (!dev) {
@@ -108,7 +103,7 @@ oc_connectivity_get_endpoints(size_t device)
   return oc_list_head(dev->eps);
 }
 
-int oc_send_buffer(oc_message_t *message) {
+void oc_send_buffer(oc_message_t *message) {
   PRINT("Outgoing message to: ");
   PRINTipaddr(message->endpoint);
   PRINT("\r\n");
@@ -146,7 +141,7 @@ int oc_send_buffer(oc_message_t *message) {
 #endif
   ard_send_data(send_sock, message->endpoint.addr.ipv4.address, &send_port, 
                          message->data, message->length);
-  return message->length;
+  //return message->length;
 }
 
 #ifdef OC_CLIENT
@@ -158,10 +153,10 @@ oc_send_discovery_request(oc_message_t *message)
 #endif /* OC_CLIENT */
 
 int
-oc_connectivity_init(size_t device)
+oc_connectivity_init(int device)
 {
   OC_DBG("Initializing IPv4 connectivity for device %d", device);
-  ip_context_t *dev = (ip_context_t *)oc_memb_alloc(&ip_context_s);
+  ip_context_t *dev = (ip_context_t *)calloc(1, sizeof(ip_context_t));
   if (!dev) {
     oc_abort("Insufficient memory");
   }  
@@ -194,7 +189,7 @@ oc_connectivity_init(size_t device)
 }
 
 void
-oc_connectivity_shutdown(size_t device)
+oc_connectivity_shutdown(int device)
 {
   ip_context_t *dev = get_ip_context_for_device(device);
   oc_process_exit(&ip_adapter_process);
@@ -205,7 +200,6 @@ oc_connectivity_shutdown(size_t device)
 #endif /* OC_SECURITY */
   free_endpoints_list(dev);
   oc_list_remove(ip_contexts, dev);
-  oc_memb_free(&ip_context_s, dev);
   OC_DBG("oc_connectivity_shutdown for device %d", device);
 }
 
@@ -220,7 +214,7 @@ oc_udp_receive_message(ip_context_t *dev, sdset_t *sds, oc_message_t *message)
     if (count < 0) {
       return ADAPTER_STATUS_ERROR;
     }
-    message->length = (size_t)count;
+    message->length = (int)count;
     message->endpoint.flags = IPV4;
     SD_SET(dev->server4_sock, sds);
     return ADAPTER_STATUS_RECEIVE;
@@ -232,7 +226,7 @@ oc_udp_receive_message(ip_context_t *dev, sdset_t *sds, oc_message_t *message)
     if (count < 0) {
       return ADAPTER_STATUS_ERROR;
     }
-    message->length = (size_t)count;
+    message->length = (int)count;
     message->endpoint.flags = IPV4 | MULTICAST;
     SD_SET(dev->mcast4_sock, sds);
     return ADAPTER_STATUS_RECEIVE;
@@ -244,7 +238,7 @@ oc_udp_receive_message(ip_context_t *dev, sdset_t *sds, oc_message_t *message)
     if (count < 0) {
       return ADAPTER_STATUS_ERROR;
     }
-    message->length = (size_t)count;
+    message->length = (int)count;
     message->endpoint.flags = IPV4 | SECURED;
     message->encrypted = 1;
     SD_SET(dev->secure4_sock, sds);

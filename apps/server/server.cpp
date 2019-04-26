@@ -111,8 +111,8 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
                                        .signal_event_loop = signal_event_loop,
                                        .register_resources = register_resources };
   static oc_clock_time_t next_event;
-  oc_set_mtu_size(512);
-  oc_set_max_app_data_size(880);
+  oc_set_mtu_size(312);
+  oc_set_max_app_data_size(600);
   
   OC_PROCESS_BEGIN();
 
@@ -141,7 +141,7 @@ OC_PROCESS_THREAD(sample_server_process, ev, data)
 uint8_t ConnectToNetwork()
 {
 	// Note: ****Update the MAC address here with your shield's MAC address****
-	uint8_t ETHERNET_MAC[] = {0x90, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
+	uint8_t ETHERNET_MAC[] = {0x92, 0xA2, 0xDA, 0x11, 0x44, 0xA9};
 #if defined(__SAMD21G18A__)
   Ethernet.init(5); // CS Pin for MKRZERO
 #endif

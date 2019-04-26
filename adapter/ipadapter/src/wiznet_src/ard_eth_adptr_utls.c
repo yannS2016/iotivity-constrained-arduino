@@ -17,7 +17,7 @@
 ******************************************************************/
 #include <socket.h>
 #include <ctype.h>
-#include "oc_config.h"
+#include "config.h"
 // c adapter
 #include "Wiz5500.h"
 #include "oc_log.h"

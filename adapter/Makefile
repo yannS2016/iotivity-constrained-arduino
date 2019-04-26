@@ -34,7 +34,7 @@ WRAPPERS_HEADERS+=$(addprefix -I../deps/, pRNG rs232 wiz5500 sdFat serial)
 HEADERS_STACK+=$(addprefix -Iiotivity-constrained/, messaging/coap util util/pt include  api port .)
 CFLAGS +=$(ADPTER_HEADERS) $(CORE_HEADERS) $(HEADERS_STACK) $(WRAPPERS_HEADERS)
 
-ifeq ($(DEBUG),1)
+ifeq ($(VERBOSE),1)
 	CFLAGS += -DOC_DEBUG 
 else
 	CFLAGS += -Wl,--gc-sections,-Wno-attributes
